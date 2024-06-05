@@ -1,30 +1,17 @@
 @font-face {
-  font-family: 'DM Sans';
+  font-family: 'Poppins-Regular';
   font-weight: 400;
-  src: url('../../fonts/static/DMSans-Regular.ttf') format('truetype');
+  src: url('../../fonts/static/Poppins-Regular.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'DM Sans';
-  font-weight: 400;
-  font-style: italic;
-  src: url('../../fonts/static/DMSans-Italic.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'DM Sans';
+  font-family: 'Proppins-Medium';
   font-weight: 500;
-  src: url('../../fonts/static/DMSans-Medium.ttf') format('truetype');
+  src: url('../../fonts/static/Poppins-Medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'DM Sans';
+  font-family: 'Proppins-Semibold';
   font-weight: 600;
-  src: url('../../fonts/static/DMSans-SemiBold.ttf') format('truetype');
-}
-
-@font-face {
-  font-family: 'DM Sans';
-  font-weight: 700;
-  src: url('../../fonts/static/DMSans-Bold.ttf') format('truetype');
+  src: url('../../fonts/static/Poppins-SemiBold.ttf') format('truetype');
 }
