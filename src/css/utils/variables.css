@@ -1,0 +1,15 @@
+:root {
+  --primary-color: #f6f6f6;
+  --secondary-color: #1b1b1b;
+  --section-gray-color: #7e847f;
+
+  --accent-color: #7e847f;
+
+  --section-bgr-color: #e8e8e8;
+  --table-header-color: #ffffff;
+
+  --btn-accent-color: #5f6560;
+
+  --status-online-color: #1cd71c;
+  --status-offline-color: #ff0000;
+}
