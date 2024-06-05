@@ -12,4 +12,21 @@
 
   --status-online-color: #1cd71c;
   --status-offline-color: #ff0000;
+
+  --active-menu-color: #ff0000;
+
+  --accent-color-gold: #e7b250;
+
+  --green-light: #bedbb0;
+  --green: #9dc888;
+  --blue: #8fa1d0;
+  --red: #e09cb5;
+  --black: #1f1f1f;
+  --black-dark: #121212;
+
+  --white: #fff;
+  --gray: #f6f6f7;
+
+  --violet: #121212;
+  --violet-light: rgba(236, 237, 253, 0.4);
 }

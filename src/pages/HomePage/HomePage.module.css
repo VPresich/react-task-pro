@@ -1,0 +1,6 @@
+.text {
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--secondary-color);
+  margin-bottom: 24px;
+}
