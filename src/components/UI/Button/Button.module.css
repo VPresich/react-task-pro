@@ -1,0 +1,57 @@
+.btn {
+    font-family: 'Poppins-Medium';
+    font-size: 14px;
+    width: 100%;
+    height: 49px;
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.icon {
+    stroke: var(--white);
+}
+
+.icon.violet {
+    stroke: var(--secondary-color);
+}
+
+.iconContainer {
+    padding: 7px;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn.dark, .btn.light {
+    background-color: var(--green-light);
+}
+
+.btn.dark:hover, .btn.light:hover {
+    background-color: var(--green);
+}
+
+.btn.violet {
+    background-color: var(--violet-main);
+    color: var(--white);
+}
+
+.btn.violet:hover {
+    background-color: var(--violet-main-light);
+}
+
+.iconContainer.violet {
+    background-color: var(--white);
+}
+
+.btn.dark.big,
+.btn.light.big,
+.btn.violet.big {
+    height: 56px;
+}
