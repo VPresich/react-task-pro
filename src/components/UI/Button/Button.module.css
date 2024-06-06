@@ -1,53 +1,57 @@
-.btn{
+.btn {
     font-family: 'Poppins-Medium';
     font-size: 14px;
     width: 100%;
-    height: 56px;
+    height: 49px;
     border-radius: 8px;
-    border:none;
-
+    border: none;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 8px;
 }
 
-.icon{
+.icon {
     stroke: var(--white);
 }
 
-.icon.violet{
+.icon.violet {
     stroke: var(--secondary-color);
 }
 
-.iconContainer{
-    padding:7px;
+.iconContainer {
+    padding: 7px;
     background-color: var(--secondary-color);
     border-radius: 8px;
-    width:fit-content;
+    width: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.btn.dark, .btn.light{
+.btn.dark, .btn.light {
     background-color: var(--green-light);
 }
 
-.btn.dark:hover, .btn.light:hover{
+.btn.dark:hover, .btn.light:hover {
     background-color: var(--green);
 }
 
-
-.btn.violet{
+.btn.violet {
     background-color: var(--violet-main);
-    color:var(--white);
+    color: var(--white);
 }
 
-.btn.violet:hover{
+.btn.violet:hover {
     background-color: var(--violet-main-light);
 }
 
-.iconContainer.violet{
+.iconContainer.violet {
     background-color: var(--white);
+}
+
+.btn.dark.big,
+.btn.light.big,
+.btn.violet.big {
+    height: 56px;
 }
