@@ -5,13 +5,13 @@
 }
 
 @font-face {
-  font-family: 'Proppins-Medium';
+  font-family: 'Poppins-Medium';
   font-weight: 500;
   src: url('../../fonts/static/Poppins-Medium.ttf') format('truetype');
 }
 
 @font-face {
-  font-family: 'Proppins-Semibold';
+  font-family: 'Poppins-Semibold';
   font-weight: 600;
   src: url('../../fonts/static/Poppins-SemiBold.ttf') format('truetype');
 }
