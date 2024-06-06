@@ -3,11 +3,12 @@ import css from './Button.module.css';
 import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx';
 
-export default function Button({ icon, text, big }) {
+export default function Button({ icon, text, big, onClick }) {
   const theme = useSelector(selectTheme);
-
   return (
-    <button className={clsx(css.btn, css[theme.toLowerCase()], { [css.big]: big })}>
+      <button
+          className={clsx(css.btn, css[theme.toLowerCase()], { [css.big]: big })}
+          onClick={onClick}>
       {icon && (
         <div className={clsx(css.iconContainer, css[theme.toLowerCase()])}>
           <svg
@@ -27,4 +28,4 @@ export default function Button({ icon, text, big }) {
 
 //Usage example
 //  <Button icon='icon-plus' text='my text here' />  => height = 49px
-//  <Button icon='icon-plus' text='my text here' big={true} />  => height = 56px
+//  <Button icon='icon-plus' text='my text here' big={true} onClick={()=>{console.log('clicked')}} />  => height = 56px
