@@ -8,7 +8,9 @@ export default function Button({ icon, text, big, onClick }) {
   return (
       <button
           className={clsx(css.btn, css[theme.toLowerCase()], { [css.big]: big })}
-          onClick={onClick}>
+          onClick={onClick}
+          type='submit'
+    >
       {icon && (
         <div className={clsx(css.iconContainer, css[theme.toLowerCase()])}>
           <svg
