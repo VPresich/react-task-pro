@@ -8,12 +8,12 @@ const BoardsList = () => {
 
   return (
     <ul className={css.list}>
-      <li className={css.item} key='111'>
+      {/* <li className={css.item} key='111'>
         <BoardListItem title='test board' iconName='icon-lightning'/>
       </li>
       <li className={css.item} key='111'>
         <BoardListItem title='test board 2' iconName='icon-lightning' isActive={true}/>
-      </li>
+      </li> */}
       {boards.map(board => (
         <li className={css.item} key={board.id}>
           <BoardListItem title={ board.title } />

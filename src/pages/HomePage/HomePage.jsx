@@ -7,7 +7,7 @@ import { fetchBoards } from '../../redux/boards/operations';
 
 import DocumentTitle from '../../components/DocumentTitle';
 import AppBar from '../../components/AppBar/AppBar';
-// import css from './HomePage.module.css';
+import css from './HomePage.module.css';
 import SideBar from '../../components/SideBar/SideBar';
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -27,15 +27,16 @@ export default function HomePage() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className={css.page}>
       <DocumentTitle>Home Page</DocumentTitle>
-
+      <SideBar />
+      <div>
       <AppBar></AppBar>
 
       <h2>Home Page</h2>
       {isLoading && <p>Loading boads...</p>}
       {error && <p>{error}</p>}
-      <SideBar/>
-    </>
+      </div>
+    </div>
   );
 }

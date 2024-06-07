@@ -1,4 +1,15 @@
 .sidebar {
   width: 260px;
   min-height: 100vh;
+  background-color: var(--black-dark);
+  color: var(--white);
+
+  padding: 24px 0px;
+}
+
+.sidebarTitle {
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.5);
+  padding-left: 24px;
 }

@@ -15,12 +15,12 @@ export default function BoardListItem({ title, iconName, isActive }) {
                     height="18"
                     aria-label="btn icon"
                 >
-                    <use href={`${spritePath}#${iconName}`} />
+                    <use href={`${spritePath}#icon-colors`} />
               </svg>
               <p className={isActive ? clsx(css.title, css.active): css.title}>{title}</p>
           </div>
           
-          <div className={css.controls}>
+          <div className={isActive ? clsx(css.controls, css.active): css.controls}>
             <button className={css.btn}>
                 <svg
                     className={css.icon}
@@ -42,7 +42,7 @@ export default function BoardListItem({ title, iconName, isActive }) {
                 </svg>
               </button>
           </div>
-          <div className={css.border}></div>
+          <div className={isActive ? clsx(css.border, css.active): css.border}></div>
     </div>
   )
 }

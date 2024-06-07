@@ -1,0 +1,61 @@
+.container {
+  padding: 12px 24px 0px;
+}
+
+.contents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.text {
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.btn {
+  width: 40px;
+  height: 36px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconContainer {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  stroke: var(--secondary-color);
+}
+
+.icon.violet {
+  stroke: var(--secondary-color);
+}
+
+.btn.dark,
+.btn.light {
+  background-color: var(--green-light);
+}
+
+.btn.dark:hover,
+.btn.light:hover {
+  background-color: var(--green);
+}
+
+.btn.violet {
+  background-color: var(--violet-main);
+  color: var(--white);
+}
+
+.btn.violet:hover {
+  background-color: var(--violet-main-light);
+}
