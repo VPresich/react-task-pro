@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import css from './Button.module.css';
 import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx';
-
+import spritePath from '../../../img/sprite.svg';
 export default function Button({ icon, text, big, onClick }) {
   const theme = useSelector(selectTheme);
   return (
@@ -17,10 +17,10 @@ export default function Button({ icon, text, big, onClick }) {
             height="14"
             aria-label="btn icon"
           >
-            <use href={`./img/icons/icons.svg#${icon}`} />
+            <use href={`${spritePath}#${icon}`} />
           </svg>
         </div>
-      )}
+          )}
       {text && <span className={css.text}>{text}</span>}
     </button>
   );

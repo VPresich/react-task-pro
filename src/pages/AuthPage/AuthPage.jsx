@@ -1,6 +1,6 @@
 import DocumentTitle from '../../components/DocumentTitle';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
-//import LoginForm from '../../components/LoginForm/LoginForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 // import css from './AuthPage.module.css';
 
 export default function AuthPage() {
@@ -10,6 +10,7 @@ export default function AuthPage() {
       <h2>Auth Page</h2>
       {/* {isRegister ? <RegisterForm /> : <LoginForm />} */}
       <RegisterForm />
+      <LoginForm />
     </div>
   );
 }

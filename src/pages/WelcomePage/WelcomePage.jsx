@@ -1,6 +1,7 @@
 import DocumentTitle from '../../components/DocumentTitle';
 //import LoginForm from '../../components/LoginForm/LoginForm';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
+import LoginForm from '../../components/LoginForm/LoginForm';
 // import css from './WelcomePage.module.css';
 
 export default function WelcomePage() {
@@ -9,6 +10,8 @@ export default function WelcomePage() {
       <DocumentTitle>Welcome</DocumentTitle>
       <h2>Welcome page</h2>
       <RegisterForm />
+      <LoginForm />
+
     </>
   );
 }
