@@ -1,6 +1,4 @@
-import React from 'react';
 import { RxPencil1 } from 'react-icons/rx';
-
 
 import { HiOutlineBell } from 'react-icons/hi2';
 import spritePath from '../../../img/sprite.svg';
@@ -13,9 +11,7 @@ export default function Card({ title, description, id, priority, deadline }) {
   // const tasks = useSelector(selectAllTasks);
   const dispatch = useDispatch();
   const handleCard = () => {
-    dispatch(deleteTask(id));
-    
-    
+    dispatch(deleteTask(`${id}`));
   };
   return (
     <div className={styles.card} id={`card-${id}`}>
@@ -33,22 +29,23 @@ export default function Card({ title, description, id, priority, deadline }) {
       <div className={styles.icon}>
         <HiOutlineBell />
         <svg
-       className={styles.color}
-       width="16"
-       height="16"
-       aria-label="btn icon"
-   >
-       <use href={`${spritePath}#icon-arrow`}  />
- </svg>
+          className={styles.color}
+          width="16"
+          height="16"
+          aria-label="btn icon"
+        >
+          <use href={`${spritePath}#icon-arrow`} />
+        </svg>
         <RxPencil1 />
-        
+
         <svg
-              className={styles.color}
-              width="16"
-              height="16"
-              aria-label="btn icon"
-          >
-              <use href={`${spritePath}#icon-trash-04`} onClick={handleCard} />
+          className={styles.color}
+          width="16"
+          height="16"
+          aria-label="btn icon"
+          onClick={handleCard}
+        >
+          <use href={`${spritePath}#icon-trash-04`} />
         </svg>
       </div>
     </div>
