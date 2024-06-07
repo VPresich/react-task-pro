@@ -10,6 +10,7 @@ import { ERR_BOARD_DELETE, SUCCESS_BOARD_DELETE } from '../../notification/const
 const BoardListItem = ({ board, isActive, setActiveBoard }) => {
     const dispatch = useDispatch();
     const theme = useSelector(selectTheme);
+    // const theme = 'violet'
     const { _id, title } = board;
     
     const handleDelete = (id) => {
@@ -27,51 +28,51 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
         console.log('edit board', id)
         // open edit modal
     }
-  return (
-    <div className={css.container} onClick={() => setActiveBoard(_id)}>
-      <div className={css.titleContainer}>
-        <svg
-          className={isActive ? clsx(css.icon, css.active) : css.icon}
-          width="18"
-          height="18"
-          aria-label="btn icon"
-        >
-          <use href={`${spritePath}#icon-colors`} />
-        </svg>
-        <p className={isActive ? clsx(css.title, css.active) : css.title}>{title}</p>
-      </div>
-      
-      <div className={isActive ? clsx(css.controls, css.active) : css.controls}>
-              <button
-                  className={css.btn}
-                  onClick={() => handleEdit(_id)}
-              >
-          <svg
-            className={css.icon}
-            width="16"
-            height="16"
-            aria-label="btn icon"
-          >
-            <use href={`${spritePath}#icon-pencil`} />
-          </svg>
-        </button>
-              <button
-                  className={css.btn}
-                  onClick={() => handleDelete(_id)}
-              >
-          <svg
-            className={css.icon}
-            width="16"
-            height="16"
-            aria-label="btn icon"
-          >
-            <use href={`${spritePath}#icon-trash`} />
-          </svg>
-        </button>
-      </div>
-      <div className={isActive ? clsx(css.border, css.active) : css.border}></div>
-    </div>
-  );
+    return (
+        <div className={isActive ? clsx(css.container, css[theme], css.active) : clsx(css.container, css[theme])} onClick={() => setActiveBoard(_id)}>
+        <div className={css.titleContainer}>
+            <svg
+                className={isActive ? clsx(css.icon, css[theme], css.active) : clsx(css.icon, css[theme])}
+                width="18"
+                height="18"
+                aria-label="btn icon"
+            >
+            <use href={`${spritePath}#icon-colors`} />
+            </svg>
+            <p className={isActive ? clsx(css.title, css[theme], css.active) : clsx(css.title, css[theme])}>{title}</p>
+        </div>
+        
+        <div className={isActive ? clsx(css.controls, css[theme], css.active) : clsx(css.controls, css[theme])}>
+                <button
+                    className={css.btn}
+                    onClick={() => handleEdit(_id)}
+                >
+            <svg
+                className={clsx(css.icon, css[theme])}
+                width="16"
+                height="16"
+                aria-label="btn icon"
+            >
+                <use href={`${spritePath}#icon-pencil`} />
+            </svg>
+            </button>
+                <button
+                    className={css.btn}
+                    onClick={() => handleDelete(_id)}
+                >
+            <svg
+                className={clsx(css.icon, css[theme])}
+                width="16"
+                height="16"
+                aria-label="btn icon"
+            >
+                <use href={`${spritePath}#icon-trash`} />
+            </svg>
+            </button>
+        </div>
+        <div className={isActive ? clsx(css.border, css[theme], css.active) : clsx(css.border, css[theme])}></div>
+        </div>
+    );
 };
 
 export default BoardListItem;

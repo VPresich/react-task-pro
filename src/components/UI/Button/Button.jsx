@@ -7,12 +7,12 @@ export default function Button({ icon, text, big, onClick }) {
   const theme = useSelector(selectTheme);
   return (
       <button
-          className={clsx(css.btn, css[theme.toLowerCase()], { [css.big]: big })}
+          className={clsx(css.btn, css[theme], { [css.big]: big })}
           onClick={onClick}>
       {icon && (
-        <div className={clsx(css.iconContainer, css[theme.toLowerCase()])}>
+        <div className={clsx(css.iconContainer, css[theme])}>
           <svg
-            className={clsx(css.icon, css[theme.toLowerCase()])}
+            className={clsx(css.icon, css[theme])}
             width="14"
             height="14"
             aria-label="btn icon"

@@ -12,7 +12,16 @@
 .text {
   font-size: 14px;
   letter-spacing: -0.02em;
+  width: 76px;
+}
+
+.text.dark,
+.text.violet {
   color: var(--white);
+}
+
+.text.light {
+  color: var(--secondary-color);
 }
 
 .btn {
@@ -38,7 +47,7 @@
 }
 
 .icon.violet {
-  stroke: var(--secondary-color);
+  stroke: var(--white);
 }
 
 .btn.dark,
@@ -52,7 +61,7 @@
 }
 
 .btn.violet {
-  background-color: var(--violet-main);
+  background-color: var(--violet-main-superlight);
   color: var(--white);
 }
 

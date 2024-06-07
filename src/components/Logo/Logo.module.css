@@ -12,3 +12,45 @@
   font-size: 16px;
   letter-spacing: -0.04em;
 }
+
+.logoText.dark {
+  color: var(--white);
+}
+
+.logoText.light {
+  color: var(--black-dark);
+}
+
+.logoText.violet {
+  color: var(--white);
+}
+
+.iconContainer {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconContainer.dark {
+  background-color: var(--black);
+}
+
+.iconContainer.light {
+  background-color: var(--black-dark);
+}
+
+.iconContainer.violet {
+  background-color: var(--white);
+}
+
+.icon.dark,
+.icon.light {
+  fill: var(--white);
+}
+
+.icon.violet {
+  fill: var(--violet-main);
+}

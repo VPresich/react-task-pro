@@ -3,16 +3,35 @@
   margin-left: 24px;
   border-radius: 8px;
   padding: 20px;
+}
+
+.container.dark {
   background-color: var(--black);
+}
+
+.container.light {
+  background-color: var(--gray-light);
+}
+
+.container.violet {
+  background-color: var(--violet-transparent);
 }
 
 .text {
   font-size: 14px;
   line-height: 143%;
   letter-spacing: -0.02em;
-  color: var(--white);
   padding-top: 14px;
   padding-bottom: 18px;
+}
+
+.text.light {
+  color: var(--secondary-color);
+}
+
+.text.dark,
+.text.violet {
+  color: var(--white);
 }
 
 .accent {
@@ -20,6 +39,15 @@
 }
 
 .icon {
+  fill: transparent;
+}
+
+.icon.light {
+  stroke: var(--secondary-color);
+}
+
+.icon.dark,
+.icon.violet {
   stroke: var(--white);
 }
 
@@ -32,7 +60,15 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+}
+
+.btn.dark,
+.btn.violet {
   color: var(--white);
+}
+
+.btn.light {
+  color: var(--secondary-color);
 }
 
 .btn:hover {

@@ -1,11 +1,26 @@
 import css from './Logo.module.css';
-import appIcon from '../../img/main-icon/app-icon-logo.svg';
+import spritePath from "../../img/sprite.svg";
+import clsx from 'clsx';
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../redux/auth/selectors';
 
 export default function Logo() {
+  const theme = useSelector(selectTheme);
+  // const theme = 'dark';
+
   return (
     <div className={css.logoContainer}>
-      <img src={appIcon} alt="" width='32' height='32'/>
-      <p className={css.logoText}>TaskPro</p>
+      <div className={clsx(css.iconContainer, css[theme])}>
+        <svg
+            className={clsx(css.icon, css[theme])}
+            width="12"
+            height="16"
+            aria-label="logo icon"
+          >
+            <use href={`${spritePath}#icon-lightning-logo`} />
+          </svg>
+      </div>
+      <p className={clsx(css.logoText, css[theme])}>TaskPro</p>
     </div>
   );
 }
