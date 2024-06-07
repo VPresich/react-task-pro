@@ -1,12 +1,14 @@
-body {
-  background: url(../../img/bgr-desktop/theme05_desktop@1x.jpg) lightgray 50% /
-    cover no-repeat;
-  width: 100vw;
+/* body {
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+  width: 100vw; 
   text-shadow: 0 0.4px 0.4px #fff;
   font-family: "Poppins";
-}
+} */
 
 .welcomeWrapper {
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+    width: 100vw;
+    text-shadow: 0 0.4px 0.4px #fff;    
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,7 +30,7 @@ body {
 
 .mainTitle {
   color: #161616;
-  font-family: Poppins;
+  font-family: "Poppins";
   font-size: 40px;
   font-style: normal;
   font-weight: 600;
