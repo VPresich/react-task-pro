@@ -8,6 +8,7 @@ import BoardsList from '../../components/BoardList/BoardList';
 
 import DocumentTitle from '../../components/DocumentTitle';
 import AppBar from '../../components/AppBar/AppBar';
+import Card from '../../components/UI/Card/Card';
 // import css from './HomePage.module.css';
 
 export default function HomePage() {
@@ -34,6 +35,7 @@ export default function HomePage() {
       <AppBar></AppBar>
 
       <h2>Home Page</h2>
+      <Card/>
       {isLoading && <p>Loading boads...</p>}
       {error && <p>{error}</p>}
       <BoardsList />
