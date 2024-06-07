@@ -5,8 +5,16 @@ import { HiOutlineBell } from 'react-icons/hi2';
 import { HiMiniArrowRightOnRectangle } from 'react-icons/hi2';
 
 import styles from './Card.module.css';
+import { deleteTask } from '../../../redux/tasks/operations';
+import { useDispatch } from 'react-redux';
 
 export default function Card({ title, description, id, priority, deadline }) {
+  const dispatch = useDispatch();
+  const handleCard = () => {
+    dispatch(deleteTask(id));
+    
+    
+  };
   return (
     <div className={styles.card} id={`card-${id}`}>
       <h2 className={styles.cardTitle}>{title}</h2>
@@ -24,7 +32,7 @@ export default function Card({ title, description, id, priority, deadline }) {
         <HiOutlineBell />
         <HiMiniArrowRightOnRectangle />
         <RxPencil1 />
-        <RiDeleteBin7Line />
+        <RiDeleteBin7Line onClick={handleCard} />
       </div>
     </div>
   );
