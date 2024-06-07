@@ -1,18 +1,29 @@
 body {
-  background: url(../../img/bgr-desktop/theme04_desktop@1x.jpg) lightgray 50% / cover no-repeat;
+  background: url(../../img/bgr-desktop/theme04_desktop@1x.jpg) lightgray 50% /
+    cover no-repeat;
+    width: 100vw;
 }
+
+
 
 .welcomeWrapper {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  /* height: 100vh; */
-  /* Висота вікна перегляду */
+  justify-content: center;
+  gap: 24px;
+}
+.mainImage {
+  padding-top: 293px; 
+  padding-bottom: 24px;
+ 
 }
 
-
 .logoPage {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 .mainTitle {
@@ -23,6 +34,7 @@ body {
   font-weight: 600;
   line-height: normal;
   letter-spacing: -1.6px;
+  text-shadow: 0 0.4px 0.4px #fff;
 }
 .text {
   color: #161616;
@@ -34,4 +46,15 @@ body {
   line-height: 18px;
   /* 128.571% */
   letter-spacing: -0.28px;
+  padding-top: 24px;
+  padding-bottom: 48px;
 }
+.linkWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+
+
