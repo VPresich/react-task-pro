@@ -1,9 +1,9 @@
 import React from 'react';
 import { RxPencil1 } from 'react-icons/rx';
-import { RiDeleteBin7Line } from 'react-icons/ri';
-import { HiOutlineBell } from 'react-icons/hi2';
-import { HiMiniArrowRightOnRectangle } from 'react-icons/hi2';
 
+
+import { HiOutlineBell } from 'react-icons/hi2';
+import spritePath from '../../../img/sprite.svg';
 import styles from './Card.module.css';
 import { deleteTask } from '../../../redux/tasks/operations';
 import { useDispatch } from 'react-redux';
@@ -30,9 +30,24 @@ export default function Card({ title, description, id, priority, deadline }) {
       </div>
       <div className={styles.icon}>
         <HiOutlineBell />
-        <HiMiniArrowRightOnRectangle />
+        <svg
+       className={styles.color}
+       width="16"
+       height="16"
+       aria-label="btn icon"
+   >
+       <use href={`${spritePath}#icon-arrow`}  />
+ </svg>
         <RxPencil1 />
-        <RiDeleteBin7Line onClick={handleCard} />
+        
+        <svg
+              className={styles.color}
+              width="16"
+              height="16"
+              aria-label="btn icon"
+          >
+              <use href={`${spritePath}#icon-trash-04`} onClick={handleCard} />
+        </svg>
       </div>
     </div>
   );

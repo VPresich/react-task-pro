@@ -37,3 +37,7 @@ color: rgba(255, 255, 255, 0.5);
         display: flex;
         justify-content: flex-end
     }
+    .color{
+       
+        stroke:#fff;
+    }
