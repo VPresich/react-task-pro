@@ -7,8 +7,10 @@ import spritePath from '../../../img/sprite.svg';
 import styles from './Card.module.css';
 import { deleteTask } from '../../../redux/tasks/operations';
 import { useDispatch } from 'react-redux';
+// import { selectAllTasks } from "../../redux/tasks/selectors";
 
 export default function Card({ title, description, id, priority, deadline }) {
+  // const tasks = useSelector(selectAllTasks);
   const dispatch = useDispatch();
   const handleCard = () => {
     dispatch(deleteTask(id));
