@@ -4,7 +4,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { format, differenceInCalendarDays, isPast, isYesterday, isToday } from 'date-fns';
 import css from './Calendar.module.css';
 
-const Calendar = ({ initialDate }) => {
+const Calendar = ({ initialDate, onDateChange }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const calendarRef = useRef(null);
@@ -33,6 +33,13 @@ const Calendar = ({ initialDate }) => {
   const handleDateChange = (date) => {
     setSelectedDate(date);
     setIsOpen(false);
+    if (onDateChange) {
+      onDateChange(formatDate(date));
+    }
+  };
+
+  const formatDate = (date) => {
+    return format(date, 'yyyy-MM-dd');
   };
 
   const toggleCalendar = () => {
@@ -89,6 +96,14 @@ const Calendar = ({ initialDate }) => {
 
 export default Calendar;
 
+
 // GUIDE
-// const existingDate = '2024-06-10';
-// <Calendar initialDate={existingDate} />
+// formatDate = дата форматом YYYY-MM-DD
+// const initialDate = "2024-06-12"
+// <Calendar initialDate={initialDate} onDateChange={handleDateChange} />
+
+// додайте у себе в елементi: 
+// const handleDateChange = (formattedDate) => {
+//   console.log(formattedDate);
+// };
+// якщо хочете виводити в консоль
