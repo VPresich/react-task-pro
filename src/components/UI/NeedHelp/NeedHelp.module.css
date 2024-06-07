@@ -1,0 +1,49 @@
+.container {
+  width: 212px;
+  margin-left: 24px;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--black);
+}
+
+.text {
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  padding-top: 14px;
+  padding-bottom: 18px;
+}
+
+.accent {
+  color: var(--green-light);
+}
+
+.icon {
+  stroke: var(--white);
+}
+
+.btn {
+  font-family: 'Poppins-Medium';
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+}
+
+.btn:hover {
+  color: var(--green-light);
+}
+
+.btn:hover .icon {
+  stroke: var(--green-light);
+}
+
+.span {
+  display: flex;
+  align-items: center;
+}

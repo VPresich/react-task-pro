@@ -3,17 +3,23 @@ import { logOut } from '../auth/operations';
 
 import { fetchBoards, deleteBoard, addBoard, updateBoard } from './operations';
 
+
 const contactsSlice = createSlice({
   name: 'boards',
   initialState: {
     items: [],
+    activeBoardId: null,
     isLoading: false,
     error: null,
     isAdding: false,
     deletingItem: null,
     updatingItem: null,
   },
-
+  reducers: {
+    setActiveBoard(state, action) {
+      state.activeBoardId = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchBoards.pending, state => {
@@ -80,8 +86,11 @@ const contactsSlice = createSlice({
         state.items = [];
         state.error = null;
         state.isLoading = false;
-      });
-  },
+      })
+  }
+  
 });
 
+export const { setActiveBoard } = contactsSlice.actions;
 export default contactsSlice.reducer;
+

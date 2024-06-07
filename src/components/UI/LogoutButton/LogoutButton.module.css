@@ -1,0 +1,26 @@
+.icon {
+  stroke: var(--green-light);
+}
+
+.btn {
+  font-family: 'Poppins-Medium';
+  font-size: 16px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  color: var(--white);
+  margin-left: 24px;
+  margin-top: 24px;
+}
+
+.btn:hover .icon {
+  stroke: var(--green);
+}
+
+.span {
+  display: flex;
+  align-items: center;
+}

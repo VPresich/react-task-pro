@@ -7,12 +7,19 @@ import clsx from 'clsx';
 
 export default function CreateBoard() {
   const theme = useSelector(selectTheme);
+  const handleCreate = () => {
+    console.log('create board modal')
+    // open create modal
+  }
   return (
     <div className={css.container}>
       <Separator />
         <div className={css.contents}>
           <p className={css.text}>Create a new board</p>
-          <button className={clsx(css.btn, css[theme])}>
+        <button
+          className={clsx(css.btn, css[theme])}
+          onClick={handleCreate}
+        >
             <span className={css.iconContainer}>
               <svg
                   className={clsx(css.icon, css[theme.toLowerCase()])}
