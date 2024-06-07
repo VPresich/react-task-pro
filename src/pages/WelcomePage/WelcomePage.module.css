@@ -1,10 +1,10 @@
 body {
-  background: url(../../img/bgr-desktop/theme04_desktop@1x.jpg) lightgray 50% /
+  background: url(../../img/bgr-desktop/theme05_desktop@1x.jpg) lightgray 50% /
     cover no-repeat;
-    width: 100vw;
+  width: 100vw;
+  text-shadow: 0 0.4px 0.4px #fff;
+  font-family: "Poppins";
 }
-
-
 
 .welcomeWrapper {
   display: flex;
@@ -14,9 +14,9 @@ body {
   gap: 24px;
 }
 .mainImage {
-  padding-top: 293px; 
+  padding-top: 293px;
   padding-bottom: 24px;
- 
+  
 }
 
 .logoPage {
@@ -49,12 +49,49 @@ body {
   padding-top: 24px;
   padding-bottom: 48px;
 }
-.linkWrapper {
+
+.linkWrapperRegister {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  border-radius: 8px;
+  background: #161616; 
+  border-color: transparent;
+  box-shadow: -2px -3px 6px #fff, 2px 3px 6px #fff;
+ 
+  
+}
+.linkWrapperLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  background-color: transparent;
+  border-color: transparent;
+ 
+}
+.button1 {
+  background: #161616;
+  color: #fff;
+  display: flex;
+    width: 344px;
+    padding: 14px 0px;
+    justify-content: center;
+    align-items: center;
+    border: none;     
+   
 }
 
 
-
+.button2 {
+  color: #161616;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  background-color: transparent;
+  border-color: transparent;
+}
