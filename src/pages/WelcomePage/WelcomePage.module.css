@@ -1,24 +1,23 @@
-/* body {
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
-  width: 100vw; 
-  text-shadow: 0 0.4px 0.4px #fff;
-  font-family: "Poppins";
-} */
+.welcomeContainer {
+background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
+  width: 100vw;
+  height: 100vh;
+  
+}
 
-.welcomeWrapper {
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0) 25%, #BEDBB0 92.19%);
-    width: 100vw;
-    text-shadow: 0 0.4px 0.4px #fff;    
+.welcomeWrapper {       
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
-}
-.mainImage {
-  padding-top: 293px;
-  padding-bottom: 24px;
+  justify-content: center; 
+  background-repeat: no-repeat;  
   
+}
+
+.mainImage {
+  width: 162px;
+  height: 162px;
+  padding-bottom: 24px;  
 }
 
 .logoPage {
@@ -30,18 +29,19 @@
 
 .mainTitle {
   color: #161616;
-  font-family: "Poppins";
+  font-family: 'Poppins-Semibold';
   font-size: 40px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: -1.6px;
-  text-shadow: 0 0.4px 0.4px #fff;
+ 
+  
 }
 .text {
   color: #161616;
   text-align: center;
-  font-family: Poppins;
+  font-family: 'Poppins-Regular';
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
