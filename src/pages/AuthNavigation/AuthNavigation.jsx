@@ -7,6 +7,7 @@ import css from './AuthNavigation.module.css';
 
 export default function AuthNavigation() {
   const showLogin = useParams().id === 'login';
+  console.log(showLogin, useParams);
   const navigate = useNavigate();
   const handleRegistrationClick = () => {
     navigate('/auth/register');
