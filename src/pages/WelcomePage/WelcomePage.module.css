@@ -4,9 +4,8 @@
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
-  width: 100%;  
-  margin: 0 auto;
-  overflow: hidden;
+  max-width: 100%;  
+  /* overflow: hidden;   */
 }
 
 .welcomeWrapper {
