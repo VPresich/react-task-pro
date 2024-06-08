@@ -39,13 +39,9 @@ export const deleteBoard = createAsyncThunk(
 
 export const updateBoard = createAsyncThunk(
   'boards/updateBoard',
-  async (data, thunkAPI) => {
+  async ({ id, data }, thunkAPI) => {
     try {
-      console.log({ name: data.name, number: data.number });
-      const response = await axiosInst.patch(`boards/${data.id}`, {
-        title: data.title,
-        background: data.background,
-      });
+      const response = await axiosInst.patch(`boards/${id}`, data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -58,6 +54,18 @@ export const getBoardById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axiosInst.get(`boards/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getColumnsAndTasks = createAsyncThunk(
+  'boards/getColumnsAndTasks',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axiosInst.get(`boards/${id}/columsAndtasks`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
