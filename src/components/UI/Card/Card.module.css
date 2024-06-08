@@ -1,43 +1,201 @@
 .card {
     width: 334px;
     height: 154px;
-    border: 1px solid #ccc;
     border-radius: 8px;
-    padding: 16px;
-    margin: 16px;
+    padding: 14px 24px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
 }
+.card.dark {
+    background-color: var(--black-dark);
+    color: var(--white);
+  }
+  .card.light {
+    background-color: var(--white);
+    color: var(--secondary-color);
+  }
+  .card.violet {
+    
+        background-color: var(--white);
+        color: var(--secondary-color);
+  }
+  .cardTitle {
+    
+    font-family: 'Poppins-Semibold', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+    
+}
+.cardTitle.dark{
+    color: var(--table-header-color);
+}
+.cardTitle.light{
+color: var(--secondary-color);
+}
+.containerCard {
+    width: 290px;
+}
+.cardDescription {
+    margin-top: 8px;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    display: webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1rem;
+    max-height: 2rem;
+    
+}
+.cardDescription.dark{
+    color: rgba(255, 255, 255, 0.5);
+}
+.cardDescription.light{
+    color:  rgba(22, 22, 22, 0.7);
+}
+.cardDescription.violet{
+    color: rgba(22, 22, 22, 0.7);;
+}
 .cardLine {
-    height: 2px; 
-    background-color: #000; 
-        width: 100%; 
-    }
-    .cardTitle{
-        height: 21px;
-        font-family: var(--font-family);
-font-weight: 600;
-font-size: 14px;
-letter-spacing: -0.02em;
-color:var(--table-header-color);
-    }
-    .cardDescription{
-        font-family: var(--font-family);
-font-weight: 400;
-font-size: 12px;
-line-height: 133%;
-letter-spacing: -0.02em;
-color: rgba(255, 255, 255, 0.5);
-    }
-    .cardInfo{
-        display: flex;
-        gap: 20px;
-    }
-    .icon{
-        display: flex;
-        justify-content: flex-end
-    }
-    .color{
-       
-        stroke:#fff;
-    }
+    margin-top: 14px;
+    height: 2px;
+    
+    width: 100%;
+}
+.cardLine.dark{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.cardLine.light{
+    background-color: rgba(22, 22, 22, 0.1);
+}
+.cardLine.violet{
+    background-color: rgba(22, 22, 22, 0.1);
+}
+
+.cardInfo {
+    margin-top: 8px;
+    display: flex;
+    gap: 14px;
+    justify-content: flex-start;
+}
+
+.icon {
+    display: flex;
+    justify-content: flex-end;
+}
+.cardPriority {
+    width: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: -0.02em;
+    
+}
+.cardPriority.dark{
+    color: var(--table-header-color);
+}
+.cardPriority.light{
+    color: rgba(22, 22, 22, 0.5);
+}
+.cardPriority.violet{
+    color: rgba(22, 22, 22, 0.5);
+}
+.strongPriority {
+    font-family: 'Poppins-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: -0.02em;
+    
+}
+.strongPriority.dark{
+    color: rgba(255, 255, 255, 0.5);
+}
+.strongPriority.light{
+    color: var(--secondary-color)
+}
+.strongPriority.violet{
+    color: var(--secondary-color)
+}
+
+.ellipse {
+    
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    
+    fill:#8FA1D0;
+}
+
+.strongDeadline {
+    font-family: 'Poppins-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: -0.02em;
+    
+}
+.strongDeadline.dark{
+    color: rgba(255, 255, 255, 0.5);
+}
+.strongDeadline.light{
+    color:var(--secondary-color)
+}
+.strongDeadline.violet{
+    color: var(--secondary-color)
+}
+.cardDeadline {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-family: 'Poppins-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 10px;
+    letter-spacing: -0.02em;
+    
+}
+.cardDeadline.dark{
+    color: var(--table-header-color);
+}
+.cardDeadline.light{
+    color: rgba(22, 22, 22, 0.5);
+}
+.cardDeadline.violet{
+    color: rgba(22, 22, 22, 0.5);
+}
+.bell {
+    stroke: #BEDBB0;
+    stroke-width: 2;
+    fill: none;
+}
+
+.icon {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.cardSvg {
+    display: flex;
+}
+
+.priorityContainer {
+    position: relative;
+}
+.color.dark {
+    stroke:rgba(255, 255, 255, 0.5);
+}
+.color.light {
+    stroke:rgba(22, 22, 22, 0.5);
+    fill:none;
+
+}.color.light {
+    stroke:rgba(22, 22, 22, 0.5);
+    fill:none;
+}
