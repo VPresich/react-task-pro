@@ -33,7 +33,7 @@ const AppRouter = () => {
         <Route
           path="/home/:boardName"
           element={
-            <PrivateRoute redirectTo="/login" component={<ScreensPage />} />
+            <PrivateRoute redirectTo="/auth/login" component={<ScreensPage />} />
           }
         />
         <Route path="*" element={<NotFoundPage />} />
