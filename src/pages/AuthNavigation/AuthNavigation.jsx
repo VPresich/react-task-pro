@@ -1,26 +1,23 @@
-import { useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
-import { useNavigate } from 'react-router-dom';
 
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import css from './AuthNavigation.module.css';
 
 export default function AuthNavigation() {
+  const showLogin = useParams().id === 'login';
   const navigate = useNavigate();
-  const [showLoginForm, setShowLoginForm] = useState(false);
-  const cssLogin = clsx(css.btn, !showLoginForm && css.btnActive);
-  const cssRegister = clsx(css.btn, showLoginForm && css.btnActive);
-
   const handleRegistrationClick = () => {
     navigate('/auth/register');
-    setShowLoginForm(false);
   };
 
   const handleLoginClick = () => {
     navigate('/auth/login');
-    setShowLoginForm(true);
   };
+
+  const cssLogin = clsx(css.btn, !showLogin && css.btnActive);
+  const cssRegister = clsx(css.btn, showLogin && css.btnActive);
 
   return (
     <div className={css.container}>
@@ -33,7 +30,7 @@ export default function AuthNavigation() {
           Log In
         </button>
       </div>
-      {showLoginForm ? <LoginForm /> : <RegisterForm />}
+      {showLogin ? <LoginForm /> : <RegisterForm />}
     </div>
   );
 }
