@@ -6,7 +6,6 @@ export const fetchBoards = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axiosInst.get('boards');
-      console.log('response qqqq', response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
