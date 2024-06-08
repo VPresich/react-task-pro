@@ -66,7 +66,7 @@ export default function LoginForm() {
 //     password: yup.string().required('Password is required'),
 //   });
 
-//   // удалите эту строки, если они не нужны в вашем конкретном случае
+//   // удаляем эти строки, если они не нужны
 //   const handleSubmit = (values, { setSubmitting, resetForm }) => {
 //     submitFunc(values);
 //     setSubmitting(false);
@@ -83,7 +83,7 @@ export default function LoginForm() {
 //       <Formik
 //         initialValues={initialValues}
 //         validationSchema={loginSchema}
-//         onSubmit={handleSubmit} // используйте эту функцию здесь
+//         onSubmit={handleSubmit}
 //       >
 //         {() => (
 //           <Form className={styles.form}>
