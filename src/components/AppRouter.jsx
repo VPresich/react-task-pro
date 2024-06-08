@@ -21,11 +21,7 @@ const AppRouter = () => {
           }
         />
         <Route
-          path="/auth/login"
-          element={<RestrictedRoute redirectTo="/" component={<AuthPage />} />}
-        />
-        <Route
-          path="/auth/register"
+          path="/auth/:param"
           element={<RestrictedRoute redirectTo="/" component={<AuthPage />} />}
         />
         <Route
