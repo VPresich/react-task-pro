@@ -53,3 +53,15 @@ export const updateBoard = createAsyncThunk(
     }
   }
 );
+
+export const getBoardById = createAsyncThunk(
+  'boards/getBoard',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axiosInst.get(`boards/${id}`);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

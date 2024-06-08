@@ -15,6 +15,7 @@ import authReducer from '../redux/auth/slice';
 import boardsReducer from '../redux/boards/slice';
 import supportReducer from '../redux/support/slice';
 import tasksReducer from './tasks/slice';
+import columnsReducer from './columns/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -28,6 +29,7 @@ export const store = configureStore({
     boards: boardsReducer,
     support: supportReducer,
     tasks: tasksReducer,
+    columns: columnsReducer,
   },
 
   middleware: getDefaultMiddleware =>

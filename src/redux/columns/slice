@@ -100,13 +100,12 @@ const columnsSlice = createSlice({
         state.isAdding = false;
         state.error = action.payload;
       })
-      //-----------------------------------------------
+      //-----------------------------------
       .addCase(logOut.fulfilled, state => {
         state.items = [];
         state.error = null;
         state.isLoading = false;
       });
-    //------------------------------------------------
   },
 });
 

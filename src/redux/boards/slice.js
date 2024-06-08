@@ -1,7 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from '../auth/operations';
 
-import { fetchBoards, deleteBoard, addBoard, updateBoard } from './operations';
+import {
+  fetchBoards,
+  deleteBoard,
+  addBoard,
+  updateBoard,
+  getBoardById,
+} from './operations';
 
 const boardsSlice = createSlice({
   name: 'boards',
@@ -81,10 +87,30 @@ const boardsSlice = createSlice({
         state.isAdding = false;
         state.error = action.payload;
       })
+      //-----------------------------------------------
       .addCase(logOut.fulfilled, state => {
         state.items = [];
         state.error = null;
         state.isLoading = false;
+      })
+      //-----------------------------------------------
+      .addCase(getBoardById.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getBoardById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const index = state.items.findIndex(
+          task => task.id === action.payload.id
+        );
+        index
+          ? (state.items[index] = action.payload)
+          : state.items.push(action.payload);
+      })
+      .addCase(getBoardById.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
