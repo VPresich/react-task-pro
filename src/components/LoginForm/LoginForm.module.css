@@ -58,3 +58,42 @@
     margin-bottom: 28px;
   }
 }
+
+
+/* .container {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.field {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5em;
+  flex-grow: 1;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 0.875em;
+} */
