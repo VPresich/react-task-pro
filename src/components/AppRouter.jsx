@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
 
@@ -11,7 +12,6 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 const AppRouter = () => {
   return (
-    //TODO Private and Restricted Route
     <Suspense fallback={<div>Loading page...</div>}>
       <Routes>
         <Route
@@ -21,7 +21,11 @@ const AppRouter = () => {
           }
         />
         <Route
-          path="/auth/:id"
+          path="/auth/login"
+          element={<RestrictedRoute redirectTo="/" component={<AuthPage />} />}
+        />
+        <Route
+          path="/auth/register"
           element={<RestrictedRoute redirectTo="/" component={<AuthPage />} />}
         />
         <Route
@@ -31,7 +35,7 @@ const AppRouter = () => {
           }
         />
         <Route
-          path="/home"
+          path="home"
           element={
             <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
           }
