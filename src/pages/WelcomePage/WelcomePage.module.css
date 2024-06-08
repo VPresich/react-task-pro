@@ -1,0 +1,99 @@
+.welcomeContainer {
+  background: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
+  max-width: 100%;
+}
+
+.welcomeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.mainImage {
+  width: 162px;
+  height: 162px;
+  padding-bottom: 24px;
+}
+
+.logoPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainTitle {
+  color: #161616;
+  font-family: 'Poppins-Semibold';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.6px;
+}
+.text {
+  color: #161616;
+  text-align: center;
+  font-family: 'Poppins-Regular';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  /* 128.571% */
+  letter-spacing: -0.28px;
+  padding-top: 24px;
+  padding-bottom: 48px;
+}
+
+.linkWrapperRegister {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  border-radius: 8px;
+  background: #161616;
+  border-color: transparent;
+  box-shadow: -2px -3px 6px #fff, 2px 3px 6px #fff;
+}
+.linkWrapperLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  background-color: transparent;
+  border-color: transparent;
+}
+.button1 {
+  background: #161616;
+  color: #fff;
+  display: flex;
+  width: 344px;
+  padding: 14px 0px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+.button2 {
+  font-family: 'Poppins-Medium';
+  color: #161616;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.28px;
+  background-color: transparent;
+  border-color: transparent;
+}

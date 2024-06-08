@@ -1,0 +1,43 @@
+.card {
+    width: 334px;
+    height: 154px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+.cardLine {
+    height: 2px; 
+    background-color: #000; 
+        width: 100%; 
+    }
+    .cardTitle{
+        height: 21px;
+        font-family: var(--font-family);
+font-weight: 600;
+font-size: 14px;
+letter-spacing: -0.02em;
+color:var(--table-header-color);
+    }
+    .cardDescription{
+        font-family: var(--font-family);
+font-weight: 400;
+font-size: 12px;
+line-height: 133%;
+letter-spacing: -0.02em;
+color: rgba(255, 255, 255, 0.5);
+    }
+    .cardInfo{
+        display: flex;
+        gap: 20px;
+    }
+    .icon{
+        display: flex;
+        justify-content: flex-end
+    }
+    .color{
+       
+        stroke:#fff;
+    }

@@ -14,6 +14,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from '../redux/auth/slice';
 import boardReducer from '../redux/boards/slice';
 import supportReducer from '../redux/support/slice';
+import tasksReducer from './tasks/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -26,6 +27,7 @@ export const store = configureStore({
     auth: persistReducer(authPersistConfig, authReducer),
     boards: boardReducer,
     support: supportReducer,
+    tasks: tasksReducer,
   },
 
   middleware: getDefaultMiddleware =>

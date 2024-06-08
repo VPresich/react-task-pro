@@ -68,5 +68,16 @@
 <symbol id="icon-lightning-logo" viewBox="0 0 24 32">
 <path d="M6.663 30.054c0.489-2.543 0.905-5.22 1.494-7.897 0.29-1.401-0.063-1.999-1.63-1.892s-3.313 0.053-4.979 0c-1.666-0.054-1.965-0.892-1.005-2.088 4.726-5.836 9.506-11.6 14.268-17.347 0.534-0.651 1.15-1.115 2.028-0.625s0.697 1.098 0.552 1.829c-0.525 2.677-0.96 5.354-1.539 7.978-0.299 1.356 0.091 1.838 1.503 1.785 1.417-0.071 2.837-0.071 4.255 0 0.806 0 1.865-0.419 2.281 0.678s-0.462 1.562-0.905 2.213c-1.811 2.231-3.645 4.459-5.504 6.684-2.722 3.248-5.423 6.484-8.102 9.709-0.525 0.633-1.114 1.142-2.010 0.821s-0.706-1.080-0.706-1.847z"></path>
 </symbol>
+<symbol id="icon-trash-04" viewBox="0 0 32 32">
+<path fill="none" stroke="#000" style="stroke: var(--color1, #000)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M12 4h8"></path>
+<path fill="none" stroke="#000" style="stroke: var(--color1, #000)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M4 8h24"></path>
+<path fill="none" stroke="#000" style="stroke: var(--color1, #000)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M6.667 8l0.801 12.018c0.149 2.231 0.223 3.347 0.588 4.243 0.662 1.627 2.004 2.883 3.672 3.435 0.919 0.304 2.037 0.304 4.273 0.304v0c2.236 0 3.354 0 4.273-0.304 1.668-0.552 3.010-1.808 3.672-3.435 0.365-0.896 0.439-2.012 0.588-4.243l0.801-12.018"></path>
+</symbol>
+<symbol id="icon-arrow-circle-broken-right3" viewBox="0 0 32 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M4.451 9.333c2.305-3.985 6.614-6.667 11.55-6.667 7.364 0 13.333 5.97 13.333 13.333s-5.969 13.333-13.333 13.333c-4.935 0-9.244-2.681-11.55-6.667"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M16 21.333l5.333-5.333-5.333-5.333"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6" d="M2.667 16h18.667"></path>
+</symbol>
 </defs>
 </svg>
+

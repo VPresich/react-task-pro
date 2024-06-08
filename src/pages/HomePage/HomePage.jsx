@@ -10,6 +10,7 @@ import AppBar from '../../components/AppBar/AppBar';
 import css from './HomePage.module.css';
 import SideBar from '../../components/SideBar/SideBar';
 import Board from '../../components/Board/Board';
+import Card from '../../components/UI/Card/Card';
 export default function HomePage() {
   const dispatch = useDispatch();
 
@@ -34,6 +35,7 @@ export default function HomePage() {
       <div>
       <AppBar></AppBar>
       <Board/>
+      <Card/>
       {isLoading && <p>Loading boads...</p>}
       {error && <p>{error}</p>}
       </div>
