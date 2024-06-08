@@ -31,16 +31,15 @@ export default function WelcomePage() {
               Task
               <br /> Pro - Don`t wait, start achieving your goals now!
             </p>
-
             <div className={css.linkWrapperRegister}>
-              <Link to="/register">
+              <Link to="/auth/register">
                 <CustomButton className={css.button1}>
                   Registration
                 </CustomButton>
               </Link>
             </div>
             <div className={css.linkWrapperLogin}>
-              <Link to="/login">
+              <Link to="/auth/login">
                 <CustomButton className={css.button2}>Log In</CustomButton>
               </Link>
             </div>
