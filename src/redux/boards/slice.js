@@ -3,8 +3,7 @@ import { logOut } from '../auth/operations';
 
 import { fetchBoards, deleteBoard, addBoard, updateBoard } from './operations';
 
-
-const contactsSlice = createSlice({
+const boardsSlice = createSlice({
   name: 'boards',
   initialState: {
     items: [],
@@ -69,11 +68,11 @@ const contactsSlice = createSlice({
       .addCase(updateBoard.fulfilled, (state, action) => {
         state.isAdding = false;
         const updatedBoard = action.payload;
-        const contactIndex = state.items.findIndex(
-          contact => contact.id === updatedBoard.id
+        const boardIndex = state.items.findIndex(
+          board => board.id === updatedBoard.id
         );
-        if (contactIndex !== -1) {
-          state.items[contactIndex] = updatedBoard;
+        if (boardIndex !== -1) {
+          state.items[boardIndex] = updatedBoard;
         }
         state.error = null;
         state.updatingItem = null;
@@ -86,11 +85,9 @@ const contactsSlice = createSlice({
         state.items = [];
         state.error = null;
         state.isLoading = false;
-      })
-  }
-  
+      });
+  },
 });
 
-export const { setActiveBoard } = contactsSlice.actions;
-export default contactsSlice.reducer;
-
+export const { setActiveBoard } = boardsSlice.actions;
+export default boardsSlice.reducer;
