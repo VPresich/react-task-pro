@@ -4,13 +4,13 @@ import { useEffect } from 'react';
 
 import { selectIsLoading, selectError } from '../../redux/boards/selectors';
 import { fetchBoards } from '../../redux/boards/operations';
-import BoardsList from '../../components/BoardList/BoardList';
 
 import DocumentTitle from '../../components/DocumentTitle';
 import AppBar from '../../components/AppBar/AppBar';
+import css from './HomePage.module.css';
+import SideBar from '../../components/SideBar/SideBar';
+import Board from '../../components/Board/Board';
 import Card from '../../components/UI/Card/Card';
-// import css from './HomePage.module.css';
-
 export default function HomePage() {
   const dispatch = useDispatch();
 
@@ -29,16 +29,16 @@ export default function HomePage() {
   }, [dispatch]);
 
   return (
-    <>
+    <div className={css.page}>
       <DocumentTitle>Home Page</DocumentTitle>
-
+      <SideBar />
+      <div>
       <AppBar></AppBar>
-
-      <h2>Home Page</h2>
+      <Board/>
       <Card/>
       {isLoading && <p>Loading boads...</p>}
       {error && <p>{error}</p>}
-      <BoardsList />
-    </>
+      </div>
+    </div>
   );
 }

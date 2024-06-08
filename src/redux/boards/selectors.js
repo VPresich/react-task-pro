@@ -1,4 +1,5 @@
 export const selectBoards = state => state.boards;
+export const selectActiveBoard = state => state.boards.activeBoardId;
 export const selectItems = state => state.boards.items;
 export const selectIsLoading = state => state.boards.isLoading;
 export const selectError = state => state.boards.error;

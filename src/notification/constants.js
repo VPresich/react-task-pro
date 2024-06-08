@@ -12,3 +12,7 @@ export const SUCCESS_LOGIN = 'Login success';
 
 export const ERR_REGISTER = 'Register error: ';
 export const SUCCESS_REGISTER = 'Register success';
+
+export const SUCCESS_BOARD_DELETE = 'Success. The board was deleted';
+export const ERR_BOARD_DELETE = "Error. The board wasn't deleted";
+
