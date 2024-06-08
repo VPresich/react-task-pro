@@ -1,4 +1,3 @@
-import React from 'react'
 import css from './LogoutButton.module.css'
 import spritePath from "../../../img/sprite.svg";
 import { useDispatch } from 'react-redux';

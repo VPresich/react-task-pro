@@ -9,6 +9,7 @@ import DocumentTitle from '../../components/DocumentTitle';
 import AppBar from '../../components/AppBar/AppBar';
 import css from './HomePage.module.css';
 import SideBar from '../../components/SideBar/SideBar';
+import Board from '../../components/Board/Board';
 export default function HomePage() {
   const dispatch = useDispatch();
 
@@ -32,8 +33,7 @@ export default function HomePage() {
       <SideBar />
       <div>
       <AppBar></AppBar>
-
-      <h2>Home Page</h2>
+      <Board/>
       {isLoading && <p>Loading boads...</p>}
       {error && <p>{error}</p>}
       </div>
