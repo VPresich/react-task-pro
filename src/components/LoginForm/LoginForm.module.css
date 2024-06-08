@@ -8,6 +8,7 @@
   border: 1px solid var(--secondary-color);
   padding: 24px;
   margin-bottom: 12px;
+  border-radius: 8px;
 }
 
 .content {
