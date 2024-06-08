@@ -39,9 +39,9 @@ export const deleteColumnById = createAsyncThunk(
 
 export const updateColumnById = createAsyncThunk(
   'columns/updateColumn',
-  async (data, thunkAPI) => {
+  async ({ id, data }, thunkAPI) => {
     try {
-      const response = await axiosInst.patch(`columns/${data.id}`, {
+      const response = await axiosInst.patch(`columns/${id}`, {
         title: data.title,
       });
       return response.data;

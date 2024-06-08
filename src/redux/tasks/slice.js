@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { deleteTask, editTask } from './operations';
+import {
+  deleteTask,
+  editTask,
+  addTask,
+  fetchTasksForBoard,
+  fetchTasksForColumn,
+} from './operations';
 
 const tasksSlice = createSlice({
   name: 'tasks',
@@ -17,26 +23,28 @@ const tasksSlice = createSlice({
       })
       .addCase(deleteTask.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.items = state.items.filter(item => item.id !== action.payload.id);
+        state.items = state.items.filter(
+          item => item._id !== action.payload.id
+        );
       })
       .addCase(deleteTask.rejected, (state, action) => {
         console.log(action);
         state.error = true;
         state.isLoading = false;
       })
-      // .addCase(addTask.pending, state => {
-      //   state.error = false;
-      //   state.isLoading = true;
-      // })
-      // .addCase(addTask.fulfilled, (state, action) => {
-      //   state.isLoading = false;
-      //   state.items.push(action.payload);
-      // })
-      // .addCase(addTask.rejected, (state, action) => {
-      //   console.log(action);
-      //   state.error = true;
-      //   state.isLoading = false;
-      // })
+      .addCase(addTask.pending, state => {
+        state.error = false;
+        state.isLoading = true;
+      })
+      .addCase(addTask.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.items.push(action.payload);
+      })
+      .addCase(addTask.rejected, (state, action) => {
+        console.log(action);
+        state.error = true;
+        state.isLoading = false;
+      })
       .addCase(editTask.pending, state => {
         state.error = false;
         state.isLoading = true;
@@ -44,12 +52,46 @@ const tasksSlice = createSlice({
       .addCase(editTask.fulfilled, (state, action) => {
         state.isLoading = false;
         const { id } = action.payload;
-        const existingItemIndex = state.items.findIndex(item => item.id === id);
+        const existingItemIndex = state.items.findIndex(
+          item => item._id === id
+        );
         if (existingItemIndex !== -1) {
           state.items[existingItemIndex] = action.payload;
         }
       })
       .addCase(editTask.rejected, (state, action) => {
+        console.log(action);
+        state.error = true;
+        state.isLoading = false;
+      })
+
+      .addCase(fetchTasksForBoard.pending, state => {
+        state.error = false;
+        state.isLoading = true;
+      })
+      .addCase(fetchTasksForBoard.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const boardId = action.payload.boardId;
+        state.items = state.items.filter(item => item._id !== boardId);
+        state.items.push(action.payload.tasks);
+      })
+      .addCase(fetchTasksForBoard.rejected, (state, action) => {
+        console.log(action);
+        state.error = true;
+        state.isLoading = false;
+      })
+
+      .addCase(fetchTasksForColumn.pending, state => {
+        state.error = false;
+        state.isLoading = true;
+      })
+      .addCase(fetchTasksForColumn.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const columnId = action.payload.boardId;
+        state.items = state.items.filter(item => item._id !== columnId);
+        state.items.push(action.payload.tasks);
+      })
+      .addCase(fetchTasksForColumn.rejected, (state, action) => {
         console.log(action);
         state.error = true;
         state.isLoading = false;

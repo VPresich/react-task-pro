@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from '../auth/operations';
+// import { fetchColumnsForBoard } from '../columns/operations';
 
 import {
   fetchBoards,
@@ -7,6 +8,7 @@ import {
   addBoard,
   updateBoard,
   getBoardById,
+  // getColumnsAndTasks,
 } from './operations';
 
 const boardsSlice = createSlice({
@@ -75,7 +77,7 @@ const boardsSlice = createSlice({
         state.isAdding = false;
         const updatedBoard = action.payload;
         const boardIndex = state.items.findIndex(
-          board => board.id === updatedBoard.id
+          board => board._id === updatedBoard.id
         );
         if (boardIndex !== -1) {
           state.items[boardIndex] = updatedBoard;
@@ -102,7 +104,7 @@ const boardsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
-          task => task.id === action.payload.id
+          task => task._id === action.payload.id
         );
         index
           ? (state.items[index] = action.payload)
@@ -112,6 +114,24 @@ const boardsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       });
+    //-----------------------------------------------
+    //TODO
+    // .addCase(getColumnsAndTasks.pending, state => {
+    //   state.isLoading = true;
+    //   state.error = null;
+    // })
+    // .addCase(getColumnsAndTasks.fulfilled, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   const { tasks, ...columnData } = action.payload;
+    //   console.log('columnData', columnData);
+    //   fetchColumnsForBoard.fulfilled(columnData);
+    //   // fetchTasksForColumn.fulfilled(tasks);
+    // })
+    // .addCase(getColumnsAndTasks.rejected, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = action.payload;
+    // })
   },
 });
 
