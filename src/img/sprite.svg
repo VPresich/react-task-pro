@@ -85,6 +85,10 @@
 <path fill="#fff" style="fill: var(--color1, #fff)" opacity="0.3" d="M24.381 9.905c0 5.049-4.093 9.143-9.143 9.143s-9.143-4.093-9.143-9.143c0-5.049 4.093-9.143 9.143-9.143s9.143 4.093 9.143 9.143z"></path>
 <path fill="none" stroke="#000" style="stroke: var(--color2, #000)" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1.5238" d="M23.619 9.905c0 4.629-3.752 8.381-8.381 8.381s-8.381-3.752-8.381-8.381c0-4.629 3.752-8.381 8.381-8.381s8.381 3.752 8.381 8.381z"></path>
 </symbol>
+<symbol id="eye" viewBox="0 0 32 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.3111" d="M1.333 16c0 0 5.333-10.667 14.667-10.667s14.667 10.667 14.667 10.667c0 0-5.333 10.667-14.667 10.667s-14.667-10.667-14.667-10.667z"></path>
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.3111" d="M16 20c2.209 0 4-1.791 4-4s-1.791-4-4-4c-2.209 0-4 1.791-4 4s1.791 4 4 4z"></path>
+</symbol>
 </defs>
 </svg>
 
