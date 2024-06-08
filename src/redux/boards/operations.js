@@ -6,7 +6,6 @@ export const fetchBoards = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axiosInst.get('boards');
-      console.log('response qqqq', response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -47,6 +46,18 @@ export const updateBoard = createAsyncThunk(
         title: data.title,
         background: data.background,
       });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getBoardById = createAsyncThunk(
+  'boards/getBoard',
+  async (id, thunkAPI) => {
+    try {
+      const response = await axiosInst.get(`boards/${id}`);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
