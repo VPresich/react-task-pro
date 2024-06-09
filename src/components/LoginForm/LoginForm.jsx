@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import { Formik, Form } from 'formik';
 import FormField from '../FormField/FormField';
+// import AuthNavigation from '../../components/AuthNavigation/AuthNavigation';
 
 import Button from '../UI/Button/Button';
 import { INITIAL_LOGIN, LABEL_EMAIL, LABEL_PASSWORD } from './constants';
@@ -33,6 +34,7 @@ export default function LoginForm() {
       >
         <Form className={css.form}>
           <div className={css.buttonWrapper}>
+            {/* <AuthNavigation /> */}
             <button className={css.btnResistr}>REGISTRATION</button>
             <button className={css.btnLogin}>LOG IN</button>
           </div>
