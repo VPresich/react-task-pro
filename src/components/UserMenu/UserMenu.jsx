@@ -1,23 +1,18 @@
-import { useState } from 'react';
-import UserInfoContent from '../UserInfoContent/UserInfoContent';
-import ModalWindow from '../../components/UI/ModalWindow/ModalWindow';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../redux/auth/operations';
+import { useAuth } from '../../hooks/useAuth';
+import css from './UserMenu.module.css';
 
-export const UserInfo = ({ user }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleEditProfile = () => {
-    setIsModalOpen(true);
-  };
+export default function UserMenu() {
+  const dispatch = useDispatch();
+  const { user } = useAuth();
 
   return (
-    <div>
-      <img src={user.photo} alt="User" width="67" onClick={handleEditProfile} />
-      <p>{user.name}</p>
-      {isModalOpen && (
-        <ModalWindow onClose={() => setIsModalOpen(false)}>
-          <UserInfoContent />
-        </ModalWindow>
-      )}
+    <div className={css.wrapper}>
+      <p className={css.username}>Welcome, {user.name}</p>
+      <button type="button" onClick={() => dispatch(logOut())}>
+        Logout
+      </button>
     </div>
   );
-};
+}
