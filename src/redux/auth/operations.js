@@ -100,3 +100,21 @@ export const updateAvatar = createAsyncThunk(
     }
   }
 );
+
+export const updateProfile = createAsyncThunk(
+  'auth/profile',
+  async (formData, thunkAPI) => {
+    try {
+      const response = await axiosInst.patch('users', formData, {
+        headers: {
+          'Content-Type': formData.avatar
+            ? 'multipart/form-data'
+            : 'application-json',
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

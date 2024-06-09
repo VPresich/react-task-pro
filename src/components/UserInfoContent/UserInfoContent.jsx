@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { updateAvatar } from '../../redux/auth/operations';
+import { updateAvatar, updateProfile } from '../../redux/auth/operations';
 import { Formik, Form } from 'formik';
 import { selectUser } from '../../redux/auth/selectors';
 import FormField from '../FormField/FormField';
@@ -34,7 +34,7 @@ export default function UserInfoContent() {
       formData.append('avatar', selectedFile);
     }
 
-    // dispatch(updateAvatar(formData))
+    // dispatch(updateProfile(formData)) //TODO FIXED ON SERVER
     //   .unwrap()
     //   .then(() => {
     //     successNotify();
