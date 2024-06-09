@@ -19,6 +19,7 @@ const BoardsList = () => {
       {boards.map(board => (
         <li className={css.item} key={board.id}>
           <BoardListItem
+            key={board._id}
             board={board}
             isActive={board._id === activeBoardState}
             setActiveBoard={handleActiveBoard}
