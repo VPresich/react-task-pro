@@ -77,3 +77,26 @@ export const refreshUser = createAsyncThunk(
     },
   }
 );
+
+/*
+ * PATCH @ /users/avatars
+ * headers: update user avatar
+ */
+
+export const updateAvatar = createAsyncThunk(
+  'auth/avatars',
+  async (avatarFormData, thunkAPI) => {
+    try {
+      const response = await axiosInst.patch(
+        'users/avatars',
+        { avatar: avatarFormData },
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
