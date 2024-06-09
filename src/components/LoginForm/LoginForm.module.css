@@ -1,4 +1,4 @@
-.form {
+/* .form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -58,7 +58,253 @@
   .form {
     margin-bottom: 28px;
   }
+} */
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+.btnResistr {
+  color: rgba(255, 255, 255, 0.3);
+  font-family: Poppins;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.36px;
+}
+
+.form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  background: #fff;
+  opacity: 0;
+  animation: appear 1s 1;
+  animation-fill-mode: forwards;
+}
+.formContent {
+  background-color: black;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1em;
+  box-sizing: border-box;
+}
+
+.form label {
+  margin-bottom: 0.5em;
+  color: #222;
+  font-weight: bold;
+}
+
+.form input {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.form button {
+  padding: 0.7em;
+  border-radius: 8px;
+  background: #BEDBB0;
+  color: #fff;
+  border: none;
+  
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+.errors {
+  margin-top: 1em;
+  color: red;
+  font-size: 0.875em;
+  text-align: center;
+  width: 100%;
+}
+.buttonWrapper {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.buttonWrapper button:first-child {
+  margin-right: 10px;
+}
+
+.buttonWrapper button {
+  color: #fff;
+  background: transparent;
+  border: none;
+  margin: 0 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  background: #fff;
+  opacity: 0;
+  animation: appear 1s 1;
+  animation-fill-mode: forwards;
+}
+
+.formContent {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #000;
+  z-index: 1;
+}
+
+.btnLogin,
+.btnResistr {
+  color: #fff;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.btnResistr {
+  margin-right: 50px;
+}
+
+.form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  background: #000;
+  color: #fff;
+  /* Sets the form text color to white */
+  opacity: 0;
+  animation: appear 1s 1;
+  animation-fill-mode: forwards;
 }
 
 
 
+form {
+  background-color: #1a1a1a;
+  /* Темный фон для формы */
+  padding: 20px;
+  /* Внутренние отступы */
+  border-radius: 10px;
+  /* Скругленные углы */
+  width: 434px;
+  height: 332px;
+  /* Ширина формы */
+  margin: 0 auto;
+  /* Формы по центру страницы */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Тень для формы */
+}
+
+/* Стили для вкладок Регистрация и Вход */
+.tab {
+  display: inline-block;
+  /* Для размещения вкладок в один ряд */
+  padding: 10px 20px;
+  /* Внутренние отступы */
+  cursor: pointer;
+  /* Курсор при наведении */
+  color: #666;
+  /* Цвет неактивного таба */
+  transition: color 0.3s ease;
+  /* Плавное изменение цвета */
+}
+
+.tab.active {
+  color: white;
+  /* Цвет активного таба */
+  font-weight: bold;
+  /* Полужирный текст для активного таба */
+}
+
+/* Стили для полей ввода */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  /* Поля ввода занимают всю ширину формы */
+  padding: 10px;
+  /* Внутренние отступы */
+  margin: 10px 0;
+  /* Внешние отступы */
+  border: 1px solid #666;
+  /* Цвет границы */
+  background-color: #222;
+  /* Темный фон полей ввода */
+  color: white;
+  /* Цвет текста */
+  border-radius: 5px;
+  /* Скругленные углы */
+  transition: border-color 0.3s ease;
+  /* Плавное изменение цвета границы */
+}
+
+input[type="email"]::placeholder,
+input[type="password"]::placeholder {
+  color: #888;
+  /* Цвет плейсхолдера */
+}
+
+/* Стили для кнопки */
+button {
+  width: 100%;
+  /* Кнопка занимает всю ширину формы */
+  padding: 10px;
+  /* Внутренние отступы */
+  background-color: #a8e6cf;
+  /* Цвет фона кнопки */
+
+}

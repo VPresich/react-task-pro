@@ -29,27 +29,77 @@ export default function LoginForm() {
   };
 
   return (
-    <Formik
-      initialValues={INITIAL_LOGIN}
-      onSubmit={handleSubmit}
-      validationSchema={feedbackSchema}
-    >
-      <Form className={css.form}>
-        <div className={css.info}>
-          <FormField type="email" name="email" styles={css}>
-            {LABEL_EMAIL}
-          </FormField>
-          <FormField
-            type="password"
-            name="password"
-            styles={css}
-            autoComplete="current-password"
-          >
-            {LABEL_PASSWORD}
-          </FormField>
-        </div>
-        <CustomButton type="submit">{CAPTION_LOGIN}</CustomButton>
-      </Form>
-    </Formik>
+    <div className={css.formContent}>
+      <Formik
+        initialValues={INITIAL_LOGIN}
+        onSubmit={handleSubmit}
+        validationSchema={feedbackSchema}
+      >
+        <Form className={css.form}>
+          <div className={css.buttonWrapper}>
+            <button className={css.btnResistr}>REGISTRATION</button>
+            <button className={css.btnLogin}>LOG IN</button>
+          </div>
+
+          <div className={css.info}>
+            <FormField type="email" name="email" styles={css}>
+              {LABEL_EMAIL}
+            </FormField>
+            <FormField
+              type="password"
+              name="password"
+              styles={css}
+              autoComplete="current-password"
+            >
+              {LABEL_PASSWORD}
+            </FormField>
+          </div>
+
+          <CustomButton className={css.button} type="submit">
+            {CAPTION_LOGIN}
+          </CustomButton>
+        </Form>
+      </Formik>
+    </div>
   );
 }
+
+// export default function LoginForm() {
+//   const dispatch = useDispatch();
+//   const handleSubmit = (values, actions) => {
+//     dispatch(logIn(values))
+//       .unwrap()
+//       .then(() => {
+//         successNotify(SUCCESS_LOGIN);
+//         actions.resetForm();
+//       })
+//       .catch(err => {
+//         errNotify(ERR_LOGIN + err.message);
+//       });
+//   };
+
+//   return (
+//     <Formik
+//       initialValues={INITIAL_LOGIN}
+//       onSubmit={handleSubmit}
+//       validationSchema={feedbackSchema}
+//     >
+//       <Form className={css.form}>
+//         <div className={css.info}>
+//           <FormField type="email" name="email" styles={css}>
+//             {LABEL_EMAIL}
+//           </FormField>
+//           <FormField
+//             type="password"
+//             name="password"
+//             styles={css}
+//             autoComplete="current-password"
+//           >
+//             {LABEL_PASSWORD}
+//           </FormField>
+//         </div>
+//         <CustomButton type="submit">{CAPTION_LOGIN}</CustomButton>
+//       </Form>
+//     </Formik>
+//   );
+// }
