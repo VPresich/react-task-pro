@@ -2,13 +2,9 @@ import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 import { Formik, Form } from 'formik';
 import FormField from '../FormField/FormField';
-import CustomButton from '../CustomButton/CustomButton';
-import {
-  INITIAL_LOGIN,
-  CAPTION_LOGIN,
-  LABEL_EMAIL,
-  LABEL_PASSWORD,
-} from './constants';
+
+import Button from '../UI/Button/Button';
+import { INITIAL_LOGIN, LABEL_EMAIL, LABEL_PASSWORD } from './constants';
 import { feedbackSchema } from './feedback-schema';
 import { errNotify, successNotify } from '../../notification/notification';
 import { ERR_LOGIN, SUCCESS_LOGIN } from '../../notification/constants';
@@ -55,9 +51,14 @@ export default function LoginForm() {
             </FormField>
           </div>
 
-          <CustomButton className={css.button} type="submit">
-            {CAPTION_LOGIN}
-          </CustomButton>
+          <Button
+            text="Log in Now"
+            big={false}
+            type="submit"
+            onClick={() => {
+              console.log('clicked');
+            }}
+          />
         </Form>
       </Formik>
     </div>

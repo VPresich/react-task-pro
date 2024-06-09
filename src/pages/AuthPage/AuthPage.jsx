@@ -15,9 +15,7 @@ export default function AuthPage() {
       <Link
         to={`/auth/${isRegister ? 'login' : 'register'}`}
         className={css.button}
-      >
-        {isRegister ? 'LogIn' : 'Registration'}
-      </Link>
+      ></Link>
     </div>
   );
 }
