@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import spritePath from '../../../img/sprite.svg';
 import styles from './Card.module.css';
@@ -6,6 +6,8 @@ import { deleteTask } from '../../../redux/tasks/operations';
 import { useDispatch } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx';
+// import ModalWindow from 'ModalWindow';
+// import ModalWindow1 from 'ModalWindow';
 
 export default function Card({ title, description, id, priority, deadline }) {
   const theme = useSelector(selectTheme);
@@ -20,10 +22,33 @@ export default function Card({ title, description, id, priority, deadline }) {
   const handleCard = () => {
     dispatch(deleteTask(id));
   };
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+
+
+
+  const getPriorityClasses = () => {
+    switch (priority) {
+      case 'Low':
+        return styles.low;
+      case 'Medium':
+        return styles.medium;
+      case 'High':
+        return styles.high;
+      case 'Without priority':
+        return styles.withoutPriority;
+      default:
+        return '';
+    }
+  };
+  
   return (
     <div
-      className={clsx(styles.card, styles[theme])}
-      style={{ border: 'none', borderLeft: '4px solid #8FA1D0' }}
+    className={clsx(styles.card, styles[theme], getPriorityClasses())}
+      
       id={`card-${id}`}
     >
         <h2 className={clsx(styles.cardTitle,styles[theme])}>{title}</h2>
@@ -34,23 +59,11 @@ export default function Card({ title, description, id, priority, deadline }) {
         <div className={clsx(styles.cardLine,styles[theme])}></div>
         <div className={styles.cardInfo}>
           <div className={styles.priorityContainer}>
-            <svg
-              className={styles.ellipse}
-              width="16"
-              height="16"
-              aria-label="btn icon"
-              style={{
-                position: 'absolute',
-                left: '3px',
-                top: '14px',
-                fill: '#8FA1D0',
-              }}
-            >
-              <use href={`${spritePath}#icon-Ellipse`} />
-            </svg>
+            
             <p className={clsx(styles.cardPriority,styles[theme])}>
               <strong >Priority:</strong>{' '}
-             <span className={clsx(styles.strongPriority,styles[theme])}>{priority} </span> 
+              <div className={clsx(styles.circle,styles[theme],getPriorityClasses())}></div>
+             <span  className={clsx(styles.strongPriority,styles[theme])}>{priority} </span> 
             </p>
           </div>
 
@@ -76,6 +89,7 @@ export default function Card({ title, description, id, priority, deadline }) {
             width="16"
             height="16"
             aria-label="btn icon"
+            onClick={openModal} 
           >
             <use href={`${spritePath}#icon-arrow`} />
           </svg>
@@ -84,6 +98,7 @@ export default function Card({ title, description, id, priority, deadline }) {
             width="16"
             height="16"
             aria-label="btn icon"
+            onClick={openModal} 
           >
             <use href={`${spritePath}#icon-pencil`} />
           </svg>
@@ -98,6 +113,9 @@ export default function Card({ title, description, id, priority, deadline }) {
           </svg>
         </div>
       
+      {/* <ModalWindow isOpen={isOpen} closeModal={closeModal} /> */}
+      {/* <ModalWindow1 isOpen={isOpen} closeModal={closeModal} /> */}
     </div>
+
   );
 }
