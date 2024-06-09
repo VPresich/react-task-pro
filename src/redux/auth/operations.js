@@ -77,3 +77,44 @@ export const refreshUser = createAsyncThunk(
     },
   }
 );
+
+/*
+ * PATCH @ /users/avatars
+ * headers: update user avatar
+ */
+
+export const updateAvatar = createAsyncThunk(
+  'auth/avatars',
+  async (avatarFormData, thunkAPI) => {
+    try {
+      const response = await axiosInst.patch(
+        'users/avatars',
+        { avatar: avatarFormData },
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
+      );
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateProfile = createAsyncThunk(
+  'auth/profile',
+  async (formData, thunkAPI) => {
+    try {
+      const response = await axiosInst.patch('users', formData, {
+        headers: {
+          'Content-Type': formData.avatar
+            ? 'multipart/form-data'
+            : 'application-json',
+        },
+      });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

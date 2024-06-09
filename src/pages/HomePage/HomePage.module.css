@@ -4,3 +4,7 @@
   color: var(--secondary-color);
   margin-bottom: 24px;
 }
+
+.page {
+  display: flex;
+}

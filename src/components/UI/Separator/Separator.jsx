@@ -5,8 +5,8 @@ import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx'
 export default function Separator() {
     const theme = useSelector(selectTheme);
-//   const theme = 'Violet';
+  // const theme = 'violet';
   return (
-    <div className={clsx(css.separator, css[theme.toLowerCase()])}></div>
+    <div className={clsx(css.separator, css[theme])}></div>
   )
 }

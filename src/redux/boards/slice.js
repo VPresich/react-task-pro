@@ -1,19 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from '../auth/operations';
+// import { fetchColumnsForBoard } from '../columns/operations';
 
-import { fetchBoards, deleteBoard, addBoard, updateBoard } from './operations';
+import {
+  fetchBoards,
+  deleteBoard,
+  addBoard,
+  updateBoard,
+  getBoardById,
+  // getColumnsAndTasks,
+} from './operations';
 
-const contactsSlice = createSlice({
+const boardsSlice = createSlice({
   name: 'boards',
   initialState: {
     items: [],
+    activeBoardId: null,
     isLoading: false,
     error: null,
     isAdding: false,
     deletingItem: null,
     updatingItem: null,
   },
-
+  reducers: {
+    setActiveBoard(state, action) {
+      state.activeBoardId = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchBoards.pending, state => {
@@ -63,11 +76,11 @@ const contactsSlice = createSlice({
       .addCase(updateBoard.fulfilled, (state, action) => {
         state.isAdding = false;
         const updatedBoard = action.payload;
-        const contactIndex = state.items.findIndex(
-          contact => contact.id === updatedBoard.id
+        const boardIndex = state.items.findIndex(
+          board => board._id === updatedBoard.id
         );
-        if (contactIndex !== -1) {
-          state.items[contactIndex] = updatedBoard;
+        if (boardIndex !== -1) {
+          state.items[boardIndex] = updatedBoard;
         }
         state.error = null;
         state.updatingItem = null;
@@ -76,12 +89,51 @@ const contactsSlice = createSlice({
         state.isAdding = false;
         state.error = action.payload;
       })
+      //-----------------------------------------------
       .addCase(logOut.fulfilled, state => {
         state.items = [];
         state.error = null;
         state.isLoading = false;
+      })
+      //-----------------------------------------------
+      .addCase(getBoardById.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getBoardById.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const index = state.items.findIndex(
+          task => task._id === action.payload.id
+        );
+        index
+          ? (state.items[index] = action.payload)
+          : state.items.push(action.payload);
+      })
+      .addCase(getBoardById.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
+    //-----------------------------------------------
+    //TODO
+    // .addCase(getColumnsAndTasks.pending, state => {
+    //   state.isLoading = true;
+    //   state.error = null;
+    // })
+    // .addCase(getColumnsAndTasks.fulfilled, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   const { tasks, ...columnData } = action.payload;
+    //   console.log('columnData', columnData);
+    //   fetchColumnsForBoard.fulfilled(columnData);
+    //   // fetchTasksForColumn.fulfilled(tasks);
+    // })
+    // .addCase(getColumnsAndTasks.rejected, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = action.payload;
+    // })
   },
 });
 
-export default contactsSlice.reducer;
+export const { setActiveBoard } = boardsSlice.actions;
+export default boardsSlice.reducer;

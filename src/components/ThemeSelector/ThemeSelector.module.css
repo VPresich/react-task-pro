@@ -1,0 +1,38 @@
+.header {
+    position: relative;
+    display: inline-block;
+}
+
+.button {
+    margin-left: 10px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #bedbb0;
+    box-shadow: 0 2px 10px rgba(190, 219, 176, 0.5);
+    z-index: 1;
+    padding: 16px 48px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+}
+
+.label {
+    margin-bottom: 5px;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.label input {
+    display: none;
+}
+
+.label.selected {
+    color: #bedbb0;
+}

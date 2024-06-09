@@ -1,0 +1,36 @@
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+
+  padding: 24px 0px;
+}
+
+.sidebar.dark {
+  background-color: var(--black-dark);
+  color: var(--white);
+}
+
+.sidebar.light {
+  background-color: var(--white);
+  color: var(--black-dark);
+}
+
+.sidebar.violet {
+  background-color: var(--violet-main);
+  color: var(--white);
+}
+
+.sidebarTitle {
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  padding-left: 24px;
+}
+
+.sidebarTitle.dark,
+.sidebarTitle.violet {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.sidebarTitle.light {
+  color: rgba(22, 22, 22, 0.5);
+}

@@ -1,0 +1,85 @@
+.container {
+  width: 212px;
+  margin-left: 24px;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.container.dark {
+  background-color: var(--black);
+}
+
+.container.light {
+  background-color: var(--gray-light);
+}
+
+.container.violet {
+  background-color: var(--violet-transparent);
+}
+
+.text {
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: -0.02em;
+  padding-top: 14px;
+  padding-bottom: 18px;
+}
+
+.text.light {
+  color: var(--secondary-color);
+}
+
+.text.dark,
+.text.violet {
+  color: var(--white);
+}
+
+.accent {
+  color: var(--green-light);
+}
+
+.icon {
+  fill: transparent;
+}
+
+.icon.light {
+  stroke: var(--secondary-color);
+}
+
+.icon.dark,
+.icon.violet {
+  stroke: var(--white);
+}
+
+.btn {
+  font-family: 'Poppins-Medium';
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn.dark,
+.btn.violet {
+  color: var(--white);
+}
+
+.btn.light {
+  color: var(--secondary-color);
+}
+
+.btn:hover {
+  color: var(--green-light);
+}
+
+.btn:hover .icon {
+  stroke: var(--green-light);
+}
+
+.span {
+  display: flex;
+  align-items: center;
+}
