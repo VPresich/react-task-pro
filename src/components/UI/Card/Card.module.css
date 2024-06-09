@@ -5,6 +5,8 @@
     padding: 14px 24px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease;
+    border-left: 4px solid #8FA1D0;
+    
 }
 .card.dark {
     background-color: var(--black-dark);
@@ -18,6 +20,21 @@
     
         background-color: var(--white);
         color: var(--secondary-color);
+  }
+  .card.low {
+    border-left: 4px solid #8FA1D0;
+  }
+  
+  .card.medium {
+    border-left: 4px solid #E09CB5;
+  }
+  
+  .card.high {
+    border-left: 4px solid #BEDBB0;
+  }
+  
+  .card.withoutPriority {
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
   }
   .cardTitle {
     
@@ -42,14 +59,14 @@ color: var(--secondary-color);
     font-weight: 400;
     font-size: 12px;
     letter-spacing: -0.02em;
-    display: webkit-box;
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
-    text-overflow: ellipsis;
     line-height: 1rem;
     max-height: 2rem;
-    
+
+
 }
 .cardDescription.dark{
     color: rgba(255, 255, 255, 0.5);
@@ -124,16 +141,32 @@ color: var(--secondary-color);
 .strongPriority.violet{
     color: var(--secondary-color)
 }
-
-.ellipse {
-    
-    width: 16px;
-    height: 16px;
+.circle {
     position: absolute;
+    left: 3px; 
+    top: 20px;
     
-    fill:#8FA1D0;
-}
-
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #8FA1D0; 
+  }
+  .circle.low {
+    border-left: 4px solid #8FA1D0;
+  }
+    
+  .circle.medium {
+    border-left: 4px solid #E09CB5;
+  }
+    
+  .circle.high {
+    border-left: 4px solid #BEDBB0;
+  }
+    
+  .circle.withoutPriority {
+    border-left: 4px solid rgba(255, 255, 255, 0.3);
+  }
 .strongDeadline {
     font-family: 'Poppins-Regular', sans-serif;
     font-weight: 400;
