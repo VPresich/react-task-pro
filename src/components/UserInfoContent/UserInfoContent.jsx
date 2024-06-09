@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateAvatar } from '../../redux/auth/operations';
 import { Formik, Form } from 'formik';
@@ -8,9 +9,13 @@ import { LABEL_NAME, LABEL_EMAIL, LABEL_PASSWORD } from './constants';
 import { feedbackSchema } from './feedback-schema';
 import styles from './UserInfoContent.module.css';
 import { useRef } from 'react';
+import { successNotify, errNotify } from '../../notification/notification';
 
 export default function UserInfoContent() {
+  const [selectedFile, setSelectedFile] = useState(null);
+
   const userInfo = useSelector(selectUser);
+
   const dispatch = useDispatch();
   const fileInputRef = useRef(null);
 
@@ -18,14 +23,41 @@ export default function UserInfoContent() {
     fileInputRef.current.click();
   };
 
-  const handleSubmit = async values => {
-    console.log('Form values:', values);
+  const handleSubmit = async (values, actions) => {
+    const formData = new FormData();
+    formData.append('name', values.name);
+    formData.append('email', values.email);
+    if (values.password) {
+      formData.append('password', values.password);
+    }
+    if (selectedFile) {
+      formData.append('avatar', selectedFile);
+    }
+
+    // dispatch(updateAvatar(formData))
+    //   .unwrap()
+    //   .then(() => {
+    //     successNotify();
+    //   })
+    //   .catch(err => {
+    //     errNotify(err.message);
+    //   });
+
+    actions.resetForm();
+    setSelectedFile(null);
   };
 
   const handleFileChange = event => {
     const file = event.target.files[0];
     if (file) {
-      dispatch(updateAvatar(file));
+      dispatch(updateAvatar(file))
+        .unwrap()
+        .then(() => {
+          successNotify();
+        })
+        .catch(err => {
+          errNotify(err.message);
+        });
     }
   };
 
