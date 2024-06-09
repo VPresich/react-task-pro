@@ -12,6 +12,11 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
+  reducers: {
+    setTheme(state, action) {
+      state.user.theme = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(register.pending, state => {
@@ -70,4 +75,5 @@ const authSlice = createSlice({
   },
 });
 
+export const { setTheme } = authSlice.actions;
 export default authSlice.reducer;
