@@ -34,8 +34,8 @@ export default function HomePage() {
     <div className={css.page}>
       <DocumentTitle>Home Page</DocumentTitle>
       <SideBar />
-      <div>
-      <AppBar></AppBar>
+      <div className={css.normalWidth}> 
+      <AppBar />
       <Board/>
       <Card title="test 1" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
 explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
