@@ -4,14 +4,26 @@ import { useSelector } from 'react-redux';
 import Separator from '../UI/Separator/Separator';
 import { selectTheme } from '../../redux/auth/selectors';
 import clsx from 'clsx';
+import CreateBoardModal from '../CreateBoardModal/CreateBoardModal';
+import { useState } from 'react';
 
 export default function CreateBoard() {
   const theme = useSelector(selectTheme);
   // const theme = 'violet';
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   const handleCreate = () => {
-    console.log('create board modal')
-    // open create modal
+    openModal();
   }
+
   return (
     <div className={css.container}>
       <Separator />
@@ -33,7 +45,11 @@ export default function CreateBoard() {
             </span>
           </button>
         </div>
-      <Separator/>
+      <Separator />
+      {isModalOpen && (
+        <CreateBoardModal onClose={ closeModal } />
+      )}
+      
     </div>
   )
 }
