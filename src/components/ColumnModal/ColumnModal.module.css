@@ -13,7 +13,7 @@
 .form {
   display: flex;
   flex-direction: column;
-
+  width: 302px;
   justify-content: center;
   gap: 24px;
 }

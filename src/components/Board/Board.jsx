@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import css from './Board.module.css';
 import { useSelector } from 'react-redux';
-import { selectActiveBoard } from '../../redux/boards/selectors';
+import {
+  selectActiveBoard,
+  selectActiveBoardId,
+} from '../../redux/boards/selectors';
 import AddColumnBtn from '../AddColumnBtn/AddColumnBtn';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import ColumnModal from '../ColumnModal/ColumnModal';
@@ -76,8 +79,10 @@ function getBackgroundImage(theme) {
 }
 
 export default function Board() {
+  const activeBoard = useSelector(selectActiveBoard);
+  const activeBoardId = useSelector(selectActiveBoardId);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const activeBoardId = useSelector(selectActiveBoard);
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -86,7 +91,7 @@ export default function Board() {
     setIsModalOpen(false);
   };
 
-  const activeBoard = useSelector(selectActiveBoard);
+  
   console.log('active: ', activeBoard);
 
   const theme = activeBoard ? activeBoard.background : 'theme00';

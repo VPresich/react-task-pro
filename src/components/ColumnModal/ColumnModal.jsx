@@ -16,14 +16,14 @@ const ColumnModal = ({ modalType, activeBoardId, columnId }) => {
   const dispatch = useDispatch();
 
   const validationSchema = Yup.object().shape({
-    addColumn: Yup.string().required('Title is required'),
+    title: Yup.string().required('Title is required'),
   });
 
   const handleSubmit = (values, actions) => {
-    const { addColumn } = values;
+    const { title } = values;
 
     if (modalType === 'add') {
-      dispatch(addColumnForBoard({ activeBoardId, column: { addColumn } }))
+      dispatch(addColumnForBoard({ id: activeBoardId, title }))
         .unwrap()
         .then(() => {
           toast.success('fetchColumn fulfilled');
@@ -33,7 +33,7 @@ const ColumnModal = ({ modalType, activeBoardId, columnId }) => {
           toast.error('fetchColumn rejected');
         });
     } else if (modalType === 'edit') {
-      dispatch(updateColumnById({ columnId, column: { addColumn } }))
+      dispatch(updateColumnById({ id: columnId, title }))
         .unwrap()
         .then(() => {
           toast.success('fetchColumn fulfilled');
@@ -48,7 +48,7 @@ const ColumnModal = ({ modalType, activeBoardId, columnId }) => {
   return (
     <>
       <Formik
-        initialValues={{ addColumn: '' }}
+        initialValues={{ title: '' }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
@@ -58,7 +58,7 @@ const ColumnModal = ({ modalType, activeBoardId, columnId }) => {
           ) : (
             <p className={clsx(css.text, css[theme])}>Edit column</p>
           )}
-          <Input onName="addColumn" onPlaceholder="Title" />
+          <Input onName="title" onPlaceholder="Title" />
           <Button icon="icon-plus" text="Add" type="submit" />
         </Form>
       </Formik>
