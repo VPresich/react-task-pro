@@ -60,6 +60,8 @@
   }
 } */
 
+/* ====================================== */
+
 @keyframes appear {
   from {
     opacity: 0;
@@ -145,7 +147,7 @@
 .form button:hover {
  background: #9DC888;
 }
-/* Стили для полей ввода */
+
 input[type='email'],
 input[type='password'] {
   /* 
@@ -187,16 +189,10 @@ input[type='password']::placeholder {
   width: 100%;
 }
 .buttonWrapper {
-  display: flex;
-  position: absolute;
-  /* top: 0;
-  left: 0; */
+  
+  
   padding-top: 40px; 
-  padding-bottom: 40px; 
-  width: 344px;
-  height: 49px;
-  justify-content: center;
-  align-items: center;
+  padding-bottom: 40px;   
   border-radius: 8px;
 
   color: rgba(255, 255, 255, 0.30);
@@ -206,20 +202,20 @@ input[type='password']::placeholder {
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.36px;
+   
+        display: flex;
+        
+        justify-content: flex-start;
+        
+        gap: 14px;
+        
+      }
 }
 
-/* .buttonWrapper button:first-child {
-  margin-right: 10px;
-} */
 
-.buttonWrapper button {
-  /* color: #fff; */
+
+.buttonWrapper button { 
   background: transparent;
-  /* border: none;
-  margin: 0 10px;
-  font-size: 18px;
-  cursor: pointer; */
-  
 
 }
 
@@ -271,7 +267,7 @@ input[type='password']::placeholder {
 
 .loginBtn,
 .resister.Btn {
-  /* color: #fff; */
+  
   background: transparent;
   border: none;  
   font-size: 18px;
@@ -279,8 +275,7 @@ input[type='password']::placeholder {
   font-family: 'Poppins-Medium';
 }
 
-.resisterBtn {
-  /* margin-right: 50px; */
+.resisterBtn {  
   color: rgba(255, 255, 255, 0.30);  
   font-family: 'Poppins-Medium';
     font-size: 18px;
@@ -306,16 +301,6 @@ input[type='password']::placeholder {
   width: 424px;
     height: 332px;
 }
-/* form {
-  background-color: #1a1a1a; 
-  padding: 20px;  
-  border-radius: 8px;  
-   
-  margin: 0 auto; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  
-} */
-
 /* Стили для вкладок Регистрация и Вход */
 .tab {
   display: inline-block;
@@ -329,13 +314,12 @@ input[type='password']::placeholder {
 }
 
 .tab.active {
-  color: white;
-  /* Цвет активного таба */
+  color: white;  
   font-weight: bold;
-  /* Полужирный текст для активного таба */
+  
 }
 
-/* Стили для полей ввода */
+
 input[type='email'],
 input[type='password'] {
   width: 100%;
@@ -354,10 +338,4 @@ input[type='password']::placeholder {
   color: #888;
 }
 
-/* button {
-  background: #BEDBB0;
-  width: 344px;
-  margin: 24px 40px 40px 40px;
-  justify-content: center;
-  align-items: center;
-} */
+
