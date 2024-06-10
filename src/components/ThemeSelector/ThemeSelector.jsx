@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectTheme } from '../../redux/auth/selectors';
 import { setTheme } from '../../redux/auth/slice';
+import clsx from 'clsx';
 import css from "./ThemeSelector.module.css";
 
 const ThemeSelector = () => {
@@ -17,49 +18,39 @@ const ThemeSelector = () => {
   }, [dispatch]);
 
   const handleThemeChange = (event) => {
-    const selectedTheme = event.target.value;
+    const selectedTheme = event.target.value.toLowerCase();
     dispatch(setTheme(selectedTheme));
     localStorage.setItem('theme', selectedTheme);
   };
 
   return (
-    <header className={css.header}>
-      <div>
-        <span>Theme</span>
-        <button className={css.button} onClick={() => setIsOpen(!isOpen)}>Select Theme</button>
-        {isOpen && (
-          <div className={css.dropdown}>
-            <label className={`${css.label} ${theme === 'Dark' ? css.selected : ''}`}>
+    <div className={css.header}>
+      <button className={clsx(css.button, { [css.open]: isOpen })} onClick={() => setIsOpen(!isOpen)}>
+        <span className={clsx(css.text, css[theme])}>Theme</span>
+      </button>
+      {isOpen && (
+        <div className={clsx(css.dropdown, css[theme])}>
+          {['Dark', 'Light', 'Violet'].map((themeOption) => (
+            <label
+              key={themeOption}
+              className={clsx(css.label, {
+                [css.selected]: theme === themeOption.toLowerCase(),
+                [css[theme.toLowerCase()]]: true,
+                [css.inactive]: theme !== themeOption.toLowerCase() && theme === 'dark'
+              })}
+            >
               <input
                 type="radio"
-                value="Dark"
-                checked={theme === 'Dark'}
+                value={themeOption.toLowerCase()}
+                checked={theme === themeOption.toLowerCase()}
                 onChange={handleThemeChange}
               />
-              Dark
+              {themeOption}
             </label>
-            <label className={`${css.label} ${theme === 'Light' ? css.selected : ''}`}>
-              <input
-                type="radio"
-                value="Light"
-                checked={theme === 'Light'}
-                onChange={handleThemeChange}
-              />
-              Light
-            </label>
-            <label className={`${css.label} ${theme === 'Violet' ? css.selected : ''}`}>
-              <input
-                type="radio"
-                value="Violet"
-                checked={theme === 'Violet'}
-                onChange={handleThemeChange}
-              />
-              Violet
-            </label>
-          </div>
-        )}
-      </div>
-    </header>
+          ))}
+        </div>
+      )}
+    </div>
   );
 };
 
