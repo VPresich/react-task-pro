@@ -52,12 +52,12 @@
 
 .dropdown.light,
 .dropdown.dark {
-    border: 1px solid #bedbb0;
+    border: 2px solid #bedbb0;
     box-shadow: 0 2px 10px rgba(190, 219, 176, 0.1);
 }
 
 .dropdown.violet {
-    border: 1px solid #ecedfd;
+    border: 2px solid #ecedfd;
     box-shadow: 0 2px 10px rgba(236, 237, 253, 0.1);
 }
 
