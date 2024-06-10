@@ -1,0 +1,110 @@
+.title {
+  font-family: 'Poppins-Medium';
+  font-size: 18px;
+  letter-spacing: -0.02em;
+  color: var(--secondary-color);
+}
+
+.form {
+  width: 302px;
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0 40px;
+}
+
+.iconsContainer,
+.backgroundsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.radioLabel {
+  cursor: pointer;
+  user-select: none;
+}
+
+.radioInput {
+  display: none;
+}
+
+.radioInput:checked + .radioLabel .icon.light {
+  stroke: var(--secondary-color);
+}
+
+.radioInput:checked + .radioLabel .icon.dark,
+.radioInput:checked + .radioLabel .icon.violet {
+  stroke: var(--white);
+}
+
+.icon {
+  fill: transparent;
+}
+
+.icon.dark,
+.icon.violet {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.icon.active.dark,
+.icon.active.violet {
+  stroke: var(--white);
+}
+
+.icon.light {
+  stroke: rgba(22, 22, 22, 0.5);
+}
+
+.icon.active.light {
+  stroke: var(--secondary-color);
+}
+
+.backgrounds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  width: 260px;
+}
+
+.radioInput:checked + .radioLabelBgr {
+  width: 27px;
+  height: 27px;
+  border: 2px solid var(--green);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.noImg {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noImg.dark {
+  background-color: var(--black);
+}
+
+.noImg.light {
+  background-color: var(--gray);
+}
+
+.noImg.violet {
+  background-color: var(--violet-medium);
+}
+
+.noBgrIcon {
+  fill: transparent;
+  stroke: rgba(22, 22, 22, 0.1);
+}

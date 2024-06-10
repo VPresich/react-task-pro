@@ -12,6 +12,16 @@ export default function Input({ onName, onPlaceholder }) {
         className={fieldInput}
         placeholder={onPlaceholder}
       />
+       {/* <Field name={onName}>
+        {({ field }) => (
+          <input
+            {...field}
+            id={userNameId}
+            className={fieldInput}
+            placeholder={onPlaceholder}
+          />
+        )} */}
+      {/* </Field> */}
       <ErrorMessage name={onName} component="span" className={error} />
     </div>
   );
