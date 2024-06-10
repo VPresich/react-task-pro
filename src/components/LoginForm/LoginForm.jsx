@@ -161,8 +161,8 @@ export default function LoginForm() {
         <Form className={css.form}>
           <div className={css.buttonWrapper}>
             {/* <AuthNavigation /> */}
-            <button className={css.registerBtn}>REGISTRATION</button>
-            <button className={css.loginBtn}>LOG IN</button>
+            <button className={css.registerBtn}>Registration</button>
+            <button className={css.loginBtn}>Log In</button>
           </div>
           <div className={css.info}>
             <CustomField
