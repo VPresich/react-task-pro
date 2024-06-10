@@ -69,6 +69,7 @@ const Filters = () => {
               className={clsx(css['show-all-btn'], css[theme])}
               onClick={() => {
                 dispatch(filterByPriority('all'));
+                setPriority(null);
               }}
             >
               Show all
@@ -89,6 +90,7 @@ const Filters = () => {
                     name="priority"
                     value="Without priority"
                     onClick={handlePriorityChange}
+                    checked={priority === 'Without priority'}
                   />
                   <span>Without priority</span>
                 </label>
@@ -104,6 +106,7 @@ const Filters = () => {
                     name="priority"
                     value="Low"
                     onClick={handlePriorityChange}
+                    checked={priority === 'Low'}
                   />
                   <span>Low</span>
                 </label>
@@ -119,6 +122,7 @@ const Filters = () => {
                     name="priority"
                     value="Medium"
                     onClick={handlePriorityChange}
+                    checked={priority === 'Medium'}
                   />
                   <span>Medium</span>
                 </label>
@@ -134,6 +138,7 @@ const Filters = () => {
                     name="priority"
                     value="High"
                     onClick={handlePriorityChange}
+                    checked={priority === 'High'}
                   />
                   <span>High</span>
                 </label>
