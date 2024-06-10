@@ -174,7 +174,7 @@ export default function LoginForm() {
             <CustomField
               type="password" // changed type from text to password
               name="password"
-              placeholder={LABEL_PASSWORD} // use LABEL_PASSWORD directly as placeholder
+              placeholder={LABEL_PASSWORD}
               autoComplete="current-password"
               className={css.linkPassword}
             />
