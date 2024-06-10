@@ -114,19 +114,28 @@
 //     </div>
 //   );
 // }
-
+// import AuthNavigation from '../../components/AuthNavigation/AuthNavigation';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
-import { Formik, Form } from 'formik';
-import FormField from '../FormField/FormField';
-// import AuthNavigation from '../../components/AuthNavigation/AuthNavigation';
-
+import { Formik, Form, Field } from 'formik'; // import Field отдельно
 import Button from '../UI/Button/Button';
 import { INITIAL_LOGIN, LABEL_EMAIL, LABEL_PASSWORD } from './constants';
 import { feedbackSchema } from './feedback-schema';
 import { errNotify, successNotify } from '../../notification/notification';
 import { ERR_LOGIN, SUCCESS_LOGIN } from '../../notification/constants';
 import css from './LoginForm.module.css';
+
+function CustomField({ name, type, placeholder, className }) {
+  // remove children from here. it's no longer needed as we have placeholder.
+  return (
+    <Field
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      className={className}
+    />
+  );
+}
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -152,28 +161,30 @@ export default function LoginForm() {
         <Form className={css.form}>
           <div className={css.buttonWrapper}>
             {/* <AuthNavigation /> */}
-            <button className={css.resisterBtn}>REGISTRATION</button>
+            <button className={css.registerBtn}>REGISTRATION</button>
             <button className={css.loginBtn}>LOG IN</button>
           </div>
-
           <div className={css.info}>
-            <FormField type="email" name="email" styles={css.fieldText}>
-              {LABEL_EMAIL}
-            </FormField>
-            <FormField
-              type="password"
+            <CustomField
+              type="email" // changed type from text to email
+              name="email"
+              placeholder={LABEL_EMAIL} // use LABEL_EMAIL directly as placeholder
+              className={css.linkEmail}
+            />
+            <CustomField
+              type="password" // changed type from text to password
               name="password"
-              styles={css}
+              placeholder={LABEL_PASSWORD} // use LABEL_PASSWORD directly as placeholder
               autoComplete="current-password"
-            >
-              {LABEL_PASSWORD}
-            </FormField>
+              className={css.linkPassword}
+            />
           </div>
 
           <Button
             text="Log in Now"
             big={false}
             type="submit"
+            className={css.buttonLogin}
             onClick={() => {
               console.log('clicked');
             }}
