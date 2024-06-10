@@ -1,0 +1,19 @@
+.text {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.text.light,
+.text.violet {
+  color: var(--secondary-color);
+}
+.text.dark {
+  color: var(--white);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  gap: 24px;
+}
