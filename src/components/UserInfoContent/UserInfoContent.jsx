@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateAvatar, updateProfile } from '../../redux/auth/operations';
 import { Formik, Form, Field } from 'formik';
@@ -10,7 +10,6 @@ import { successNotify, errNotify } from '../../notification/notification';
 import clsx from 'clsx';
 
 export default function UserInfoContent() {
-  const [selectedFile, setSelectedFile] = useState(null);
   const theme = useSelector(selectTheme);
   const userInfo = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -20,15 +19,12 @@ export default function UserInfoContent() {
     fileInputRef.current.click();
   };
 
-  const handleSubmit = async (values, actions) => {
+  const handleSubmit = async values => {
     const formData = new FormData();
     formData.append('name', values.name);
     formData.append('email', values.email);
     if (values.password) {
       formData.append('password', values.password);
-    }
-    if (selectedFile) {
-      formData.append('avatar', selectedFile);
     }
 
     dispatch(updateProfile(formData))
@@ -39,9 +35,6 @@ export default function UserInfoContent() {
       .catch(err => {
         errNotify(err.message);
       });
-
-    actions.resetForm();
-    setSelectedFile(null);
   };
 
   const handleFileChange = event => {

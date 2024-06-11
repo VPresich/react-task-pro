@@ -104,12 +104,13 @@ export const updateAvatar = createAsyncThunk(
 export const updateProfile = createAsyncThunk(
   'auth/profile',
   async (formData, thunkAPI) => {
+    console.log(formData);
     try {
       const response = await axiosInst.patch('users', formData, {
         headers: {
           'Content-Type': formData.avatar
             ? 'multipart/form-data'
-            : 'application-json',
+            : 'application/json',
         },
       });
       return response.data;
