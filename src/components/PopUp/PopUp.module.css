@@ -1,0 +1,16 @@
+.popupDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.popup.Content {
+ 
+}
+
+.link {
+  margin: 1rem;
+  background-color: lightgrey;
+  padding: 0.5rem;
+}
