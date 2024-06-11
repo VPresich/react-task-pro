@@ -1,0 +1,28 @@
+.title {
+  font-family: 'Poppins-Medium';
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.title.light,
+.title.violet,
+.titles.light,
+.titles.violet {
+  color: var(--secondary-color);
+}
+
+.title.dark,
+.titles.dark {
+  color: var(--white);
+}
+
+.form {
+  width: 352px;
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0 40px;
+}
