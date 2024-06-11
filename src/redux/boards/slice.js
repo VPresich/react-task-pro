@@ -1,14 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from '../auth/operations';
-// import { fetchColumnsForBoard } from '../columns/operations';
-
+import { fetchColumnsForBoard } from '../columns/operations';
+import { fetchTasksForColumn } from '../tasks/operations';
 import {
   fetchBoards,
   deleteBoard,
   addBoard,
   updateBoard,
   getBoardById,
-  // getColumnsAndTasks,
+  getColumnsAndTasks,
 } from './operations';
 
 const boardsSlice = createSlice({
@@ -113,25 +113,25 @@ const boardsSlice = createSlice({
       .addCase(getBoardById.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      //-----------------------------------------------
+      //TODO
+      .addCase(getColumnsAndTasks.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getColumnsAndTasks.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const { tasks, ...columnData } = action.payload;
+        console.log('columnData', columnData);
+        fetchColumnsForBoard.fulfilled(columnData);
+        fetchTasksForColumn.fulfilled(tasks);
+      })
+      .addCase(getColumnsAndTasks.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
-    //-----------------------------------------------
-    //TODO
-    // .addCase(getColumnsAndTasks.pending, state => {
-    //   state.isLoading = true;
-    //   state.error = null;
-    // })
-    // .addCase(getColumnsAndTasks.fulfilled, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = null;
-    //   const { tasks, ...columnData } = action.payload;
-    //   console.log('columnData', columnData);
-    //   fetchColumnsForBoard.fulfilled(columnData);
-    //   // fetchTasksForColumn.fulfilled(tasks);
-    // })
-    // .addCase(getColumnsAndTasks.rejected, (state, action) => {
-    //   state.isLoading = false;
-    //   state.error = action.payload;
-    // })
   },
 });
 

@@ -1,0 +1,43 @@
+.container {
+  width: 342px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+}
+.icon {
+  fill: transparent;
+}
+.icon.dark {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+.icon.light,
+.icon.violet {
+  stroke: rgba(22, 22, 22, 0.5);
+}
+.colTitle {
+  width: 100%;
+  background-color: var(--white);
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+.colTitle.dark {
+  color: var(--white);
+  background-color: var(--secondary-color);
+}
+.iconsWrap {
+  display: flex;
+  gap: 8px;
+}
+.btn {
+  background-color: transparent;
+  border: none;
+  width: 16px;
+  height: 16px;
+}

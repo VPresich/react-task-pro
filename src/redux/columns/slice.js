@@ -36,9 +36,16 @@ const columnsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const boardId = action.payload.boardId;
-        state.items = state.items.filter(item => item.boardId !== boardId);
+        state.items = state.items.map(item => {
+          const filteredColumns = item.filter(
+            column => column.board._id !== boardId
+          );
+          return filteredColumns;
+        });
+
         state.items.push(action.payload.columns);
       })
+
       .addCase(fetchColumnsForBoard.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;

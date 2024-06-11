@@ -8,6 +8,7 @@ import {
 import AddColumnBtn from '../AddColumnBtn/AddColumnBtn';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import ColumnModal from '../ColumnModal/ColumnModal';
+import ColumnList from '../ColumnList/ColumnList';
 
 const backgrounds = [
   'theme00',
@@ -82,6 +83,7 @@ export default function Board() {
   const activeBoard = useSelector(selectActiveBoard);
   const activeBoardId = useSelector(selectActiveBoardId);
 
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
     setIsModalOpen(true);
@@ -91,7 +93,6 @@ export default function Board() {
     setIsModalOpen(false);
   };
 
-  
   console.log('active: ', activeBoard);
 
   const theme = activeBoard ? activeBoard.background : 'theme00';
@@ -126,6 +127,7 @@ export default function Board() {
     >
       Board
       <AddColumnBtn openModal={openModal} />
+      <ColumnList activeBoardId={activeBoardId} />
       {isModalOpen && (
         <ModalWrapper onClose={closeModal}>
           <ColumnModal modalType={'add'} activeBoardId={activeBoardId} />

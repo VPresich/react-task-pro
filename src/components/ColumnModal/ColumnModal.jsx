@@ -11,6 +11,7 @@ import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 
+
 const ColumnModal = ({ modalType, activeBoardId, columnId }) => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
