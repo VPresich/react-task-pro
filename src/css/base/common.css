@@ -1,8 +1,6 @@
 body {
   margin: 0;
   font-family: 'Poppins-Regular', sans-serif;
-  color: var(--secondary-color);
-  background-color: var(--primary-color);
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

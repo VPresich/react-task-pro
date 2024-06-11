@@ -4,9 +4,11 @@ import css from './AuthPage.module.css';
 
 export default function AuthPage() {
   return (
-    <div className={css.container}>
+    <>
       <DocumentTitle>AuthPage</DocumentTitle>
-      <AuthNavigation />
-    </div>
+      <div className={css.authContainer}>
+        <AuthNavigation />
+      </div>
+    </>
   );
 }
