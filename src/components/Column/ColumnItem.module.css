@@ -1,22 +1,27 @@
 .container {
-  width: 342px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 14px;
+  margin-top: 10px;
 }
 .icon {
   fill: transparent;
+  display: none;
 }
-.icon.dark {
+
+.icon.active.dark {
   stroke: rgba(255, 255, 255, 0.5);
+  display: block;
 }
-.icon.light,
-.icon.violet {
+.icon.active.light,
+.icon.active.violet {
   stroke: rgba(22, 22, 22, 0.5);
+  display: block;
 }
+
 .colTitle {
-  width: 100%;
+  width: 334px;
   background-color: var(--white);
   border-radius: 8px;
   padding: 20px;
@@ -40,4 +45,47 @@
   border: none;
   width: 16px;
   height: 16px;
+}
+.listContainer {
+  overflow-y: scroll;
+  width: 350px;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 478px;
+}
+.btnWrap {
+  width: 334px;
+}
+
+.listContainer::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 12px;
+}
+.listContainer.light::-webkit-scrollbar {
+  background-color: var(--section-bgr-color);
+}
+.listContainer.violet::-webkit-scrollbar {
+  background-color: var(--white);
+}
+.listContainer.dark::-webkit-scrollbar {
+  background-color: var(--dark-scroll);
+}
+.listContainer::-webkit-scrollbar-thumb {
+  width: 8px;
+  border-radius: 12px;
+  height: 36px;
+}
+
+.listContainer.dark::-webkit-scrollbar-thumb {
+  background-color: var(--black-dark);
+}
+.listContainer.light::-webkit-scrollbar-thumb {
+  background-color: rgba(22, 22, 22, 0.1);
+}
+
+.listContainer.violet::-webkit-scrollbar-thumb {
+  background-color: var(--violet-main-superlight);
 }

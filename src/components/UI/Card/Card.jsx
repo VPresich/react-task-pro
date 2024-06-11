@@ -9,8 +9,8 @@ import clsx from 'clsx';
 // import ModalWindow from 'ModalWindow';
 // import ModalWindow1 from 'ModalWindow';
 
-export default function Card({ item }) {
-  const { title, description, id, priority, deadline } = item;
+export default function Card({ title, description, id, priority, deadline }) {
+  // const { title, description, id, priority, deadline } = item;
   const theme = useSelector(selectTheme);
   const isDeadlineSoon = deadline => {
     const deadlineDate = new Date(deadline);

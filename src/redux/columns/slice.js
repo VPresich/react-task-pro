@@ -59,7 +59,10 @@ const columnsSlice = createSlice({
       .addCase(addColumnForBoard.fulfilled, (state, action) => {
         state.isAdding = false;
         state.error = null;
-        state.items.push(action.payload);
+        // state.items.push(action.payload);
+        state.items.forEach(item => {
+          item.push(action.payload);
+        });
       })
       .addCase(addColumnForBoard.rejected, (state, action) => {
         state.isAdding = false;
@@ -75,6 +78,7 @@ const columnsSlice = createSlice({
         const index = state.items.findIndex(
           column => column.id === action.payload.id
         );
+
         if (index !== -1) {
           state.items.splice(index, 1);
         }

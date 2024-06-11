@@ -11,8 +11,7 @@ import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 
-
-const ColumnModal = ({ modalType, activeBoardId, columnId }) => {
+const ColumnModal = ({ modalType, activeBoardId, columnId, onClose }) => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
 
@@ -29,9 +28,11 @@ const ColumnModal = ({ modalType, activeBoardId, columnId }) => {
         .then(() => {
           toast.success('fetchColumn fulfilled');
           actions.resetForm();
+          onClose();
         })
         .catch(() => {
           toast.error('fetchColumn rejected');
+          onClose();
         });
     } else if (modalType === 'edit') {
       dispatch(updateColumnById({ id: columnId, title }))
@@ -39,9 +40,11 @@ const ColumnModal = ({ modalType, activeBoardId, columnId }) => {
         .then(() => {
           toast.success('fetchColumn fulfilled');
           actions.resetForm();
+          onClose();
         })
         .catch(() => {
           toast.error('fetchColumn rejected');
+          onClose();
         });
     }
   };

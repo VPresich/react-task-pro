@@ -83,7 +83,6 @@ export default function Board() {
   const activeBoard = useSelector(selectActiveBoard);
   const activeBoardId = useSelector(selectActiveBoardId);
 
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
     setIsModalOpen(true);
@@ -126,11 +125,17 @@ export default function Board() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       Board
-      <AddColumnBtn openModal={openModal} />
-      <ColumnList activeBoardId={activeBoardId} />
+      <div className={css.columnsWrapper}>
+        <ColumnList activeBoardId={activeBoardId} />
+        <AddColumnBtn openModal={openModal} />
+      </div>
       {isModalOpen && (
         <ModalWrapper onClose={closeModal}>
-          <ColumnModal modalType={'add'} activeBoardId={activeBoardId} />
+          <ColumnModal
+            modalType={'add'}
+            activeBoardId={activeBoardId}
+            onClose={closeModal}
+          />
         </ModalWrapper>
       )}
     </div>

@@ -14,13 +14,16 @@ export const selectActiveColumn = state => {
 export const selectColumnsForBoard = (state, boardId) => {
   const { items } = state.columns;
   //   return  items.filter(item => item.board._id === boardId) || null;
-  const filteredItems = [];
+  // const filteredItems = [];
 
-  items.forEach(item => {
-    console.log('BoardId', boardId);
-    const filteredColumns = item.filter(column => column.board._id === boardId);
-    filteredItems.push(...filteredColumns);
-  });
+  // items.forEach(item => {
+  //   const filteredColumns = item.filter(column => column.board._id === boardId);
+  //   filteredItems.push(...filteredColumns);
+  // });
+
+  // return filteredItems;
+
+  const filteredItems = items.flat().filter(item => item.board._id === boardId);
 
   return filteredItems;
 };

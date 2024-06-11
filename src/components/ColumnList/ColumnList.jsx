@@ -1,37 +1,42 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useMemo } from 'react';
-import { selectColumnsForBoard } from '../../redux/columns/selectors';
+import { useEffect } from 'react';
+import {
+  selectActiveColumndId,
+  selectColumnsForBoard,
+} from '../../redux/columns/selectors';
 import { setActiveColumn } from '../../redux/columns/slice';
 import ColumnItem from '../Column/ColumnItem';
 import { fetchColumnsForBoard } from '../../redux/columns/operations';
+import css from './ColumnList.module.css';
 
 const ColumnList = ({ activeBoardId }) => {
   const dispatch = useDispatch();
   const columns = useSelector(state =>
     selectColumnsForBoard(state, activeBoardId)
   );
-  console.log(columns);
-  const fetchColumnsForBoardMemoized = useMemo(() => fetchColumnsForBoard, []);
+  const activeColumn = useSelector(selectActiveColumndId);
+
   useEffect(() => {
     if (activeBoardId) {
       dispatch(fetchColumnsForBoard(activeBoardId));
     }
-  }, [dispatch, activeBoardId, fetchColumnsForBoardMemoized]);
+  }, [dispatch, activeBoardId]);
 
   const handleActiveColumn = id => {
     dispatch(setActiveColumn(id));
   };
 
   return (
-    <ul>
+    <ul className={css.list}>
       {columns &&
         columns.length > 0 &&
         columns.map(column => (
-          <li key={column._id}>
+          <li className={css.item} key={column._id}>
             <ColumnItem
               key={column._id}
               column={column}
-              setActivecolumn={handleActiveColumn}
+              isActive={column._id === activeColumn}
+              setActiveColumn={handleActiveColumn}
             />
           </li>
         ))}
