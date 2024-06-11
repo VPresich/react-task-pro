@@ -86,6 +86,13 @@
   width: 260px;
 }
 
+.radioInput + .radioLabelBgr {
+  width: 28px;
+  height: 28px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+}
 .radioInput:checked + .radioLabelBgr {
   width: 27px;
   height: 27px;

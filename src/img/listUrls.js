@@ -3,7 +3,7 @@ const imgsURL = [
     _id: '665dab40d37019ad00137c09',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033987/theme01_desktop_2x_vpsnlj.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033986/theme01_desktop_1x_brzmfg.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040177/theme01_mobile_1x_xqz8kb.jpg',
@@ -20,7 +20,7 @@ const imgsURL = [
     _id: '66671f46198a7b91a4f080e5',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033974/theme02_desktop_2x_w2rg0x.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033974/theme02_desktop_1x_m1utoh.jpg\n',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040181/theme02_mobile_1x_f5oqj7.jpg',
@@ -37,7 +37,7 @@ const imgsURL = [
     _id: '66671f78198a7b91a4f080e6',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033975/theme03_desktop_2x_p1wyjw.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033974/theme03_desktop_1x_vcaf4y.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040141/theme03_mobile_1x_whynlu.jpg',
@@ -54,7 +54,7 @@ const imgsURL = [
     _id: '66671fad198a7b91a4f080e7',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033975/theme04_desktop_2x_cdbigz.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033974/theme04_desktop_1x_a617p6.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040143/theme04_mobile_1x_svuqkj.jpg',
@@ -71,7 +71,7 @@ const imgsURL = [
     _id: '66671fb3198a7b91a4f080e8',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033978/theme05_desktop_2x_wwjq8l.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033975/theme05_desktop_1x_whp1wr.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040144/theme05_mobile_1x_ipb7k7.jpg',
@@ -88,7 +88,7 @@ const imgsURL = [
     _id: '66671fb9198a7b91a4f080e9',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033976/theme06_desktop_2x_qsluta.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033976/theme06_desktop_1x_bgwchk.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040145/theme06_mobile_1x_fxn38j.jpg',
@@ -105,7 +105,7 @@ const imgsURL = [
     _id: '66671fbd198a7b91a4f080ea',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033977/theme07_desktop_2x_nkrkay.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033977/theme07_desktop_1x_hvdb7a.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040147/theme07_mobile_1x_c6q1kl.jpg',
@@ -122,7 +122,7 @@ const imgsURL = [
     _id: '66671fc2198a7b91a4f080eb',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033979/theme08_desktop_2x_rf8dxj.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033978/theme08_desktop_1x_z7hka2.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040151/theme08_mobile_1x_wphrcv.jpg',
@@ -139,7 +139,7 @@ const imgsURL = [
     _id: '66671fc6198a7b91a4f080ec',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033980/theme09_desktop_2x_ijst7c.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033980/theme09_desktop_1x_sut43k.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040154/theme09_mobile_1x_kjpy67.jpg',
@@ -156,7 +156,7 @@ const imgsURL = [
     _id: '66671fcc198a7b91a4f080ed',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033981/theme10_desktop_2x_hq7zhe.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033980/theme10_desktop_1x_ew76vz.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040157/theme10_mobile_1x_ytvfrk.jpg',
@@ -173,7 +173,7 @@ const imgsURL = [
     _id: '66671fd1198a7b91a4f080ee',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033981/theme11_desktop_2x_kxpblj.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033982/theme11_desktop_1x_aiasw5.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040158/theme11_mobile_1x_qviyed.jpg',
@@ -191,7 +191,7 @@ const imgsURL = [
     _id: '66671fe1198a7b91a4f080f0',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033984/theme12_desktop_2x_el6gfm.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033982/theme12_desktop_1x_o1nenx.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040163/theme12_mobile_1x_qks5is.jpg',
@@ -208,7 +208,7 @@ const imgsURL = [
     _id: '66671fe5198a7b91a4f080f1',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033984/theme13_desktop_2x_lzhnjo.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033983/theme13_desktop_1x_kddxde.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040166/theme13_mobile_1x_oeko6x.jpg',
@@ -225,7 +225,7 @@ const imgsURL = [
     _id: '66671fea198a7b91a4f080f2',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033986/theme14_desktop_2x_tzwj6x.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033984/theme14_desktop_1x_r6lzfm.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040170/theme14_mobile_1x_dvusei.jpg',
@@ -242,7 +242,7 @@ const imgsURL = [
     _id: '66671fdc198a7b91a4f080ef',
     imgUrl_desktop_2x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033987/theme15_desktop_1x_nuwzjk.jpg',
-    imgUrl_desltop_1x:
+    imgUrl_desktop_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718033987/theme15_desktop_1x_nuwzjk.jpg',
     imgUrl_mobile_1x:
       'https://res.cloudinary.com/dirtbd4yk/image/upload/v1718040174/theme15_mobile_1x_hxngnl.jpg',
