@@ -5,6 +5,7 @@ import Button from '../../UI/Button/Button';
 
 import { feedbackSchema } from '../LoginForm/feedbackSchema';
 import { errNotify, successNotify } from '../../../notification/notification';
+import { ERR_REGISTRATION, SUCCESS_REGISTRATION } from '../constants';
 
 import css from './RegisterForm.module.css';
 
@@ -14,17 +15,18 @@ export default function RegisterForm() {
     dispatch(register(values))
       .unwrap()
       .then(() => {
-        successNotify();
+        successNotify(SUCCESS_REGISTRATION);
         actions.resetForm();
       })
-      .catch(err => {
-        errNotify(err.message);
+      .catch(() => {
+        errNotify(ERR_REGISTRATION);
       });
   };
 
   return (
     <Formik
       initialValues={{
+        name: '',
         email: '',
         password: '',
       }}

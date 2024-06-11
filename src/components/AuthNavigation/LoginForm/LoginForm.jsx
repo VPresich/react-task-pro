@@ -6,9 +6,10 @@ import Button from '../../UI/Button/Button';
 import { feedbackSchema } from './feedbackSchema';
 import { errNotify, successNotify } from '../../../notification/notification';
 import css from './LoginForm.module.css';
+import { ERR_LOGIN, SUCCESS_LOGIN } from '../constants';
 
 export default function LoginForm() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(SUCCESS_LOGIN);
 
   const handleSubmit = (values, actions) => {
     dispatch(logIn(values))
@@ -17,8 +18,8 @@ export default function LoginForm() {
         successNotify();
         actions.resetForm();
       })
-      .catch(err => {
-        errNotify(err.message);
+      .catch(() => {
+        errNotify(ERR_LOGIN);
       });
   };
   return (
