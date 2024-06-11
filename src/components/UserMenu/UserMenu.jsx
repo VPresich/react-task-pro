@@ -7,6 +7,7 @@ import ThemeSelector from "../ThemeSelector/ThemeSelector";
 import ModalWindow from '../UI/ModalWindow/ModalWindow';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/auth/selectors';
+import spritePath from '../../img/sprite.svg';
 import clsx from 'clsx';
 
 export default function UserMenu() {
@@ -30,6 +31,14 @@ export default function UserMenu() {
 
   return (
     <div className={css.wrapper}>
+      <button className={clsx(css.burgerButton, css[theme])}>
+        <svg
+          className={clsx(css.icon, css[theme])}
+          aria-label="burger"
+        >
+          <use href={`${spritePath}#icon-burger`} />
+        </svg>
+      </button>
       <ThemeSelector />
       <button onClick={handleEditProfile} className={css.wrapperIcon}>
         <p className={clsx(css.username, css[theme])}>{user.name}</p>

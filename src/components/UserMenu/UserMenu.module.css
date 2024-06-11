@@ -1,7 +1,29 @@
 .wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+}
+
+.burgerButton {
+  border: none;
+  background: none;
+  width: 32px;
+  height: 32px;
+  margin-right: auto;
+  visibility: hidden;
+}
+
+.icon {
+  stroke: var(--secondary-color);
+  width: 32px;
+  height: 32px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
   gap: 16px;
 }
 
@@ -19,11 +41,11 @@
   font-weight: 600;
 }
 
-.username.dark{
+.username.dark {
   color: var(--primary-color);
 }
 
-.username:hover{
+.username:hover {
   cursor: pointer;
 }
 
