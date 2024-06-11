@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx';
 
-export default function TextareaForm({ onName, onPlaceholder }) {
+export default function TextareaForm({ onName, onPlaceholder, height }) {
   const theme = useSelector(selectTheme);
   const userTextareaId = useId();
   return (
@@ -15,6 +15,7 @@ export default function TextareaForm({ onName, onPlaceholder }) {
         name={onName}
         id={userTextareaId}
         // rows="5"
+        style={height ? { height: `${height}px` } : {}}
         className={clsx(css.fieldTextarea, css[theme])}
         placeholder={onPlaceholder}
       />

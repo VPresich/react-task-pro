@@ -4,13 +4,26 @@ import spritePath from "../../../img/sprite.svg";
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx';
+import SupportModal from '../../SupportModal/SupportModal';
+import { useState } from 'react';
+
 
 export default function NeedHelp() {
     const theme = useSelector(selectTheme);
   // const theme = 'light';
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleHelp = () => {
     console.log('need help modal');
+    openModal();
     //open support modal
   }
   return (
@@ -34,6 +47,7 @@ export default function NeedHelp() {
         </span>
         <span className={css.span}>Need help?</span> 
       </button>
+      {isModalOpen && <SupportModal onClose={closeModal} />}
     </div>
   )
 }
