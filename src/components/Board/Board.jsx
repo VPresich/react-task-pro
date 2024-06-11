@@ -3,6 +3,8 @@ import css from './Board.module.css';
 import { useSelector } from 'react-redux';
 import { selectActiveBoard } from '../../redux/boards/selectors';
 
+import imgsURL from '../../img/listUrls.js';
+
 function getDeviceType() {
   if (window.innerWidth >= 1024) {
     return 'desktop';
@@ -17,69 +19,40 @@ function getResolution() {
   return window.devicePixelRatio > 1 ? '2x' : '1x';
 }
 
-function getBackgroundImage(theme) {
+function getBackgroundImage(theme, imgsURL) {
   const deviceType = getDeviceType();
   const resolution = getResolution();
-  let basePath = '';
+  console.log(theme);
+  const themeData = imgsURL.find((img) => img._id === theme);
+  console.log(themeData);
+  if (!themeData) return '';
 
-  switch (deviceType) {
-    case 'desktop':
-      basePath = './src/img/bgr-desktop';
-      break;
-    case 'tablet':
-      basePath = './src/img/bgr-tablet';
-      break;
-    case 'mobile':
-      basePath = './src/img/bgr-mobile';
-      break;
-    default:
-      break;
-  //  switch (deviceType) {
-  //   case 'desktop':
-  //     basePath = 'http://localhost:5173/src/img/bgr-desktop';
-  //     break;
-  //   case 'tablet':
-  //     basePath = 'http://localhost:5173/src/img/bgr-tablet';
-  //     break;
-  //   case 'mobile':
-  //     basePath = 'http://localhost:5173/src/img/bgr-mobile';
-  //     break;
-  //   default:
-  //     break;
-  }
-
-  const imagePath = `${basePath}/${theme}_${deviceType}@${resolution}.jpg`;
-  console.log('Background Image Path:', imagePath);
-  return imagePath;
+  const key = `imgUrl_${deviceType}_${resolution}`;
+  return themeData[key] || '';
 }
 
 export default function Board() {
-
   const activeBoard = useSelector(selectActiveBoard);
-  console.log('active: ', activeBoard);
-
-  const theme = activeBoard ? activeBoard.background : 'theme00';
-
-  console.log(theme);
-
-  const [backgroundImage, setBackgroundImage] = useState(getBackgroundImage(theme));
-  console.log(theme);
-  console.log(backgroundImage);
+  const theme = activeBoard ? activeBoard.background : '665dab40d37019ad00137c09';
+  console.log(theme)
+  const [backgroundImage, setBackgroundImage] = useState(getBackgroundImage(theme, imgsURL));
 
   useEffect(() => {
-  const handleResize = () => {
-    setBackgroundImage(getBackgroundImage(theme));
-  };
+    const handleResize = () => {
+      setBackgroundImage(getBackgroundImage(theme, imgsURL));
+    };
 
-  window.addEventListener('resize', handleResize);
-  return () => {
-    window.removeEventListener('resize', handleResize);
-  };
-}, []); // Include activeBoard and theme in the dependencies
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [theme]); // Include theme in the dependencies
 
-useEffect(() => {
-    setBackgroundImage(getBackgroundImage(theme));
-}, [activeBoard, theme]); // Include activeBoard and theme in the dependencies
+  useEffect(() => {
+    setBackgroundImage(getBackgroundImage(theme, imgsURL));
+  }, [theme, activeBoard]); // Include theme and activeBoard in the dependencies
+
+  console.log(theme, backgroundImage);
 
   return (
     <div
