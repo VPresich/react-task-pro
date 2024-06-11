@@ -9,7 +9,7 @@ import {
 } from './operations';
 
 const initialState = {
-  user: { name: null, email: null, theme: 'Light', avatarURL: '' },
+  user: { name: null, email: null, theme: 'light', avatarURL: '' },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,

@@ -1,0 +1,36 @@
+.form {
+  width: 100%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.field {
+  background-color: #1f1f1f;
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  width: 344px;
+  height: 49px;
+  box-shadow: 0 4px 16px 0 rgba(22, 22, 22, 0.08);
+  background: #1f1f1f;
+  opacity: 0.4;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #fff;
+  padding-left: 14px;
+}
+
+.fieldContainer {
+  position: relative;
+}
+
+.error {
+  margin-top: 4px;
+  color: #bedbb0;
+}

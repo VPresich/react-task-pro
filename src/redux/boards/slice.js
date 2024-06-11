@@ -77,7 +77,7 @@ const boardsSlice = createSlice({
         state.isAdding = false;
         const updatedBoard = action.payload;
         const boardIndex = state.items.findIndex(
-          board => board._id === updatedBoard.id
+          board => board._id === updatedBoard._id
         );
         if (boardIndex !== -1) {
           state.items[boardIndex] = updatedBoard;

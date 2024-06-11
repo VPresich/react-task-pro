@@ -4,12 +4,15 @@
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
-  width: 100%;  
-  margin: 0 auto;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .welcomeWrapper {
+  width: 473px;
+  height: 438px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,86 +22,62 @@
 .mainImage {
   width: 162px;
   height: 162px;
-  padding-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .logoPage {
   display: flex;
   justify-content: center;
   align-items: center;
+  column-gap: 14px;
+  margin-bottom: 24px;
 }
 
 .mainTitle {
-  color: #161616;
-  font-family: 'Poppins-Semibold';
-  font-size: 40px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
-  letter-spacing: -1.6px;
-}
-.text {
+  font-size: 40px;
+  letter-spacing: -0.04em;
   color: #161616;
-  text-align: center;
-  font-family: 'Poppins-Regular';
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 18px;
-  /* 128.571% */
-  letter-spacing: -0.28px;
-  padding-top: 24px;
-  padding-bottom: 48px;
 }
 
-.linkWrapperRegister {
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 129%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #161616;
+  margin-bottom: 48px;
+}
+
+.btnsWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  /* border-radius: 8px;
-  background: #161616;
-  border-color: transparent;
-  box-shadow: -2px -3px 6px #fff, 2px 3px 6px #fff; */
 }
-.linkWrapperLogin {
+
+.btnRegister {
+  font-family: 'Poppins-Medium', sans-serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 8px;
-  background-color: transparent;
-  border-color: transparent;
-}
-.button1 {
-  flex-direction: column;
-    align-items: center;
-   background: #161616;
-  color: #fff;
-  display: flex;
-  width: 344px;
-  padding: 14px 0px;
   justify-content: center;
   align-items: center;
-  border: none;
-
-  text-align: center;
-  font-size: 14px;
-  font-style: normal;
+  width: 344px;
+  height: 49px;
   font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.28px; 
-    
-    
-    border-radius: 8px;
-    
-    border-color: transparent;
-    box-shadow: -2px -3px 6px #fff, 2px 3px 6px #fff
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: #fff;
+  background: #161616;
+  border: none;
+  border-radius: 8px;
+  border-color: transparent;
 }
 
-.button2 {
-  font-family: 'Poppins-Medium';
+.btnLogin {
+  font-family: 'Poppins-Medium', sans-serif;
   color: #161616;
-  font-family: Poppins;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

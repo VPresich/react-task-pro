@@ -6,12 +6,25 @@ import clsx from 'clsx';
 import { deleteBoard } from '../../redux/boards/operations';
 import { errNotify, successNotify } from '../../notification/notification';
 import { ERR_BOARD_DELETE, SUCCESS_BOARD_DELETE } from '../../notification/constants';
+import { useState } from 'react';
+import EditBoardModal from '../EditBoardModal/EditBoardModal';
+
 
 const BoardListItem = ({ board, isActive, setActiveBoard }) => {
     const dispatch = useDispatch();
     const theme = useSelector(selectTheme);
     // const theme = 'violet'
-    const { _id, title } = board;
+    const { _id, title, icon } = board;
+    
+     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
     
     const handleDelete = (id) => {
         dispatch(deleteBoard(id))
@@ -26,7 +39,7 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
 
     const handleEdit = (id) => {
         console.log('edit board', id)
-        // open edit modal
+        openModal();
     }
     return (
         <div className={isActive ? clsx(css.container, css[theme], css.active) : clsx(css.container, css[theme])} onClick={() => setActiveBoard(_id)}>
@@ -37,7 +50,7 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
                 height="18"
                 aria-label="btn icon"
             >
-            <use href={`${spritePath}#icon-colors`} />
+            <use href={`${spritePath}#${icon}`} />
             </svg>
             <p className={isActive ? clsx(css.title, css[theme], css.active) : clsx(css.title, css[theme])}>{title}</p>
         </div>
@@ -71,6 +84,9 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
             </button>
         </div>
         <div className={isActive ? clsx(css.border, css[theme], css.active) : clsx(css.border, css[theme])}></div>
+        {isModalOpen && (
+            <EditBoardModal board={board} onClose={ closeModal } />
+        )}
         </div>
     );
 };

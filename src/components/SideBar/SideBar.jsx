@@ -18,7 +18,8 @@ export default function SideBar() {
       <CreateBoard/>
       <BoardList />
       <NeedHelp />
-      <LogoutButton/>
+      <LogoutButton />
+      
     </div>
   );
 }
