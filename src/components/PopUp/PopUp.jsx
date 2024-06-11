@@ -1,36 +1,42 @@
-import React from 'react';
-import { Formik, Form, Field } from 'formik';
+// import React from 'react';
+import css from './PopUp.module.css';
+import clsx from 'clsx';
+import sprite from "../../assets/sprite.svg";
+import { PopUpStyles } from './PopUp.styled';
+import { columns } from '../../redux/store';
 
-const PopUp = ({ closePopup, history }) => {
-  const handleSelectChange = event => {
-    console.log(event.currentTarget.value);
-    const selectedColumn = event.currentTarget.value;
-    if (selectedColumn === 'inProgress') {
-      history.push('/inProgress');
-    } else if (selectedColumn === 'done') {
-      history.push('/done');
-    }
-    closePopup();
-  };
+const columns = ['column 1', 'column2', 'column 3']; // Импортируйте свой список колонок здесь
 
-  return (
-    <div>
-      <Formik
-        initialValues={{
-          column: '',
-        }}
-      >
-        <Form>
-          <Field as="select" name="column" onChange={handleSelectChange}>
-            <option value="">--Select the column--</option>
-            <option value="inProgress">In Progress</option>
-            <option value="done">Done</option>
-          </Field>
-        </Form>
-      </Formik>
-    </div>
-  );
-};
+ const PopUp = () => { 
+
+
+
+  const ButtonList = () => {
+    return (
+      <div>
+        <svg
+          className={clsx(styles.color, styles[theme])}
+          width="16"
+          height="16"
+          aria-label="btn icon"
+          onClick={openModalArrow}
+        >
+          <use href={`${spritePath}#icon-arrow`} />
+        </svg>
+      
+
+        {columns.map((column, index) => (
+          <button key={index} onClick={() => console.log(`Moving to ${column}`)}>
+            {column}
+          </button>
+        ))}
+      </div>
+    )   
+
+}
+  
+
+// export default ButtonList;
 
 // Для перемещения пользователя автоматически в выбранную колонку после выбора,
 //   вам нужно использовать механизм маршрутизации в React.Учитывая,
