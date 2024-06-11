@@ -12,7 +12,7 @@ export default function Input({ onName, onPlaceholder }) {
         className={fieldInput}
         placeholder={onPlaceholder}
       />
-       {/* <Field name={onName}>
+      {/* <Field name={onName}>
         {({ field }) => (
           <input
             {...field}
