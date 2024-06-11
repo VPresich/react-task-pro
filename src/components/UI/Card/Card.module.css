@@ -50,9 +50,6 @@
 .cardTitle.light{
 color: var(--secondary-color);
 }
-.containerCard {
-    width: 290px;
-}
 .cardDescription {
     margin-top: 8px;
     font-family: 'Poppins-Regular', sans-serif;
@@ -65,6 +62,7 @@ color: var(--secondary-color);
     overflow: hidden;
     line-height: 1rem;
     max-height: 2rem;
+    width: 290px;
 
 
 }

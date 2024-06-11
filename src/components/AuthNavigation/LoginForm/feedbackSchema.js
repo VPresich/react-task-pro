@@ -5,7 +5,7 @@ import {
   ERR_PASSWORD,
   ERR_EMAIL_REQUIRED,
   ERR_PASSWORD_REQUIRED,
-} from './constants';
+} from '../constants';
 
 export const feedbackSchema = Yup.object().shape({
   email: Yup.string().email(ERR_EMAIL).required(ERR_EMAIL_REQUIRED),
