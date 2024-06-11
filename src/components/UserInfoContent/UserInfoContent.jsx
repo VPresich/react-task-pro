@@ -2,9 +2,10 @@ import { useState, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateAvatar, updateProfile } from '../../redux/auth/operations';
 import { Formik, Form, Field } from 'formik';
-import { selectTheme, selectUser } from '../../redux/auth/selectors'; import Button from '../UI/Button/Button';
+import { selectTheme, selectUser } from '../../redux/auth/selectors';
+import Button from '../UI/Button/Button';
 import { feedbackSchema } from './feedback-schema';
-import styles from './UserInfoContent.module.css';
+import css from './UserInfoContent.module.css';
 import { successNotify, errNotify } from '../../notification/notification';
 import clsx from 'clsx';
 
@@ -67,19 +68,19 @@ export default function UserInfoContent() {
       onSubmit={handleSubmit}
       validationSchema={feedbackSchema}
     >
-      <Form className={styles.form}>
-        <div className={styles.info}>
-          <div className={clsx(styles.avatarContainer, styles[theme])}>
+      <Form className={css.form}>
+        <div className={css.info}>
+          <div className={clsx(css.avatarContainer, css[theme])}>
             <img
               src={userInfo.avatarURL}
               width="64"
               alt="Avatar"
-              className={styles.avatar}
+              className={css.avatar}
             />
             <button
               type="button"
               onClick={handleEditAvatar}
-              className={clsx(styles.editAvatarButton, styles[theme])}
+              className={clsx(css.editAvatarButton, css[theme])}
             >+</button>
           </div>
           <input
@@ -91,19 +92,19 @@ export default function UserInfoContent() {
           <Field
             type="text"
             name="name"
-            className={clsx(styles.input, styles[theme])}
+            className={clsx(css.input, css[theme])}
             autoComplete="name"
           />
           <Field
             type="email"
             name="email"
-            className={clsx(styles.input, styles[theme])}
+            className={clsx(css.input, css[theme])}
             autoComplete="email"
           />
           <Field
             type="password"
             name="password"
-            className={clsx(styles.input, styles[theme])}
+            className={clsx(css.input, css[theme])}
             autoComplete="current-password"
           />
         </div>
