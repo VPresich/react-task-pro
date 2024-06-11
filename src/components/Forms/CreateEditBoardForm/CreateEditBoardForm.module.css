@@ -2,7 +2,18 @@
   font-family: 'Poppins-Medium';
   font-size: 18px;
   letter-spacing: -0.02em;
+}
+
+.title.light,
+.title.violet,
+.titles.light,
+.titles.violet {
   color: var(--secondary-color);
+}
+
+.title.dark,
+.titles.dark {
+  color: var(--white);
 }
 
 .form {
@@ -37,12 +48,12 @@
   display: none;
 }
 
-.radioInput:checked + .radioLabel .icon.light {
+.radioInput:checked + .radioLabel .icon.light,
+.radioInput:checked + .radioLabel .icon.violet {
   stroke: var(--secondary-color);
 }
 
-.radioInput:checked + .radioLabel .icon.dark,
-.radioInput:checked + .radioLabel .icon.violet {
+.radioInput:checked + .radioLabel .icon.dark {
   stroke: var(--white);
 }
 
@@ -50,21 +61,21 @@
   fill: transparent;
 }
 
-.icon.dark,
-.icon.violet {
+.icon.dark {
   stroke: rgba(255, 255, 255, 0.5);
 }
 
-.icon.active.dark,
-.icon.active.violet {
+.icon.active.dark {
   stroke: var(--white);
 }
 
-.icon.light {
+.icon.light,
+.icon.violet {
   stroke: rgba(22, 22, 22, 0.5);
 }
 
-.icon.active.light {
+.icon.active.light,
+.icon.active.violet {
   stroke: var(--secondary-color);
 }
 

@@ -1,26 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import css from './Board.module.css';
 import { useSelector } from 'react-redux';
 import { selectActiveBoard } from '../../redux/boards/selectors';
-
-const backgrounds = [
-  "theme00",
-  "theme01",
-  "theme02",
-  "theme03",
-  "theme04",
-  "theme05",
-  "theme06",
-  "theme07",
-  "theme08",
-  "theme09",
-  "theme10",
-  "theme11",
-  "theme12",
-  "theme13",
-  "theme14",
-  "theme15"
-];
 
 function getDeviceType() {
   if (window.innerWidth >= 1024) {
