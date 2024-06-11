@@ -37,7 +37,7 @@ export default function LoginForm() {
               type="text"
               name="email"
               placeholder="Enter your email"
-              autocomplete="email"
+              autoComplete="email"
               className={css.field}
             />
             <ErrorMessage name="email" component="span" className={css.error} />
