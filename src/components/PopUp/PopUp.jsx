@@ -1,7 +1,7 @@
 // import React from 'react';
 import css from './PopUp.module.css';
 import clsx from 'clsx';
-import sprite from "../../assets/sprite.svg";
+import spritePath from '../../../img/sprite.svg';
 import { PopUpStyles } from './PopUp.styled';
 import { columns } from '../../redux/store';
 
