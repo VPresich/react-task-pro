@@ -31,10 +31,10 @@ export default function UserMenu() {
   return (
     <div className={css.wrapper}>
       <ThemeSelector />
-      <div className={css.wrapperIcon}>
+      <button onClick={handleEditProfile} className={css.wrapperIcon}>
         <p className={clsx(css.username, css[theme])}>{user.name}</p>
-        <img src={user.avatarURL} alt="User" className={css.avatar} onClick={handleEditProfile} />
-      </div>
+        <img src={user.avatarURL} alt="User" className={css.avatar} />
+      </button>
 
       <ModalWindow visible={isModalOpen} setVisible={setIsModalOpen}>
         <div className={css.modalContent}>

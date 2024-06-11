@@ -4,17 +4,18 @@
 }
 
 .text.light,
-.text.violet{
+.text.violet {
     color: var(--secondary-color);
 }
 
-.text.dark{
+.text.dark {
     color: var(--primary-color);
 }
 
 .button {
     display: flex;
-    margin-left: 10px;
+    height: 20px;
+    justify-content: center;
     background: none;
     border: none;
     color: black;
@@ -24,19 +25,13 @@
     padding: 0;
 }
 
-.button.dark{
+.button.dark {
     color: var(--primary-color);
 }
 
-.button::after {
-    content: '↓';
-    margin-left: 5px;
-    font-size: 12px;
-    transition: transform 0.3s ease;
-}
-
-.button.open::after {
+.button.open .icon {
     transform: rotate(180deg);
+    transition: transform 0.3s ease;
 }
 
 .dropdown {
@@ -109,4 +104,22 @@
 
 .label input {
     display: none;
+}
+
+.iconContainer {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    stroke: var(--secondary-color);
+    transition: transform 0.3s ease;
+}
+
+.icon.dark {
+    stroke: var(--primary-color);
 }

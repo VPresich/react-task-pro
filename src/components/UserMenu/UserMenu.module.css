@@ -1,12 +1,15 @@
 .wrapper {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 16px;
 }
 
 .wrapperIcon {
   display: flex;
   align-items: center;
+  background: none;
+  border: none;
   gap: 8px;
 }
 
