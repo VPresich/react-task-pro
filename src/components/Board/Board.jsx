@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import css from './Board.module.css';
 import { useSelector } from 'react-redux';
 import {
@@ -10,24 +10,7 @@ import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import ColumnModal from '../ColumnModal/ColumnModal';
 import ColumnList from '../ColumnList/ColumnList';
 
-const backgrounds = [
-  'theme00',
-  'theme01',
-  'theme02',
-  'theme03',
-  'theme04',
-  'theme05',
-  'theme06',
-  'theme07',
-  'theme08',
-  'theme09',
-  'theme10',
-  'theme11',
-  'theme12',
-  'theme13',
-  'theme14',
-  'theme15',
-];
+import imgsURL from '../../img/listUrls.js';
 
 function getDeviceType() {
   if (window.innerWidth >= 1024) {
@@ -43,40 +26,16 @@ function getResolution() {
   return window.devicePixelRatio > 1 ? '2x' : '1x';
 }
 
-function getBackgroundImage(theme) {
+function getBackgroundImage(theme, imgsURL) {
   const deviceType = getDeviceType();
   const resolution = getResolution();
-  let basePath = '';
+  console.log(theme);
+  const themeData = imgsURL.find(img => img._id === theme);
+  console.log(themeData);
+  if (!themeData) return '';
 
-  switch (deviceType) {
-    case 'desktop':
-      basePath = './src/img/bgr-desktop';
-      break;
-    case 'tablet':
-      basePath = './src/img/bgr-tablet';
-      break;
-    case 'mobile':
-      basePath = './src/img/bgr-mobile';
-      break;
-    default:
-      break;
-    //  switch (deviceType) {
-    //   case 'desktop':
-    //     basePath = 'http://localhost:5173/src/img/bgr-desktop';
-    //     break;
-    //   case 'tablet':
-    //     basePath = 'http://localhost:5173/src/img/bgr-tablet';
-    //     break;
-    //   case 'mobile':
-    //     basePath = 'http://localhost:5173/src/img/bgr-mobile';
-    //     break;
-    //   default:
-    //     break;
-  }
-
-  const imagePath = `${basePath}/${theme}_${deviceType}@${resolution}.jpg`;
-  console.log('Background Image Path:', imagePath);
-  return imagePath;
+  const key = `imgUrl_${deviceType}_${resolution}`;
+  return themeData[key] || '';
 }
 
 export default function Board() {
@@ -92,32 +51,30 @@ export default function Board() {
     setIsModalOpen(false);
   };
 
-  console.log('active: ', activeBoard);
-
-  const theme = activeBoard ? activeBoard.background : 'theme00';
-
+  const theme = activeBoard
+    ? activeBoard.background
+    : '665dab40d37019ad00137c09';
   console.log(theme);
-
   const [backgroundImage, setBackgroundImage] = useState(
-    getBackgroundImage(theme)
+    getBackgroundImage(theme, imgsURL)
   );
-  console.log(theme);
-  console.log(backgroundImage);
 
   useEffect(() => {
     const handleResize = () => {
-      setBackgroundImage(getBackgroundImage(theme));
+      setBackgroundImage(getBackgroundImage(theme, imgsURL));
     };
 
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []); // Include activeBoard and theme in the dependencies
+  }, [theme]); // Include theme in the dependencies
 
   useEffect(() => {
-    setBackgroundImage(getBackgroundImage(theme));
-  }, [activeBoard, theme]); // Include activeBoard and theme in the dependencies
+    setBackgroundImage(getBackgroundImage(theme, imgsURL));
+  }, [theme, activeBoard]); // Include theme and activeBoard in the dependencies
+
+  console.log(theme, backgroundImage);
 
   return (
     <div

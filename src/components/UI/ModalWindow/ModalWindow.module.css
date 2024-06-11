@@ -14,9 +14,17 @@
   align-items: center;
 }
 
-.modalContent {
+.modalContent{
   padding: 24px;
-  background: white;
   border-radius: 16px;
   width: 375px;
+}
+
+.modalContent.light,
+.modalContent.violet {
+  background: var(--primary-color);
+}
+
+.modalContent.dark{
+  background: var(--secondary-color);
 }

@@ -1,0 +1,79 @@
+import { useDispatch } from 'react-redux';
+import { register } from '../../../redux/auth/operations';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import Button from '../../UI/Button/Button';
+
+import { feedbackSchema } from '../LoginForm/feedbackSchema';
+import { errNotify, successNotify } from '../../../notification/notification';
+import { ERR_REGISTRATION, SUCCESS_REGISTRATION } from '../constants';
+
+import css from './RegisterForm.module.css';
+
+export default function RegisterForm() {
+  const dispatch = useDispatch();
+  const handleSubmit = (values, actions) => {
+    dispatch(register(values))
+      .unwrap()
+      .then(() => {
+        successNotify(SUCCESS_REGISTRATION);
+        actions.resetForm();
+      })
+      .catch(() => {
+        errNotify(ERR_REGISTRATION);
+      });
+  };
+
+  return (
+    <Formik
+      initialValues={{
+        name: '',
+        email: '',
+        password: '',
+      }}
+      onSubmit={handleSubmit}
+      validationSchema={feedbackSchema}
+    >
+      <Form className={css.form}>
+        <div className={css.info}>
+          <div>
+            <Field
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              className={css.field}
+            />
+            <ErrorMessage name="name" component="span" className={css.error} />
+          </div>
+
+          <div>
+            <Field
+              type="text"
+              name="email"
+              placeholder="Enter your email"
+              autoComplete="email"
+              className={css.field}
+            />
+            <ErrorMessage name="email" component="span" className={css.error} />
+          </div>
+
+          <div className={css.fieldContainer}>
+            <Field
+              type="password"
+              name="password"
+              placeholder="Create password"
+              autoComplete="current-password"
+              className={css.field}
+            />
+            <ErrorMessage
+              name="password"
+              component="span"
+              className={css.error}
+            />
+          </div>
+        </div>
+
+        <Button text="Register Now" type="submit" />
+      </Form>
+    </Formik>
+  );
+}

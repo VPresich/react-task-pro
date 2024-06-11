@@ -11,24 +11,26 @@ import spritePath from '../../../img/sprite.svg';
 
 const bgrIconsPath = new URL('../../../img/bgr-png', import.meta.url).pathname;
 const icons = ['icon-circles', 'icon-star', 'icon-loading', 'icon-puzzle-piece', 'icon-container', 'icon-lightning', 'icon-colors', 'icon-hexagon'];
-const backgrounds = [
-  "theme00",
-  "theme01",
-  "theme02",
-  "theme03",
-  "theme04",
-  "theme05",
-  "theme06",
-  "theme07",
-  "theme08",
-  "theme09",
-  "theme10",
-  "theme11",
-  "theme12",
-  "theme13",
-  "theme14",
-  "theme15"
-];
+// const backgrounds = [
+//   "theme00",
+//   "theme01",
+//   "theme02",
+//   "theme03",
+//   "theme04",
+//   "theme05",
+//   "theme06",
+//   "theme07",
+//   "theme08",
+//   "theme09",
+//   "theme10",
+//   "theme11",
+//   "theme12",
+//   "theme13",
+//   "theme14",
+//   "theme15"
+// ];
+
+import imgsURL from '../../../img/listUrls';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string()
@@ -42,13 +44,13 @@ export default function CreateEditBoardForm({title, initialValues, onSubmitForm,
      const theme = useSelector(selectTheme);
   return (
     <div>
-      <p className={css.title}>{ title }</p>
+      <p className={clsx(css.title, css[theme])}>{ title }</p>
         <Formik initialValues={initialValues} onSubmit={onSubmitForm} validationSchema={validationSchema}>
             <Form className={css.form}>
                 <div className={css.formInputs}>
                     <Input onName="title" onPlaceholder="Title" />
                     <div className={css.iconsContainer}>
-                        <div id="my-radio-group">Icons</div>
+                        <div id="my-radio-group" className={clsx(css.titles, css[theme])}>Icons</div>
                         <div className={css.radioGroup}>
                             {icons.map((icon) => (
                                 <React.Fragment key={icon}>
@@ -68,13 +70,11 @@ export default function CreateEditBoardForm({title, initialValues, onSubmitForm,
                         </div>
                     </div>
                     <div className={css.backgroundsContainer}>
-                        <div id="background-radio-group">Background</div>
-                        <div className={css.backgrounds}>
-                            {backgrounds.map((bgr) => (
-                            bgr === "theme00" ? (
-                                <React.Fragment key={bgr}>
-                                <Field type="radio" name="background" value={bgr} className={css.radioInput} id={bgr} />
-                                <label htmlFor={bgr} className={css.radioLabelBgr}>
+                          <div id="background-radio-group" className={clsx(css.titles, css[theme])}>Background</div>
+                          <div className={css.backgrounds}>
+                                <React.Fragment key={'no-img'}>
+                                <Field type="radio" name="background" value={'no-img'} className={css.radioInput} id={'no-img'} />
+                                <label htmlFor={'no-img'} className={css.radioLabelBgr}>
                                     <div className={clsx(css.noImg, css[theme])}>
                                     <svg
                                         className={clsx(css.noBgrIcon, css[theme])}
@@ -87,11 +87,12 @@ export default function CreateEditBoardForm({title, initialValues, onSubmitForm,
                                     </div>
                                 </label>
                                 </React.Fragment>
-                            ) : (
+                            {imgsURL.map((bgr) => (
+                            (
                                 <React.Fragment key={bgr}>
-                                <Field type="radio" name="background" value={bgr} className={css.radioInput} id={bgr} />
-                                <label htmlFor={bgr} className={css.radioLabelBgr}>
-                                    <img src={`${bgrIconsPath}/${bgr}.png`} alt={bgr} />
+                                <Field type="radio" name="background" value={bgr._id} className={css.radioInput} id={bgr._id} />
+                                <label htmlFor={bgr._id} className={css.radioLabelBgr}>
+                                    <img src={bgr.label} alt={bgr} width={28} height={28} />
                                 </label>
                                 </React.Fragment>
                             )

@@ -1,0 +1,234 @@
+.icon.dark {
+    stroke: rgba(255, 255, 255, 0.8);
+    fill: var(--dark-grey);
+}
+
+.icon.light {
+    fill: var(--gray);
+    stroke: rgba(22, 22, 22, 0.8);
+}
+
+.icon.violer {
+    fill: var(--violet-main-superlight);
+    stroke: rgba(22, 22, 22, 0.8);
+}
+
+.filters-btn {
+    background-color: inherit;
+    width: 64px;
+    height: 20px;
+    padding: 0;
+    border: none;
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+}
+
+.filters-btn.dark {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.filters-btn.violer,
+.filters-btn.light {
+    color: rgba(22, 22, 22, 0.8);
+}
+
+.modal {
+    position: relative;
+}
+
+.close-btn {
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    background-color: inherit;
+    padding: 0;
+    border: none;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+.close-btn.dark {
+    color: var(--table-header-color);
+}
+
+.close-btn.light,
+.close-btn.violer {
+    color: var(--secondary-color);
+}
+
+.title {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(22, 22, 22, 0.1);
+}
+
+.title.dark {
+    color: var(--table-header-color);
+}
+
+.title.light,
+.title.violer {
+    color: var(--secondary-color);
+}
+
+.wrapper {
+    display: flex;
+    padding-top: 14px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.choosing-text {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.02em;
+}
+
+.choosing-text.dark {
+    color: var(--table-header-color);
+}
+
+.choosing-text.light,
+.choosing-text.violer {
+    color: var(--secondary-color);
+}
+
+.show-all-btn {
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    text-decoration: underline;
+    color: rgba(22, 22, 22, 0.5);
+    border: none;
+    background-color: inherit;
+    padding: 0;
+}
+
+.show-all-btn.dark {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.show-all-btn.light,
+.show-all-btn.violer {
+    color: rgba(22, 22, 22, 0.5);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 14px;
+}
+
+.radio-btn-wrappper {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.radio-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+}
+
+.radio-btn.dark {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.radio-btn.light,
+.radio-btn.violer {
+    color: rgba(22, 22, 22, 0.5);
+}
+
+
+.gray-radio-btn input[type='radio'] {
+    background-color: #1616164d;
+    border: 1px solid #1616164d;
+}
+
+.blue-radio-btn input[type='radio'] {
+    background-color: #8fa1d0;
+    border: 1px solid #8fa1d0;
+}
+
+.red-radio-btn input[type='radio'] {
+    background-color: #e09cb5;
+    border: 1px solid #e09cb5;
+}
+
+.green-radio-btn input[type='radio'] {
+    background-color: #bedbb0;
+    border: 1px solid #bedbb0;
+}
+
+.radio-btn input[type='radio'] {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    margin-right: 8px;
+}
+
+.radio-btn input[type='radio']:checked {
+    background-color: white;
+}
+
+.radio-btn input[type='radio']:checked::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gray-radio-btn input[type='radio']:checked::before {
+    background-color: #1616164d;
+}
+
+.blue-radio-btn input[type='radio']:checked::before {
+    background-color: #8fa1d0;
+}
+
+.red-radio-btn input[type='radio']:checked::before {
+    background-color: #e09cb5;
+}
+
+.green-radio-btn input[type='radio']:checked::before {
+    background-color: #bedbb0;
+}
+
+.radio-btn.dark input[type="radio"]:checked+span {
+    color: var(--table-header-color);
+}
+
+.radio-btn.light input[type="radio"]:checked+span,
+.radio-btn.violer input[type="radio"]:checked+span {
+    color: var(--secondary-color);
+}

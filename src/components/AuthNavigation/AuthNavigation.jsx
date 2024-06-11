@@ -1,38 +1,34 @@
-import { useParams, useNavigate } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import clsx from 'clsx';
-
-import RegisterForm from '../../components/RegisterForm/RegisterForm';
-import LoginForm from '../../components/LoginForm/LoginForm';
+import LoginForm from './LoginForm/LoginForm';
+import RegisterForm from './RegisterForm/RegisterForm';
 import css from './AuthNavigation.module.css';
 
 export default function AuthNavigation() {
-  const showLogin = useParams().param === 'login';
-  console.log(useParams);
+  const showLogin = useParams().id === 'login';
 
-  const navigate = useNavigate();
-  const handleRegistrationClick = () => {
-    navigate('/auth/register');
-  };
+  const cssLogin = clsx(css.link, showLogin && css.linkActive);
+  const cssRegister = clsx(css.link, !showLogin && css.linkActive);
 
-  const handleLoginClick = () => {
-    navigate('/auth/login');
-  };
-
-  const cssLogin = clsx(css.btn, !showLogin && css.btnActive);
-  const cssRegister = clsx(css.btn, showLogin && css.btnActive);
+  const containerHeight = clsx(css.container, showLogin && css.loginContainer);
 
   return (
-    <div className={css.container}>
-      <div className={css.btnContainer}>
-        <button className={cssRegister} onClick={handleRegistrationClick}>
-          Registration
-        </button>
+    <div className={containerHeight}>
+      <div className={css.linkContainer}>
+        <div className={cssRegister}>
+          <Link to="/auth/register" className={cssRegister}>
+            Registration
+          </Link>
+        </div>
 
-        <button className={cssLogin} onClick={handleLoginClick}>
-          Log In
-        </button>
+        <div className={cssRegister}>
+          <Link to="/auth/login" className={cssLogin}>
+            Log In
+          </Link>
+        </div>
       </div>
-      {showLogin ? <LoginForm /> : <RegisterForm />}
+
+      {useParams().id === 'login' ? <LoginForm /> : <RegisterForm />}
     </div>
   );
 }
