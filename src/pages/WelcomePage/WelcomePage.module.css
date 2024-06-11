@@ -4,7 +4,7 @@
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
-  width: 100%;  
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -62,6 +62,7 @@
   box-shadow: -2px -3px 6px #fff, 2px 3px 6px #fff; */
 }
 .linkWrapperLogin {
+  font-family: inherit;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,8 +72,8 @@
 }
 .button1 {
   flex-direction: column;
-    align-items: center;
-   background: #161616;
+  align-items: center;
+  background: #161616;
   color: #fff;
   display: flex;
   width: 344px;
@@ -86,13 +87,12 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  letter-spacing: -0.28px; 
-    
-    
-    border-radius: 8px;
-    
-    border-color: transparent;
-    box-shadow: -2px -3px 6px #fff, 2px 3px 6px #fff
+  letter-spacing: -0.28px;
+
+  border-radius: 8px;
+
+  border-color: transparent;
+  box-shadow: -2px -3px 6px #fff, 2px 3px 6px #fff;
 }
 
 .button2 {

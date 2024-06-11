@@ -45,9 +45,10 @@ export default function RegisterForm() {
 
           <div>
             <Field
-              type="email"
+              type="text"
               name="email"
               placeholder="Enter your email"
+              autocomplete="email"
               className={css.field}
             />
             <ErrorMessage name="email" component="span" className={css.error} />
@@ -69,7 +70,7 @@ export default function RegisterForm() {
           </div>
         </div>
 
-        <Button text="Reegister Now" />
+        <Button text="Register Now" type="submit" />
       </Form>
     </Formik>
   );

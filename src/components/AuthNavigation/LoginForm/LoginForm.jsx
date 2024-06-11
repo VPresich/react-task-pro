@@ -32,16 +32,17 @@ export default function LoginForm() {
     >
       <Form className={css.form}>
         <div className={css.info}>
-          <div>
+          <div className={css.fieldContainer}>
             <Field
-              type="email"
+              type="text"
               name="email"
               placeholder="Enter your email"
+              autocomplete="email"
               className={css.field}
             />
             <ErrorMessage name="email" component="span" className={css.error} />
           </div>
-          <div>
+          <div className={css.fieldContainer}>
             <Field
               type="password"
               name="password"
@@ -57,7 +58,7 @@ export default function LoginForm() {
             />
           </div>
         </div>
-        <Button text="Log In Now" />
+        <Button text="Log In Now" type="submit" />
       </Form>
     </Formik>
   );

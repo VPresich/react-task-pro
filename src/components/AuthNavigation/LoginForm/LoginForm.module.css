@@ -26,6 +26,11 @@
   padding-left: 18px;
 }
 
+.fieldContainer {
+  position: relative;
+}
+
 .error {
   color: #bedbb0;
+  font-size: 12px;
 }
