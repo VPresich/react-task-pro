@@ -31,14 +31,14 @@ export default function UserInfoContent() {
       formData.append('avatar', selectedFile);
     }
 
-    // dispatch(updateProfile(formData)) //TODO FIXED ON SERVER
-    //   .unwrap()
-    //   .then(() => {
-    //     successNotify();
-    //   })
-    //   .catch(err => {
-    //     errNotify(err.message);
-    //   });
+    dispatch(updateProfile(formData))
+      .unwrap()
+      .then(() => {
+        successNotify();
+      })
+      .catch(err => {
+        errNotify(err.message);
+      });
 
     actions.resetForm();
     setSelectedFile(null);
@@ -81,7 +81,9 @@ export default function UserInfoContent() {
               type="button"
               onClick={handleEditAvatar}
               className={clsx(css.editAvatarButton, css[theme])}
-            >+</button>
+            >
+              +
+            </button>
           </div>
           <input
             type="file"
@@ -108,7 +110,7 @@ export default function UserInfoContent() {
             autoComplete="current-password"
           />
         </div>
-        <Button text='Send' big={true} type='submit' />
+        <Button text="Send" big={true} type="submit" />
       </Form>
     </Formik>
   );
