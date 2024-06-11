@@ -18,6 +18,10 @@
   position: relative;
 }
 
+.modal.dark {
+  background-color: var(--black-dark);
+}
+
 .closeBtn {
   position: absolute;
   top: 10px;
@@ -32,11 +36,11 @@
   fill: transparent;
 }
 
-.icon.dark,
-.icon.violet {
+.icon.dark {
   stroke: var(--white);
 }
 
-.icon.light {
+.icon.light,
+.icon.violet {
   stroke: var(--secondary-color);
 }

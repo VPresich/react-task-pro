@@ -42,13 +42,13 @@ export default function CreateEditBoardForm({title, initialValues, onSubmitForm,
      const theme = useSelector(selectTheme);
   return (
     <div>
-      <p className={css.title}>{ title }</p>
+      <p className={clsx(css.title, css[theme])}>{ title }</p>
         <Formik initialValues={initialValues} onSubmit={onSubmitForm} validationSchema={validationSchema}>
             <Form className={css.form}>
                 <div className={css.formInputs}>
                     <Input onName="title" onPlaceholder="Title" />
                     <div className={css.iconsContainer}>
-                        <div id="my-radio-group">Icons</div>
+                        <div id="my-radio-group" className={clsx(css.titles, css[theme])}>Icons</div>
                         <div className={css.radioGroup}>
                             {icons.map((icon) => (
                                 <React.Fragment key={icon}>
@@ -68,7 +68,7 @@ export default function CreateEditBoardForm({title, initialValues, onSubmitForm,
                         </div>
                     </div>
                     <div className={css.backgroundsContainer}>
-                        <div id="background-radio-group">Background</div>
+                          <div id="background-radio-group" className={clsx(css.titles, css[theme])}>Background</div>
                         <div className={css.backgrounds}>
                             {backgrounds.map((bgr) => (
                             bgr === "theme00" ? (

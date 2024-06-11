@@ -3,20 +3,46 @@
   height: 49px;
   border-radius: 8px;
   padding: 14px 18px;
-  border: 2px rgba(190, 219, 176, 0.4) solid;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
+  background-color: transparent;
   font-family: 'Poppins-Regular';
   letter-spacing: -0.02em;
   font-size: 14px;
   line-height: 1.28;
+  margin-bottom: 4px;
+}
+
+.fieldInput.light,
+.fieldInput.dark {
+  border: 2px rgba(190, 219, 176, 0.4) solid;
+}
+
+.fieldInput.dark {
+  border: 2px rgba(190, 219, 176, 0.4) solid;
+}
+.fieldInput.dark::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.fieldInput.violet {
+  border: 2px rgba(82, 85, 188, 0.4) solid;
 }
 
 .fieldInput:focus-visible {
-  border: 1px #bedbb0 solid;
+  border: 2px #bedbb0 solid;
   outline: transparent;
 }
 
-.error {
-  color: blue;
+.fieldInput.violet:focus-visible {
+  border: 2px var(--violet-main) solid;
+  outline: transparent;
+}
+
+.error.dark,
+.error.light {
+  color: var(--green);
+}
+
+.error.violet {
+  color: var(--violet-main);
 }
