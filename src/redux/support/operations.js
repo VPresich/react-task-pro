@@ -5,7 +5,7 @@ export const sendSupportEmail = createAsyncThunk(
   'support/sendEmail',
   async (data, thunkAPI) => {
     try {
-      const response = await axiosInst.get('help', data);
+      const response = await axiosInst.post('help', data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -1,4 +1,4 @@
-import toast from 'react-hot-toast';
+mport toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -13,6 +13,7 @@ import Board from '../../components/Board/Board';
 import Card from '../../components/UI/Card/Card';
 import PopUp from '../../components/PopUp/PopUp';
 // import CreateBoardModal from '../../components/CreateBoardModal/CreateBoardModal';
+import Filters from '../../components/Filters/Filters';
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -36,7 +37,8 @@ export default function HomePage() {
       <DocumentTitle>Home Page</DocumentTitle>
       <SideBar />
       <div className={css.normalWidth}> 
-      <AppBar />
+        <AppBar />
+        <Filters />
       <Board/>
       <Card title="test 1" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
 explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 

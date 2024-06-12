@@ -17,7 +17,7 @@ const ModalWrapper = ({ children, onClose }) => {
 
   return (
     <div className={css.modalWrapper} onClick={handleClickOutside}>
-      <div className={css.modal} ref={wrapperRef}>
+      <div className={clsx(css.modal, css[theme])} ref={wrapperRef}>
         <button className={css.closeBtn} onClick={onClose}>
           <svg
               className={clsx(css.icon, css[theme])}
