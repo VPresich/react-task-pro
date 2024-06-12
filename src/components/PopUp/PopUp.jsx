@@ -1,3 +1,54 @@
+import { useState } from 'react';
+import clsx from 'clsx';
+import css from './PopUp.module.css';
+
+function PopUp() {
+  const [activeColumn, setActiveColumn] = useState('In progress');
+  const spritePath = ''; // define your sprite path here
+  const theme = ''; // define your theme here
+
+  const handleClick = column => {
+    setActiveColumn(column);
+  };
+
+  return (
+    <div className={activeColumn === 'In progress' ? css.inProgress : css.done}>
+      <div className={css.columnContent}>
+        <ul className={css.columnMenu}>
+          <li>
+            <button onClick={() => handleClick('In progress')}>
+              <svg
+                className={clsx(css.color, css[theme])}
+                width="16"
+                height="16"
+                aria-label="btn icon"
+              >
+                <use href={`${spritePath}#icon-arrow`} />
+              </svg>
+              <p className={css.titleColumn}>In progress</p>
+            </button>
+          </li>
+          <li>
+            <button onClick={() => handleClick('Done')}>
+              <svg
+                className={clsx(css.color, css[theme])}
+                width="16"
+                height="16"
+                aria-label="btn icon"
+              >
+                <use href={`${spritePath}#icon-arrow`} />
+              </svg>
+              <p className={css.titleColumn}>Done</p>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export default PopUp;
+
 // import React from 'react';
 // import css from './PopUp.module.css';
 // import clsx from 'clsx';
