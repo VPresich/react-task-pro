@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import css from './PopUp.module.css';
+import spritePath from '../../../img/sprite.svg'; // correct import
 
 function PopUp() {
   const [activeColumn, setActiveColumn] = useState('In progress');
-  const spritePath = ''; // define your sprite path here
   const theme = ''; // define your theme here
 
   const handleClick = column => {
