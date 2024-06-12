@@ -121,7 +121,7 @@ export default function Card({ title, description, id, priority, deadline }) {
 
       {/* {modalOpen && <ModalWindow isOpen={modalOpen} closeModal={closeModal} />} */}
       {/* {modalOpenArrow && ( */}
-        {/* // <ModalWindow2 isOpen={modalOpenArrow} closeModal={closeModalArrow} /> */}
+      {/* // <ModalWindow2 isOpen={modalOpenArrow} closeModal={closeModalArrow} /> */}
       {/* )} */}
     </div>
   );
