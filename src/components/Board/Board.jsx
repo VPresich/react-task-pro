@@ -1,7 +1,14 @@
 import { useEffect, useState } from 'react';
 import css from './Board.module.css';
 import { useSelector } from 'react-redux';
-import { selectActiveBoard } from '../../redux/boards/selectors';
+import {
+  selectActiveBoard,
+  selectActiveBoardId,
+} from '../../redux/boards/selectors';
+import AddColumnBtn from '../AddColumnBtn/AddColumnBtn';
+import ModalWrapper from '../ModalWrapper/ModalWrapper';
+import ColumnModal from '../ColumnModal/ColumnModal';
+import ColumnList from '../ColumnList/ColumnList';
 
 import imgsURL from '../../img/listUrls.js';
 
@@ -23,7 +30,7 @@ function getBackgroundImage(theme, imgsURL) {
   const deviceType = getDeviceType();
   const resolution = getResolution();
   console.log(theme);
-  const themeData = imgsURL.find((img) => img._id === theme);
+  const themeData = imgsURL.find(img => img._id === theme);
   console.log(themeData);
   if (!themeData) return '';
 
@@ -33,9 +40,24 @@ function getBackgroundImage(theme, imgsURL) {
 
 export default function Board() {
   const activeBoard = useSelector(selectActiveBoard);
-  const theme = activeBoard ? activeBoard.background : '665dab40d37019ad00137c09';
-  console.log(theme)
-  const [backgroundImage, setBackgroundImage] = useState(getBackgroundImage(theme, imgsURL));
+  const activeBoardId = useSelector(selectActiveBoardId);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const theme = activeBoard
+    ? activeBoard.background
+    : '665dab40d37019ad00137c09';
+  console.log(theme);
+  const [backgroundImage, setBackgroundImage] = useState(
+    getBackgroundImage(theme, imgsURL)
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -60,6 +82,19 @@ export default function Board() {
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       Board
+      <div className={css.columnsWrapper}>
+        <ColumnList activeBoardId={activeBoardId} />
+        <AddColumnBtn openModal={openModal} />
+      </div>
+      {isModalOpen && (
+        <ModalWrapper onClose={closeModal}>
+          <ColumnModal
+            modalType={'add'}
+            activeBoardId={activeBoardId}
+            onClose={closeModal}
+          />
+        </ModalWrapper>
+      )}
     </div>
   );
 }

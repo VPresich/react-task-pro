@@ -17,11 +17,9 @@
   border-radius: 8px;
   position: relative;
 }
-
 .modal.dark {
-  background-color: var(--black-dark);
+  background: var(--secondary-color);
 }
-
 .closeBtn {
   position: absolute;
   top: 10px;
