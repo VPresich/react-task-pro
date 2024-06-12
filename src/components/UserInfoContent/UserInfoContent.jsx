@@ -1,13 +1,17 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateAvatar, updateProfile } from '../../redux/auth/operations';
-import { Formik, Form, Field } from 'formik';
-import { selectTheme, selectUser } from '../../redux/auth/selectors';
+import { Formik, Form } from 'formik';
+import { selectUser } from '../../redux/auth/selectors';
 import Button from '../UI/Button/Button';
 import { feedbackSchema } from './feedback-schema';
 import css from './UserInfoContent.module.css';
+import { useRef } from 'react';
 import { successNotify, errNotify } from '../../notification/notification';
+import Input from '../UI/Input/Input';
+import { selectTheme } from '../../redux/auth/selectors';
 import clsx from 'clsx';
+// import spritePath from '../../img/sprite.svg';
 
 export default function UserInfoContent() {
   const theme = useSelector(selectTheme);
@@ -56,54 +60,51 @@ export default function UserInfoContent() {
       initialValues={{
         name: userInfo.name,
         email: userInfo.email,
-        password: '',
+        password: userInfo.password,
       }}
       onSubmit={handleSubmit}
       validationSchema={feedbackSchema}
     >
       <Form className={css.form}>
-        <div className={css.info}>
-          <div className={clsx(css.avatarContainer, css[theme])}>
-            <img
-              src={userInfo.avatarURL}
-              width="64"
-              alt="Avatar"
-              className={css.avatar}
-            />
-            <button
-              type="button"
-              onClick={handleEditAvatar}
-              className={clsx(css.editAvatarButton, css[theme])}
-            >
-              +
-            </button>
-          </div>
+        <p className={clsx(css.title, css[theme])}>Edit profile</p>
+        
+        <div className={clsx(css.userImgContainer, css[theme])}>
+          <img
+            src={userInfo.avatarURL}
+            width="68"
+            alt="Avatar"
+            className={css.avatar}
+          />
+        
           <input
             type="file"
             ref={fileInputRef}
             style={{ display: 'none' }}
             onChange={handleFileChange}
           />
-          <Field
-            type="text"
-            name="name"
-            className={clsx(css.input, css[theme])}
-            autoComplete="name"
+          <button
+            type="button"
+            onClick={handleEditAvatar}
+            className={clsx(css.editAvatarButton, css[theme])}
+          >+
+          </button>
+        </div>
+        <div className={clsx(css.inputs, css[theme])}>
+          <Input
+            onName="name"
+            onPlaceholder={"Name"}
           />
-          <Field
-            type="email"
-            name="email"
-            className={clsx(css.input, css[theme])}
-            autoComplete="email"
+          <Input
+            onName="email"
+            onPlaceholder={"Email address"}
           />
-          <Field
+          <Input
+            onName="password"
+            onPlaceholder={"Password"}
             type="password"
-            name="password"
-            className={clsx(css.input, css[theme])}
-            autoComplete="current-password"
           />
         </div>
-        <Button text="Send" big={true} type="submit" />
+        <Button text="Send" type="submit"/>
       </Form>
     </Formik>
   );

@@ -13,18 +13,13 @@
   height: 32px;
   margin-right: auto;
   visibility: hidden;
+  /* for future edits */
 }
 
 .icon {
   stroke: var(--secondary-color);
   width: 32px;
   height: 32px;
-}
-
-.content {
-  display: flex;
-  align-items: center;
-  gap: 16px;
 }
 
 .wrapperIcon {
@@ -41,11 +36,11 @@
   font-weight: 600;
 }
 
-.username.dark {
+.username.dark{
   color: var(--primary-color);
 }
 
-.username:hover {
+.username:hover{
   cursor: pointer;
 }
 
