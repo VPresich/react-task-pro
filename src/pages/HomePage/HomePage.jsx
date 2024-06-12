@@ -11,6 +11,7 @@ import css from './HomePage.module.css';
 import SideBar from '../../components/SideBar/SideBar';
 import Board from '../../components/Board/Board';
 import Card from '../../components/UI/Card/Card';
+import PopUp from '../../components/PopUp/PopUp';
 // import CreateBoardModal from '../../components/CreateBoardModal/CreateBoardModal';
 
 export default function HomePage() {
@@ -40,7 +41,7 @@ export default function HomePage() {
       <Card title="test 1" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
 explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
 at reprehenderit veniam magni aliquam cumque" priority="low" deadline="08.06.2024" />
-        
+        <PopUp/>
         {/* <CreateBoardModal/> */}
       {isLoading && <p>Loading boads...</p>}
       {error && <p>{error}</p>}
