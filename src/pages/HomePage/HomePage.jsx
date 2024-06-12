@@ -9,9 +9,7 @@ import DocumentTitle from '../../components/DocumentTitle';
 import AppBar from '../../components/AppBar/AppBar';
 import css from './HomePage.module.css';
 import SideBar from '../../components/SideBar/SideBar';
-import Board from '../../components/Board/Board';
-import Card from '../../components/UI/Card/Card';
-import Filters from '../../components/Filters/Filters';
+import ScreensPage from '../ScreensPage/ScreensPage';
 
 export default function HomePage() {
   const dispatch = useDispatch();
@@ -36,14 +34,15 @@ export default function HomePage() {
       <SideBar />
       <div className={css.normalWidth}> 
         <AppBar />
-        <Filters />
-      <Board/>
-      <Card title="test 1" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
-explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
-at reprehenderit veniam magni aliquam cumque" priority="low" deadline="08.06.2024" />
-      {isLoading && <p>Loading boads...</p>}
-      {error && <p>{error}</p>}
+        <ScreensPage/>
+        
+        {isLoading && <p>Loading boads...</p>}
+        {error && <p>{error}</p>} 
       </div>
     </div>
   );
 }
+
+{/* <Card title="test 1" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
+explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
+at reprehenderit veniam magni aliquam cumque" priority="low" deadline="08.06.2024" />*/}
