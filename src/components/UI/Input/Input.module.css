@@ -10,6 +10,8 @@
   font-size: 14px;
   line-height: 1.28;
   margin-bottom: 4px;
+  position: relative;
+  color: var(--white);
 }
 
 .fieldInput.light,
@@ -17,9 +19,7 @@
   border: 2px rgba(190, 219, 176, 0.4) solid;
 }
 
-.fieldInput.dark {
-  border: 2px rgba(190, 219, 176, 0.4) solid;
-}
+.fieldInput.dark,
 .fieldInput.dark::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -45,4 +45,18 @@
 
 .error.violet {
   color: var(--violet-main);
+}
+
+.eyeIcon {
+  position: absolute;
+  transform: translate(-200%, 75%);
+}
+
+.icon.dark {
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+.icon.light,
+.icon.violet {
+  fill: var(--secondary-color);
 }
