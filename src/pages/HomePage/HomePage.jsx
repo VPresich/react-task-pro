@@ -1,6 +1,6 @@
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { selectIsLoading, selectError } from '../../redux/boards/selectors';
 import { fetchBoards } from '../../redux/boards/operations';
@@ -15,10 +15,11 @@ import Filters from '../../components/Filters/Filters';
 
 export default function HomePage() {
   const dispatch = useDispatch();
-
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
+  const openSidebar = () => { setIsSidebarOpen(true); }
   useEffect(() => {
     dispatch(fetchBoards())
       .unwrap()
@@ -33,9 +34,9 @@ export default function HomePage() {
   return (
     <div className={css.page}>
       <DocumentTitle>Home Page</DocumentTitle>
-      <SideBar />
+      <SideBar isOpen={isSidebarOpen} onClose={()=>setIsSidebarOpen(false)} />
       <div className={css.normalWidth}> 
-        <AppBar />
+        <AppBar handleSidebar={() => openSidebar()}/>
         <Filters />
       <Board/>
       <Card title="test 1" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 

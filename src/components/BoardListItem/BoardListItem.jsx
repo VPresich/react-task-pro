@@ -6,9 +6,9 @@ import clsx from 'clsx';
 import { deleteBoard } from '../../redux/boards/operations';
 import { errNotify, successNotify } from '../../notification/notification';
 import { ERR_BOARD_DELETE, SUCCESS_BOARD_DELETE } from '../../notification/constants';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import EditBoardModal from '../EditBoardModal/EditBoardModal';
-
+import EllipsisText from "react-ellipsis-text";
 
 const BoardListItem = ({ board, isActive, setActiveBoard }) => {
     const dispatch = useDispatch();
@@ -16,7 +16,8 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
     // const theme = 'violet'
     const { _id, title, icon } = board;
     
-     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 375);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -25,6 +26,18 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
     const closeModal = () => {
         setIsModalOpen(false);
     };
+    
+    const handleResize = () => {
+        setIsDesktop(window.innerWidth > 375);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+        window.removeEventListener('resize', handleResize);
+        };
+    }, []);
     
     const handleDelete = (id) => {
         dispatch(deleteBoard(id))
@@ -41,6 +54,14 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
         console.log('edit board', id)
         openModal();
     }
+
+    const getLength = () => {
+        if (isDesktop) {
+            return  isActive ? "17" : "25"
+        }
+        return isActive ? "13" : "20"
+    }
+
     return (
         <div className={isActive ? clsx(css.container, css[theme], css.active) : clsx(css.container, css[theme])} onClick={() => setActiveBoard(_id)}>
         <div className={css.titleContainer}>
@@ -52,7 +73,7 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
             >
             <use href={`${spritePath}#${icon}`} />
             </svg>
-            <p className={isActive ? clsx(css.title, css[theme], css.active) : clsx(css.title, css[theme])}>{title}</p>
+            <EllipsisText text={title} length={getLength()} className={isActive ? clsx(css.title, css[theme], css.active) : clsx(css.title, css[theme])}/>
         </div>
         
         <div className={isActive ? clsx(css.controls, css[theme], css.active) : clsx(css.controls, css[theme])}>

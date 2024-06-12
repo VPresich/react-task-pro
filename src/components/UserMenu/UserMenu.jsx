@@ -10,7 +10,7 @@ import { selectTheme } from '../../redux/auth/selectors';
 import spritePath from '../../img/sprite.svg';
 import clsx from 'clsx';
 
-export default function UserMenu() {
+export default function UserMenu({handleSidebar}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { user } = useAuth();
   const theme = useSelector(selectTheme);
@@ -22,16 +22,10 @@ export default function UserMenu() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-  <img
-    src={user.avatarURL}
-    alt="User"
-    width="32"
-    onClick={handleEditProfile}
-  />;
 
   return (
     <div className={css.wrapper}>
-      <button className={clsx(css.burgerButton, css[theme])}>
+      <button className={clsx(css.burgerButton, css[theme])} onClick={handleSidebar} >
         <svg
           className={clsx(css.icon, css[theme])}
           aria-label="burger"

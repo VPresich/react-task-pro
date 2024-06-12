@@ -9,11 +9,11 @@
 }
 
 .form.light,
-.form.violet{
+.form.violet {
   background-color: var(--primary-color);
 }
 
-.form.dark{
+.form.dark {
   background-color: var(--secondary-color);
 }
 
@@ -40,23 +40,23 @@
 }
 
 .input.light,
-.input.dark{
+.input.dark {
   border: 1px solid var(--green);
 }
 
-.input.violet{
+.input.violet {
   border: 1px solid var(--violet-main-light);
 }
 
 .input.light:hover,
 .input.light:focus,
 .input.dark:hover,
-.input.dark:focus{
+.input.dark:focus {
   border: 1px solid var(--green-light);
 }
 
 .input.violet:hover,
-.input.violet:focus{
+.input.violet:focus {
   border: 1px solid var(--violet-main);
 }
 
@@ -118,7 +118,7 @@
   color: #fff;
 }
 
-.avatarContainer{
+.avatarContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
