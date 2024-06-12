@@ -1,40 +1,36 @@
 // import React from 'react';
-import css from './PopUp.module.css';
-import clsx from 'clsx';
-import spritePath from '../../../img/sprite.svg';
-import { PopUpStyles } from './PopUp.styled';
-import { columns } from '../../redux/store';
+// import css from './PopUp.module.css';
+// import clsx from 'clsx';
+// import spritePath from '../../../img/sprite.svg';
+// import { PopUpStyles } from './PopUp.styled';
+// import { columns } from '../../redux/store';
 
-const columns = ['column 1', 'column2', 'column 3']; // Импортируйте свой список колонок здесь
+// const columns = ['column 1', 'column2', 'column 3'];
 
- const PopUp = () => { 
+//  const PopUp = () => {
 
+//   const ButtonList = () => {
+//     return (
+//       <div>
+//         <svg
+//           className={clsx(styles.color, styles[theme])}
+//           width="16"
+//           height="16"
+//           aria-label="btn icon"
+//           onClick={openModalArrow}
+//         >
+//           <use href={`${spritePath}#icon-arrow`} />
+//         </svg>
 
+//         {columns.map((column, index) => (
+//           <button key={index} onClick={() => console.log(`Moving to ${column}`)}>
+//             {column}
+//           </button>
+//         ))}
+//       </div>
+//     )
 
-  const ButtonList = () => {
-    return (
-      <div>
-        <svg
-          className={clsx(styles.color, styles[theme])}
-          width="16"
-          height="16"
-          aria-label="btn icon"
-          onClick={openModalArrow}
-        >
-          <use href={`${spritePath}#icon-arrow`} />
-        </svg>
-      
-
-        {columns.map((column, index) => (
-          <button key={index} onClick={() => console.log(`Moving to ${column}`)}>
-            {column}
-          </button>
-        ))}
-      </div>
-    )   
-
-}
-  
+// }
 
 // export default ButtonList;
 
