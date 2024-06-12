@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 import { selectActiveBoard } from '../../redux/boards/selectors';
 
 import imgsURL from '../../img/listUrls.js';
+import Button from '../UI/Button/Button.jsx';
+import AddCardModal from '../AddCardModal/AddCardModal.jsx';
 
 function getDeviceType() {
   if (window.innerWidth >= 1024) {
@@ -23,7 +25,7 @@ function getBackgroundImage(theme, imgsURL) {
   const deviceType = getDeviceType();
   const resolution = getResolution();
   console.log(theme);
-  const themeData = imgsURL.find((img) => img._id === theme);
+  const themeData = imgsURL.find(img => img._id === theme);
   console.log(themeData);
   if (!themeData) return '';
 
@@ -33,9 +35,13 @@ function getBackgroundImage(theme, imgsURL) {
 
 export default function Board() {
   const activeBoard = useSelector(selectActiveBoard);
-  const theme = activeBoard ? activeBoard.background : '665dab40d37019ad00137c09';
-  console.log(theme)
-  const [backgroundImage, setBackgroundImage] = useState(getBackgroundImage(theme, imgsURL));
+  const theme = activeBoard
+    ? activeBoard.background
+    : '665dab40d37019ad00137c09';
+  console.log(theme);
+  const [backgroundImage, setBackgroundImage] = useState(
+    getBackgroundImage(theme, imgsURL)
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -54,12 +60,31 @@ export default function Board() {
 
   console.log(theme, backgroundImage);
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleAddCard = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <div
-      className={css.boardContainer}
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
-      Board
-    </div>
+    <>
+      <div
+        className={css.boardContainer}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
+      >
+        Board
+      </div>
+      <Button
+        icon={'icon-plus'}
+        text={'Add another card'}
+        big={false}
+        onClick={handleAddCard}
+      />
+      {isModalOpen && <AddCardModal onClose={handleCloseModal} />}
+    </>
   );
 }
