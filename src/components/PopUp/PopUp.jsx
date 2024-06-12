@@ -14,27 +14,30 @@ function PopUp() {
   const columns = ['In progress', 'Done', 'To Do']; // your column names
 
   return (
-    <div className={css.columnContent}>
-      <ul className={css.columnMenu}>
-        {columns.map(column => (
-          <li
-            key={column}
-            className={activeColumn === column ? css.active : ''}
-          >
-            <button onClick={() => handleClick(column)}>
-              <svg
-                className={clsx(css.color, css[theme])}
-                width="16"
-                height="16"
-                aria-label="btn icon"
-              >
-                <use href={`${spritePath}#icon-arrow`} />
-              </svg>
-              <p className={css.titleColumn}>{column}</p>
-            </button>
-          </li>
-        ))}
-      </ul>
+    <div className={css.popupDiv}>
+      <div className={css.columnContent}>
+        <ul className={css.columnMenu}>
+          {columns.map(column => (
+            <li
+              key={column}
+              className={activeColumn === column ? css.active : ''}
+            >
+              <button onClick={() => handleClick(column)}>
+                <svg
+                  className={css.columnName}
+                  // className={clsx(css.color, css[theme])}
+                  width="16"
+                  height="16"
+                  aria-label="btn icon"
+                >
+                  <use href={`${spritePath}#icon-arrow`} />
+                </svg>
+                <p className={css.titleColumn}>{column}</p>
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
