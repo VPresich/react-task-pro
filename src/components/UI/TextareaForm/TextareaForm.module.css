@@ -19,7 +19,7 @@
 }
 
 .fieldTextarea.dark {
-  border: 2px rgba(190, 219, 176, 0.4) solid;
+  color: var(--white);
 }
 
 .fieldTextarea.dark::placeholder {
