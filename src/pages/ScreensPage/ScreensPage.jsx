@@ -1,11 +1,14 @@
 import DocumentTitle from '../../components/DocumentTitle';
+import Layout from '../../components/Layout/Layout';
+// import Filters from '../../components/Filters/Filters';
+import Board from '../../components/Board/Board';
 
-export default function ScreensPage() {
+export default function ScreenPage() {
   return (
-    <>
-      <DocumentTitle>ScreensPage</DocumentTitle>
-      <h2>ScreensPage</h2>
-      <button>Add</button>
-    </>
+    <Layout>
+      <DocumentTitle>Screen Page</DocumentTitle>
+      {/* <Filters /> */}
+      <Board />
+    </Layout>
   );
 }
