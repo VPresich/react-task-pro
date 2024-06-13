@@ -50,11 +50,11 @@
 }
 
 .arrow {
-  color: rgba(255, 255, 255, 0.5);
+  stroke: rgba(255, 255, 255, 0.5);
 }
 
 .arrow:hover {
-  color: rgb(190, 219, 176);
+  stroke: rgb(190, 219, 176);
 }
 .titleColumn {
   color: rgba(255, 255, 255, 0.5);
