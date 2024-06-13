@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: right;
   gap: 16px;
   width: 100%;
 }
@@ -12,12 +12,22 @@
   width: 32px;
   height: 32px;
   margin-right: auto;
-  visibility: hidden;
-  /* for future edits */
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.icon.light,
+.icon.violet {
+  stroke: var(--secondary-color);
+}
+
+.icon.dark {
+  stroke: var(--white);
 }
 
 .icon {
-  stroke: var(--secondary-color);
   width: 32px;
   height: 32px;
 }
@@ -36,11 +46,11 @@
   font-weight: 600;
 }
 
-.username.dark{
+.username.dark {
   color: var(--primary-color);
 }
 
-.username:hover{
+.username:hover {
   cursor: pointer;
 }
 
@@ -59,12 +69,28 @@
   background-color: var(--btn-accent-color);
 }
 
-.avatar{
+.avatar {
   height: 32px;
   width: 32px;
   border-radius: 12px;
 }
 
-.avatar:hover{
+.avatar:hover {
   cursor: pointer;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+@media screen and (max-width: 768px) {
+  .burgerButton {
+    display: flex;
+  }
+
+  .wrapper {
+    justify-content: space-between;
+  }
 }

@@ -3,6 +3,7 @@ import CreateEditBoardForm from '../Forms/CreateEditBoardForm/CreateEditBoardFor
 import { addBoard } from '../../redux/boards/operations';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { setActiveBoard } from '../../redux/boards/slice';
 
 export default function CreateBoardModal({ onClose }) {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ export default function CreateBoardModal({ onClose }) {
     dispatch(addBoard(values))
       .unwrap()
       .then(result => {
+        dispatch(setActiveBoard(result._id));
         navigate(`/home/${result._id}`);
       });
     onClose();

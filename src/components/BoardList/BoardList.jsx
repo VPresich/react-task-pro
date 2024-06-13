@@ -25,7 +25,7 @@ const BoardsList = () => {
             key={board._id}
             board={board}
             isActive={board._id === activeBoardState}
-            setActiveBoard={handleActiveBoard}
+            handleActiveBoard={handleActiveBoard}
           />
         </li>
       ))}

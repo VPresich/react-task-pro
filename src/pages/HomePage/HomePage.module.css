@@ -22,13 +22,24 @@
 }
 
 .page {
-  width: 100%;
-  height: 100vh;
+  max-width: 100vw;
+  /* height: 100vh; */
   display: flex;
   min-height: 100vh;
-  flex: 1;
+  /* overflow-x: hidden; */
+  /* flex: 1; */
 }
 
 .normalWidth {
-  width: 100%;
+  width: calc(100% - 260px);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: stretch; */
+  flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .normalWidth {
+    width: 100%;
+  }
 }

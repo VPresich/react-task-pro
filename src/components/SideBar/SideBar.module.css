@@ -1,7 +1,9 @@
 .sidebar {
   width: 260px;
   min-height: 100vh;
-
+  display: flex;
+  height: 100%;
+  flex-direction: column;
   padding: 24px 0px;
 }
 
@@ -23,7 +25,7 @@
 .sidebarTitle {
   font-size: 12px;
   letter-spacing: -0.02em;
-  padding-left: 24px;
+  padding-left: 14px;
 }
 
 .sidebarTitle.dark,
@@ -33,4 +35,31 @@
 
 .sidebarTitle.light {
   color: rgba(22, 22, 22, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+  .sidebarBackdrop {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(21, 21, 21, 0.5);
+    display: none;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    z-index: 1000;
+    overflow-y: scroll;
+  }
+
+  .sidebarBackdrop.open {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .sidebar {
+    width: 225px;
+    padding: 14px 0px;
+  }
 }

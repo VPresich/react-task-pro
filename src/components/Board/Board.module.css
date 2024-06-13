@@ -5,6 +5,18 @@
   background-position: center;
 }
 
+.boardContainer.dark {
+  background-color: var(--black);
+}
+
+.boardContainer.light {
+  background-color: var(--gray);
+}
+
+.boardContainer.violet {
+  background-color: var(--violet-medium);
+}
+
 .top {
   display: flex;
   justify-content: space-between;
@@ -31,4 +43,9 @@
   display: flex;
   align-items: flex-start;
   gap: 18px;
+  padding: 25px 32px 50px;
+}
+
+.contents {
+  overflow-x: scroll;
 }
