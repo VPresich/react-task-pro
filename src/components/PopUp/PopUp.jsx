@@ -27,7 +27,7 @@ function PopUp() {
               >
                 <p className={css.titleColumn}>{column}</p>
                 <svg
-                  className={css.columnName}
+                  className={css.arrow}
                   // className={clsx(css.color, css[theme])}
                   width="16"
                   height="16"
