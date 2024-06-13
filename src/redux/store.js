@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage';
 import authReducer from '../redux/auth/slice';
 import boardsReducer from '../redux/boards/slice';
 import supportReducer from '../redux/support/slice';
-import tasksReducer from './tasks/slice';
+import tasksReducer from '../redux/tasks/slice';
 import columnsReducer from '../redux/columns/slice';
 
 const authPersistConfig = {
