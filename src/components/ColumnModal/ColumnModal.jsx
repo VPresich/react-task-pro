@@ -1,3 +1,4 @@
+import { useParams } from 'react-router-dom';
 import Button from '../UI/Button/Button';
 import Input from '../UI/Input/Input';
 import { useSelector } from 'react-redux';
@@ -11,9 +12,11 @@ import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 
-const ColumnModal = ({ modalType, activeBoardId, columnId, onClose }) => {
+const ColumnModal = ({ modalType, /* activeBoardId,*/ columnId, onClose }) => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
+
+  const { id } = useParams();
 
   const validationSchema = Yup.object().shape({
     title: Yup.string().required('Title is required'),
@@ -23,17 +26,19 @@ const ColumnModal = ({ modalType, activeBoardId, columnId, onClose }) => {
     const { title } = values;
 
     if (modalType === 'add') {
-      dispatch(addColumnForBoard({ id: activeBoardId, title }))
-        .unwrap()
-        .then(() => {
-          toast.success('fetchColumn fulfilled');
-          actions.resetForm();
-          onClose();
-        })
-        .catch(() => {
-          toast.error('fetchColumn rejected');
-          onClose();
-        });
+      if (id) {
+        dispatch(addColumnForBoard({ id, title }))
+          .unwrap()
+          .then(() => {
+            toast.success('fetchColumn fulfilled');
+            actions.resetForm();
+            onClose();
+          })
+          .catch(() => {
+            toast.error('fetchColumn rejected');
+            onClose();
+          });
+      }
     } else if (modalType === 'edit') {
       dispatch(updateColumnById({ id: columnId, title }))
         .unwrap()
