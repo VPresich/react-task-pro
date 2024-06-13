@@ -1,24 +1,19 @@
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-
 import { selectIsLoading, selectError } from '../../redux/boards/selectors';
 import { fetchBoards } from '../../redux/boards/operations';
-
 import DocumentTitle from '../../components/DocumentTitle';
-import AppBar from '../../components/AppBar/AppBar';
+import Layout from '../../components/Layout/Layout';
+import { selectTheme } from '../../redux/auth/selectors';
+import clsx from 'clsx';
 import css from './HomePage.module.css';
-import SideBar from '../../components/SideBar/SideBar';
-import Board from '../../components/Board/Board';
-import Card from '../../components/UI/Card/Card';
-import Filters from '../../components/Filters/Filters';
 
 export default function HomePage() {
+  const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
-
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-
   useEffect(() => {
     dispatch(fetchBoards())
       .unwrap()
@@ -31,24 +26,22 @@ export default function HomePage() {
   }, [dispatch]);
 
   return (
-    <div className={css.page}>
+    <Layout>
       <DocumentTitle>Home Page</DocumentTitle>
-      <SideBar />
-      <div className={css.normalWidth}>
-        <AppBar />
-        <Filters />
-        <Board />
-        <Card
-          title="test 1"
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
-explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
-at reprehenderit veniam magni aliquam cumque"
-          priority="low"
-          deadline="08.06.2024"
-        />
+      <div className={clsx(css.page, css[theme])}>
+        <p className={css.text}>
+          Before starting your project, it is essential{' '}
+          <span className={clsx(css.accent, css[theme])}>
+            to create a board
+          </span>{' '}
+          to visualize and track all the necessary tasks and milestones. This
+          board serves as a powerful tool to organize the workflow and ensure
+          effective collaboration among team members.
+        </p>
+
         {isLoading && <p>Loading boads...</p>}
         {error && <p>{error}</p>}
       </div>
-    </div>
+    </Layout>
   );
 }

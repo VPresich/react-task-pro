@@ -3,12 +3,13 @@
   margin-right: auto;
   background-color: #151515;
   width: 424px;
-  height: 395px;
+  min-height: 395px;
   padding: 40px;
+  border-radius: 8px;
 }
 
 .loginContainer {
-  height: 332px;
+  min-height: 332px;
 }
 
 .link {

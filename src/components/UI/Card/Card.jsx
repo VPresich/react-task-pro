@@ -12,6 +12,7 @@ import { isDeadlineSoon, getPriorityClasses } from './utils';
 // import ModalWindow1 from 'ModalWindow';
 
 export default function Card({ title, description, id, priority, deadline }) {
+  // const { title, description, id, priority, deadline } = item;
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const handleCard = () => {

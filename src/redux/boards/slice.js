@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from '../auth/operations';
 // import { fetchColumnsForBoard } from '../columns/operations';
-
+// import { fetchTasksForColumn } from '../tasks/operations';
 import {
   fetchBoards,
   deleteBoard,
@@ -60,8 +60,9 @@ const boardsSlice = createSlice({
       })
       .addCase(deleteBoard.fulfilled, (state, action) => {
         const index = state.items.findIndex(
-          task => task.id === action.payload.id
+          board => board.id === action.payload._id
         );
+
         state.items.splice(index, 1);
         state.error = null;
       })
@@ -126,12 +127,12 @@ const boardsSlice = createSlice({
     //   const { tasks, ...columnData } = action.payload;
     //   console.log('columnData', columnData);
     //   fetchColumnsForBoard.fulfilled(columnData);
-    //   // fetchTasksForColumn.fulfilled(tasks);
+    //   fetchTasksForColumn.fulfilled(tasks);
     // })
     // .addCase(getColumnsAndTasks.rejected, (state, action) => {
     //   state.isLoading = false;
     //   state.error = action.payload;
-    // })
+    // });
   },
 });
 

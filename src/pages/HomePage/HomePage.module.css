@@ -1,14 +1,45 @@
 .text {
-  font-size: 36px;
-  font-weight: 500;
-  color: var(--secondary-color);
-  margin-bottom: 24px;
+  width: 486px;
+  font-weight: 400;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.text.dark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.accent.light,
+.accent.dark {
+  color: #bedbb0;
+}
+
+.accent.violet {
+  color: #5255bc;
 }
 
 .page {
+  width: 100%;
+  height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.normalWidth{
-  width: 100%;
+.page.light {
+  color: rgba(22, 22, 22, 0.7);
+  background-color: #f6f6f7;
+}
+
+.page.dark {
+  color: rgba(255, 255, 255, 0.5);
+  background-color: #1f1f1f;
+}
+
+.page.violet {
+  color: rgba(22, 22, 22, 0.7);
+  background-color: #ecedfd;
 }
