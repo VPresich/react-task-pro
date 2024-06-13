@@ -9,8 +9,12 @@ import { ERR_BOARD_DELETE, SUCCESS_BOARD_DELETE } from '../../notification/const
 import { useState, useEffect } from 'react';
 import EditBoardModal from '../EditBoardModal/EditBoardModal';
 import EllipsisText from "react-ellipsis-text";
+import { useNavigate } from 'react-router-dom';
+import { setActiveBoard } from '../../redux/boards/slice';
 
-const BoardListItem = ({ board, isActive, setActiveBoard }) => {
+
+const BoardListItem = ({ board, isActive, handleActiveBoard }) => {
+    const navigation = useNavigate();
     const dispatch = useDispatch();
     const theme = useSelector(selectTheme);
     // const theme = 'violet'
@@ -39,16 +43,18 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
         };
     }, []);
     
-    const handleDelete = (id) => {
-        dispatch(deleteBoard(id))
-            .unwrap()
-            .then(() => {
-                successNotify(SUCCESS_BOARD_DELETE);
-            })
-            .catch(err => {
-                errNotify(ERR_BOARD_DELETE + err.message);
-            });
-    }
+const handleDelete = (id) => {
+    dispatch(deleteBoard(id))
+        .unwrap()
+        .then(() => {
+            successNotify(SUCCESS_BOARD_DELETE);
+            dispatch(setActiveBoard(null));
+            navigation('/');
+        })
+        .catch(err => {
+            errNotify(ERR_BOARD_DELETE + err.message);
+        });
+}
 
     const handleEdit = (id) => {
         console.log('edit board', id)
@@ -57,13 +63,13 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
 
     const getLength = () => {
         if (isDesktop) {
-            return  isActive ? "17" : "25"
+            return  isActive ? 17 : 25
         }
-        return isActive ? "13" : "20"
+        return isActive ? 13 : 20
     }
 
     return (
-        <div className={isActive ? clsx(css.container, css[theme], css.active) : clsx(css.container, css[theme])} onClick={() => setActiveBoard(_id)}>
+        <div className={isActive ? clsx(css.container, css[theme], css.active) : clsx(css.container, css[theme])} onClick={() => handleActiveBoard(_id)}>
         <div className={css.titleContainer}>
             <svg
                 className={isActive ? clsx(css.icon, css[theme], css.active) : clsx(css.icon, css[theme])}
