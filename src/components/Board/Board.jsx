@@ -10,7 +10,7 @@ import Filters from '../Filters/Filters.jsx';import AddColumnBtn from '../AddCol
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import ColumnModal from '../ColumnModal/ColumnModal';
 import ColumnList from '../ColumnList/ColumnList';
-
+import BoardNotSelected from '../BoardNotSelected/BoardNotSelected.jsx'
 import imgsURL from '../../img/listUrls.js';
 
 function getDeviceType() {
@@ -97,8 +97,7 @@ export default function Board() {
       </div>
     </div>
   ) : (
-    <p>NO board</p>
+    <BoardNotSelected/>
   )
 );
-
 }

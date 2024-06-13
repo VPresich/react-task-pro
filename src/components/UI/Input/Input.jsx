@@ -29,7 +29,7 @@ import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
-export default function Input({ onName, onPlaceholder, type }) {
+export default function Input({ onName, onPlaceholder, type, color }) {
   const theme = useSelector(selectTheme);
   const userNameId = useId();
   const [showPassword, setShowPassword] = useState(false);
@@ -48,6 +48,7 @@ export default function Input({ onName, onPlaceholder, type }) {
         className={clsx(css.fieldInput, css[theme])}
         placeholder={onPlaceholder}
         type={inputType}
+        style={color && { color } }
       />
       {type === 'password' && (
         <span onClick={handleTogglePasswordVisibility} className={css.eyeIcon}>
