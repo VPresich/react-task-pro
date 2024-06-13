@@ -25,21 +25,19 @@
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  min-height: 100vh;
+  flex: 1;
 }
 
-.page.light {
-  color: rgba(22, 22, 22, 0.7);
-  background-color: #f6f6f7;
+.normalWidth {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: stretch; */
+  flex: 1;
 }
 
-.page.dark {
-  color: rgba(255, 255, 255, 0.5);
-  background-color: #1f1f1f;
-}
-
-.page.violet {
-  color: rgba(22, 22, 22, 0.7);
-  background-color: #ecedfd;
+.page {
+  display: flex;
+  align-items: stretch;
 }

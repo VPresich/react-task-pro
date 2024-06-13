@@ -11,12 +11,16 @@
   line-height: 1.28;
   margin-bottom: 4px;
   position: relative;
-  color: var(--white);
 }
 
 .fieldInput.light,
 .fieldInput.dark {
   border: 2px rgba(190, 219, 176, 0.4) solid;
+}
+
+.fieldInput.violet,
+.fieldInput.light {
+  color: (--black);
 }
 
 .fieldInput.dark,

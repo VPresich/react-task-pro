@@ -7,7 +7,7 @@ import RestrictedRoute from './RestrictedRoute';
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
-const ScreensPage = lazy(() => import('../pages/ScreensPage/ScreensPage'));
+// const ScreensPage = lazy(() => import('../pages/ScreensPage/ScreensPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 const AppRouter = () => {
@@ -31,7 +31,7 @@ const AppRouter = () => {
           }
         />
         <Route
-          path="home"
+          path="/home"
           element={
             <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
           }
@@ -39,7 +39,7 @@ const AppRouter = () => {
         <Route
           path="/home/:id"
           element={
-            <PrivateRoute redirectTo="/welcome" component={<ScreensPage />} />
+            <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
           }
         />
         <Route path="*" element={<NotFoundPage />} />

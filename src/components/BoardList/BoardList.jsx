@@ -11,6 +11,7 @@ const BoardsList = () => {
   const boards = useSelector(selectItems);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleActiveBoard = id => {
     dispatch(setActiveBoard(id));
