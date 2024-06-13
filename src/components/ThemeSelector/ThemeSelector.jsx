@@ -22,6 +22,7 @@ const ThemeSelector = () => {
     const selectedTheme = event.target.value.toLowerCase();
     dispatch(setTheme(selectedTheme));
     localStorage.setItem('theme', selectedTheme);
+    setIsOpen(false);
   };
 
   return (

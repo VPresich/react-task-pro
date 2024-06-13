@@ -1,7 +1,15 @@
 import { useEffect, useState } from 'react';
 import css from './Board.module.css';
 import { useSelector } from 'react-redux';
-import { selectActiveBoard } from '../../redux/boards/selectors';
+import { selectTheme } from '../../redux/auth/selectors.js';
+import clsx from 'clsx';
+import {
+  selectActiveBoard
+} from '../../redux/boards/selectors';
+import Filters from '../Filters/Filters.jsx';import AddColumnBtn from '../AddColumnBtn/AddColumnBtn';
+import ModalWrapper from '../ModalWrapper/ModalWrapper';
+import ColumnModal from '../ColumnModal/ColumnModal';
+import ColumnList from '../ColumnList/ColumnList';
 
 import imgsURL from '../../img/listUrls.js';
 import Button from '../UI/Button/Button.jsx';
@@ -24,67 +32,93 @@ function getResolution() {
 function getBackgroundImage(theme, imgsURL) {
   const deviceType = getDeviceType();
   const resolution = getResolution();
-  console.log(theme);
-  const themeData = imgsURL.find(img => img._id === theme);
-  console.log(themeData);
+ 
+  const themeData = imgsURL.find((img) => img._id === theme);
+  
   if (!themeData) return '';
 
   const key = `imgUrl_${deviceType}_${resolution}`;
   return themeData[key] || '';
 }
 
-export default function Board() {
+export default function Board({id}) {
+  const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
-  const theme = activeBoard
-    ? activeBoard.background
-    : '665dab40d37019ad00137c09';
-  console.log(theme);
-  const [backgroundImage, setBackgroundImage] = useState(
-    getBackgroundImage(theme, imgsURL)
-  );
+  
+  const background = activeBoard ? activeBoard.background : '';
+  const [backgroundImage, setBackgroundImage] = useState(getBackgroundImage(background, imgsURL));
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  
   useEffect(() => {
     const handleResize = () => {
-      setBackgroundImage(getBackgroundImage(theme, imgsURL));
+      setBackgroundImage(getBackgroundImage(background, imgsURL));
     };
 
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [theme]); // Include theme in the dependencies
+  }, [background]); // Include theme in the dependencies
 
   useEffect(() => {
-    setBackgroundImage(getBackgroundImage(theme, imgsURL));
-  }, [theme, activeBoard]); // Include theme and activeBoard in the dependencies
+    setBackgroundImage(getBackgroundImage(background, imgsURL));
+  }, [background, activeBoard]); // Include theme and activeBoard in the dependencies
 
   console.log(theme, backgroundImage);
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleAddCard = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
 
   return (
-    <>
-      <div
-        className={css.boardContainer}
-        style={{ backgroundImage: `url(${backgroundImage})` }}
-      >
-        Board
+    <div
+      className={css.boardContainer}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
+      <div className={css.top}>
+        <p className={clsx(css.title, css[theme])}>Project office</p>
+        <Filters />
       </div>
-      <Button
-        icon={'icon-plus'}
-        text={'Add another card'}
-        big={false}
-        onClick={handleAddCard}
-      />
-      {isModalOpen && <AddCardModal onClose={handleCloseModal} />}
-    </>
+      <div className={css.contents}>
+       <div className={css.columnsWrapper}>
+        <ColumnList activeBoardId={activeBoard._id} />
+        <AddColumnBtn openModal={openModal} />
+      </div>
+      {isModalOpen && (
+        <ModalWrapper onClose={closeModal}>
+          <ColumnModal
+            modalType={'add'}
+            activeBoardId={activeBoard._id}
+            onClose={closeModal}
+          />
+        </ModalWrapper>
+      )}
+      </div>
+    </div>
   );
 }
+
+
+
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+
+//   const handleAddCard = () => {
+//     setIsModalOpen(true);
+//   };
+
+//   const handleCloseModal = () => {
+//     setIsModalOpen(false);
+// };
+  
+// <Button
+//         icon={'icon-plus'}
+//         text={'Add another card'}
+//         big={false}
+//         onClick={handleAddCard}
+//       />
+//       {isModalOpen && <AddCardModal onClose={handleCloseModal} />}
