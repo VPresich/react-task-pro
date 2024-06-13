@@ -4,7 +4,7 @@ import { useAuth } from '../../hooks/useAuth';
 import css from './UserMenu.module.css';
 import UserInfoContent from '../UserInfoContent/UserInfoContent';
 import ThemeSelector from "../ThemeSelector/ThemeSelector";
-import ModalWindow from '../UI/ModalWindow/ModalWindow';
+import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/auth/selectors';
 import spritePath from '../../img/sprite.svg';
@@ -34,19 +34,18 @@ export default function UserMenu({handleSidebar}) {
         </svg>
       </button>
       <ThemeSelector />
-      <button onClick={handleEditProfile} className={css.wrapperIcon}>
+      <button className={css.wrapperIcon} onClick={handleEditProfile}>
         <p className={clsx(css.username, css[theme])}>{user.name}</p>
-        <img src={user.avatarURL} alt="User" className={css.avatar} />
+        <img src={user.avatarURL} alt="User" className={css.avatar}  />
       </button>
 
-      <ModalWindow visible={isModalOpen} setVisible={setIsModalOpen}>
-        <div className={css.modalContent}>
-          <button className={css.closeButton} onClick={handleCloseModal}>
-            &times;
-          </button>
+      {isModalOpen && (
+        <ModalWrapper onClose={handleCloseModal}>
+          {/* <div className={css.modalContent}> */}
           <UserInfoContent />
-        </div>
-      </ModalWindow>
+          {/* </div> */}
+        </ModalWrapper>
+      )}
     </div>
   );
 }
