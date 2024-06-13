@@ -4,13 +4,14 @@
   padding: 12px 24px;
   text-align: center;
   flex-shrink: 0;
+  width: 100%;
 }
 
 .header.light,
-.header.violet{
+.header.violet {
   background-color: #fcfcfc;
 }
 
-.header.dark{
+.header.dark {
   background-color: var(--secondary-color);
 }

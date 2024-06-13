@@ -26,6 +26,15 @@
   margin-bottom: 12px;
 }
 
+.form.light,
+.form.violet {
+  background-color: var(--primary-color);
+}
+
+.form.dark {
+  background-color: var(--secondary-color);
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -39,8 +48,8 @@
   gap: 14px;
 }
 
-.inputs.dark{
-  color: var(--white); 
+.inputs.dark {
+  color: var(--white);
 }
 
 .avatar {

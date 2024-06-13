@@ -6,17 +6,22 @@ import clsx from 'clsx';
 import { deleteBoard } from '../../redux/boards/operations';
 import { errNotify, successNotify } from '../../notification/notification';
 import { ERR_BOARD_DELETE, SUCCESS_BOARD_DELETE } from '../../notification/constants';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import EditBoardModal from '../EditBoardModal/EditBoardModal';
+import EllipsisText from "react-ellipsis-text";
+import { useNavigate } from 'react-router-dom';
+import { setActiveBoard } from '../../redux/boards/slice';
 
 
-const BoardListItem = ({ board, isActive, setActiveBoard }) => {
+const BoardListItem = ({ board, isActive, handleActiveBoard }) => {
+    const navigation = useNavigate();
     const dispatch = useDispatch();
     const theme = useSelector(selectTheme);
     // const theme = 'violet'
     const { _id, title, icon } = board;
     
-     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 375);
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -26,23 +31,45 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
         setIsModalOpen(false);
     };
     
-    const handleDelete = (id) => {
-        dispatch(deleteBoard(id))
-            .unwrap()
-            .then(() => {
-                successNotify(SUCCESS_BOARD_DELETE);
-            })
-            .catch(err => {
-                errNotify(ERR_BOARD_DELETE + err.message);
-            });
-    }
+    const handleResize = () => {
+        setIsDesktop(window.innerWidth > 375);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+        window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+    
+const handleDelete = (id) => {
+    dispatch(deleteBoard(id))
+        .unwrap()
+        .then(() => {
+            successNotify(SUCCESS_BOARD_DELETE);
+            dispatch(setActiveBoard(null));
+            navigation('/');
+        })
+        .catch(err => {
+            errNotify(ERR_BOARD_DELETE + err.message);
+        });
+}
 
     const handleEdit = (id) => {
         console.log('edit board', id)
         openModal();
     }
+
+    const getLength = () => {
+        if (isDesktop) {
+            return  isActive ? 17 : 25
+        }
+        return isActive ? 13 : 20
+    }
+
     return (
-        <div className={isActive ? clsx(css.container, css[theme], css.active) : clsx(css.container, css[theme])} onClick={() => setActiveBoard(_id)}>
+        <div className={isActive ? clsx(css.container, css[theme], css.active) : clsx(css.container, css[theme])} onClick={() => handleActiveBoard(_id)}>
         <div className={css.titleContainer}>
             <svg
                 className={isActive ? clsx(css.icon, css[theme], css.active) : clsx(css.icon, css[theme])}
@@ -52,7 +79,7 @@ const BoardListItem = ({ board, isActive, setActiveBoard }) => {
             >
             <use href={`${spritePath}#${icon}`} />
             </svg>
-            <p className={isActive ? clsx(css.title, css[theme], css.active) : clsx(css.title, css[theme])}>{title}</p>
+            <EllipsisText text={title} length={getLength()} className={isActive ? clsx(css.title, css[theme], css.active) : clsx(css.title, css[theme])}/>
         </div>
         
         <div className={isActive ? clsx(css.controls, css[theme], css.active) : clsx(css.controls, css[theme])}>

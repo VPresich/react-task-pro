@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 0;
+  padding: 14px 0;
 }
 
 .text {
@@ -67,4 +67,10 @@
 
 .btn.violet:hover {
   background-color: var(--violet-main-light);
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    padding: 12px 14px 0px;
+  }
 }

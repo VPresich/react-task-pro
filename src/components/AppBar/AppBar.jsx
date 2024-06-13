@@ -4,13 +4,13 @@ import { selectTheme } from '../../redux/auth/selectors';
 import css from './AppBar.module.css';
 import clsx from 'clsx';
 
-export default function AppBar() {
+export default function AppBar({handleSidebar}) {
 
   const theme = useSelector(selectTheme);
 
   return (
     <header className={clsx(css.header, css[theme])}>
-      <UserMenu />
+      <UserMenu handleSidebar={handleSidebar} />
     </header>
   );
 }

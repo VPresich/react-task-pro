@@ -11,7 +11,6 @@ const BoardsList = () => {
   const boards = useSelector(selectItems);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleActiveBoard = id => {
     dispatch(setActiveBoard(id));
@@ -26,7 +25,7 @@ const BoardsList = () => {
             key={board._id}
             board={board}
             isActive={board._id === activeBoardState}
-            setActiveBoard={handleActiveBoard}
+            handleActiveBoard={handleActiveBoard}
           />
         </li>
       ))}

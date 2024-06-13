@@ -39,7 +39,7 @@ function getBackgroundImage(theme, imgsURL) {
   return themeData[key] || '';
 }
 
-export default function Board({id}) {
+export default function Board() {
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
   
@@ -70,31 +70,35 @@ export default function Board({id}) {
     setBackgroundImage(getBackgroundImage(background, imgsURL));
   }, [background, activeBoard]); // Include theme and activeBoard in the dependencies
 
-  console.log(id, "in board")
   return (
+  activeBoard ? (
     <div
-      className={css.boardContainer}
+      className={clsx(css.boardContainer, css[theme])}
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className={css.top}>
-        <p className={clsx(css.title, css[theme])}>Project office</p>
+          <p className={clsx(css.title, css[theme])}>{ activeBoard.title}</p>
         <Filters />
       </div>
       <div className={css.contents}>
-       <div className={css.columnsWrapper}>
-        <ColumnList activeBoardId={activeBoard._id} />
-        <AddColumnBtn openModal={openModal} />
-      </div>
-      {isModalOpen && (
-        <ModalWrapper onClose={closeModal}>
-          <ColumnModal
-            modalType={'add'}
-            activeBoardId={activeBoard._id}
-            onClose={closeModal}
-          />
-        </ModalWrapper>
-      )}
+        <div className={css.columnsWrapper}>
+          <ColumnList activeBoardId={activeBoard._id} />
+          <AddColumnBtn openModal={openModal} />
+        </div>
+        {isModalOpen && (
+          <ModalWrapper onClose={closeModal}>
+            <ColumnModal
+              modalType={'add'}
+              activeBoardId={activeBoard._id}
+              onClose={closeModal}
+            />
+          </ModalWrapper>
+        )}
       </div>
     </div>
-  );
+  ) : (
+    <p>NO board</p>
+  )
+);
+
 }
