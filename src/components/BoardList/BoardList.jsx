@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { selectItems, selectActiveBoardId } from '../../redux/boards/selectors';
 import { setActiveBoard } from '../../redux/boards/slice';
 import css from './BoardList.module.css';

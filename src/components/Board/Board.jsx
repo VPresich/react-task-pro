@@ -4,8 +4,7 @@ import { useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/auth/selectors.js';
 import clsx from 'clsx';
 import {
-  selectActiveBoard,
-  selectActiveBoardId,
+  selectActiveBoard
 } from '../../redux/boards/selectors';
 import Filters from '../Filters/Filters.jsx';import AddColumnBtn from '../AddColumnBtn/AddColumnBtn';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
@@ -83,7 +82,7 @@ export default function Board({id}) {
       </div>
       <div className={css.contents}>
        <div className={css.columnsWrapper}>
-        <ColumnList activeBoardId={activeBoard} />
+        <ColumnList activeBoardId={activeBoard._id} />
         <AddColumnBtn openModal={openModal} />
       </div>
       {isModalOpen && (

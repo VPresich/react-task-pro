@@ -26,6 +26,7 @@
 .title.violet {
   color: var(--secondary-color);
 }
+
 .columnsWrapper {
   display: flex;
   align-items: flex-start;

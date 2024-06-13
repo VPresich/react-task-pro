@@ -29,17 +29,19 @@ export default function HomePage() {
   }, [dispatch]);
 
   return (
-    <Layout>
+    // <Layout>
+    <div className={css.page}>
       <DocumentTitle>Home Page</DocumentTitle>
-      <SideBar />
+       <SideBar />
       <div className={css.normalWidth}> 
-        <AppBar />
-        <ScreensPage/>
-        
-        {isLoading && <p>Loading boads...</p>}
+        <AppBar /> 
+        <ScreensPage />
+      
+       {isLoading && <p>Loading boads...</p>}
         {error && <p>{error}</p>} 
+      </div> 
       </div>
-    </Layout>
+    // </Layout>
   );
 }
 
