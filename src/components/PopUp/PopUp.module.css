@@ -14,7 +14,7 @@
  
   background: #1f1f1f;
   color: rgba(255, 255, 255, 0.5);
-  width: 135px;
+  width: 165px;
   height: 86px;
   border-radius: 8px;
   position: fixed;
@@ -67,7 +67,7 @@
   font-weight: 200;
   line-height: normal;
   letter-spacing: -0.28px;
- 
+  font-family: 'Poppins-Regular';
   
 }
 
