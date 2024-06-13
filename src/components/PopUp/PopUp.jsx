@@ -1,17 +1,16 @@
 import { useState } from 'react';
-import clsx from 'clsx';
+// import clsx from 'clsx';
 import css from './PopUp.module.css';
-import spritePath from '../../../img/sprite.svg'; // correct import
-
+import spritePath from '../../img/sprite.svg';
 function PopUp() {
   const [activeColumn, setActiveColumn] = useState('In progress');
-  const theme = ''; // define your theme here
+  // const theme = '';
 
   const handleClick = column => {
     setActiveColumn(column);
   };
 
-  const columns = ['In progress', 'Done', 'To Do']; // your column names
+  const columns = ['In progress', 'Done']; // your column names
 
   return (
     <div className={css.popupDiv}>
@@ -22,7 +21,11 @@ function PopUp() {
               key={column}
               className={activeColumn === column ? css.active : ''}
             >
-              <button onClick={() => handleClick(column)}>
+              <button
+                className={css.columnBtn}
+                onClick={() => handleClick(column)}
+              >
+                <p className={css.titleColumn}>{column}</p>
                 <svg
                   className={css.columnName}
                   // className={clsx(css.color, css[theme])}
@@ -32,7 +35,6 @@ function PopUp() {
                 >
                   <use href={`${spritePath}#icon-arrow`} />
                 </svg>
-                <p className={css.titleColumn}>{column}</p>
               </button>
             </li>
           ))}
