@@ -11,6 +11,7 @@
 }
 
 .popupDiv {
+ 
   background: #1f1f1f;
   color: rgba(255, 255, 255, 0.5);
   width: 135px;
@@ -30,42 +31,71 @@
   align-items: center;
 }
 
-.columnBtn {
+.columnBtn {  
   display: flex;
   background: #1f1f1f;
   border-color: transparent;
-  width: 75px;
-  height: 21px;
+  /* width: 75px;
+  height: 21px; */
   justify-content: space-between;
   width: 100%;
   gap: 8px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.2s;
 }
+
 
 .columnMenu li {
   display: flex;
   flex-direction: column;
 }
 .columnMenu li.active {
-  color: rgb(190, 219, 176);
+  stroke: rgb(190, 219, 176);
 }
+
 
 .arrow {
   stroke: rgba(255, 255, 255, 0.5);
 }
 
-.arrow:hover {
-  stroke: rgb(190, 219, 176);
-}
+
 .titleColumn {
   color: rgba(255, 255, 255, 0.5);
   font-family: Poppins;
-  font-size: 14px;
+   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200;
   line-height: normal;
   letter-spacing: -0.28px;
+ 
+  
 }
 
-.titleColumn:hover {
+.columnBtn .titleColumn,
+.columnBtn .arrow {
+  color: inherit;
+  
+}
+
+.active .columnBtn  {
+  color: rgb(190, 219, 176); 
+  stroke: rgb(190, 219, 176);
+  
+}
+
+.columnBtn:hover {
+  stroke: rgb(190, 219, 176);
   color: rgb(190, 219, 176);
+   
+  
+}
+
+.active .arrow {
+  stroke: rgb(190, 219, 176);
+  
+}
+
+.arrow:hover {
+  stroke: rgb(190, 219, 176);  
+  
 }

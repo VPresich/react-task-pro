@@ -2,12 +2,15 @@ import { useState } from 'react';
 // import clsx from 'clsx';
 import css from './PopUp.module.css';
 import spritePath from '../../img/sprite.svg';
+// import { useHistory } from 'react-router-dom';
+
 function PopUp() {
   const [activeColumn, setActiveColumn] = useState('In progress');
-  // const theme = '';
+  // const history = useHistory(); // add this line
 
   const handleClick = column => {
     setActiveColumn(column);
+    // history.push(`/column/${column}`); // and use it here
   };
 
   const columns = ['In progress', 'Done']; // your column names
