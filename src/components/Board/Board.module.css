@@ -5,6 +5,18 @@
   background-position: center;
 }
 
+.boardContainer.dark {
+  background-color: var(--black);
+}
+
+.boardContainer.light {
+  background-color: var(--gray);
+}
+
+.boardContainer.violet {
+  background-color: var(--violet-medium);
+}
+
 .top {
   display: flex;
   justify-content: space-between;

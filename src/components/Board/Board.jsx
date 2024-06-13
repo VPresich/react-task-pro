@@ -73,7 +73,7 @@ export default function Board({id}) {
   console.log(id, "in board")
   return (
     <div
-      className={css.boardContainer}
+      className={clsx(css.boardContainer, css[theme])}
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className={css.top}>
