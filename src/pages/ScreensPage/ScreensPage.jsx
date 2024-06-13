@@ -13,7 +13,10 @@ import { setActiveBoard } from '../../redux/boards/slice';
 export default function ScreensPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
-  dispatch(setActiveBoard(id));
+  
+  useEffect(() => {
+    dispatch(setActiveBoard(id));
+  }, [dispatch, id]);
   
   console.log(id);
   useEffect(() => {
