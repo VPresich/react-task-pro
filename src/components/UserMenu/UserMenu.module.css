@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: right;
   gap: 16px;
   width: 100%;
 }
@@ -79,8 +79,18 @@
   cursor: pointer;
 }
 
+.right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 @media screen and (max-width: 768px) {
   .burgerButton {
     display: flex;
+  }
+
+  .wrapper {
+    justify-content: space-between;
   }
 }

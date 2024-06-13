@@ -33,12 +33,13 @@ export default function UserMenu({handleSidebar}) {
           <use href={`${spritePath}#icon-burger`} />
         </svg>
       </button>
+      <div className={css.right}>
       <ThemeSelector />
       <button className={css.wrapperIcon} onClick={handleEditProfile}>
         <p className={clsx(css.username, css[theme])}>{user.name}</p>
         <img src={user.avatarURL} alt="User" className={css.avatar}  />
       </button>
-
+      </div>
       {isModalOpen && (
         <ModalWrapper onClose={handleCloseModal}>
           {/* <div className={css.modalContent}> */}

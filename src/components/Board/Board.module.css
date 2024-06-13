@@ -31,4 +31,9 @@
   display: flex;
   align-items: flex-start;
   gap: 18px;
+  padding: 25px 32px 50px;
+}
+
+.contents {
+  overflow-x: scroll;
 }

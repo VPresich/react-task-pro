@@ -5,23 +5,23 @@ import { useEffect, useState } from 'react';
 import { selectIsLoading, selectError } from '../../redux/boards/selectors';
 import { fetchBoards } from '../../redux/boards/operations';
 import DocumentTitle from '../../components/DocumentTitle';
-import Layout from '../../components/Layout/Layout';
-import { selectTheme } from '../../redux/auth/selectors';
-import clsx from 'clsx';
+// import Layout from '../../components/Layout/Layout';
+// import { selectTheme } from '../../redux/auth/selectors';
+// import clsx from 'clsx';
 import css from './HomePage.module.css';
 import SideBar from '../../components/SideBar/SideBar';
 import ScreensPage from '../ScreensPage/ScreensPage';
 import AppBar from '../../components/AppBar/AppBar';
 
 export default function HomePage() {
-  const theme = useSelector(selectTheme);
+  // const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
   const openSidebar = () => { setIsSidebarOpen(true); }
-  
+
   useEffect(() => {
     dispatch(fetchBoards())
       .unwrap()
@@ -41,8 +41,8 @@ export default function HomePage() {
       <div className={css.normalWidth}> 
         <AppBar handleSidebar={() => openSidebar()} />
         <ScreensPage />
-      {isLoading && <p>Loading boards...</p>}
-      {error && <p>{error}</p>}
+        {isLoading && <p>Loading boards...</p>}
+        {error && <p>{error}</p>}
       </div>
     </div>
   );
