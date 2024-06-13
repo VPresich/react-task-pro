@@ -1,22 +1,22 @@
 import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-
 import { selectIsLoading, selectError } from '../../redux/boards/selectors';
 import { fetchBoards } from '../../redux/boards/operations';
-
 import DocumentTitle from '../../components/DocumentTitle';
-import AppBar from '../../components/AppBar/AppBar';
+import Layout from '../../components/Layout/Layout';
+import { selectTheme } from '../../redux/auth/selectors';
+import clsx from 'clsx';
 import css from './HomePage.module.css';
 import SideBar from '../../components/SideBar/SideBar';
 import ScreensPage from '../ScreensPage/ScreensPage';
+import AppBar from '../../components/AppBar/AppBar';
 
 export default function HomePage() {
+  const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
-
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
-
   useEffect(() => {
     dispatch(fetchBoards())
       .unwrap()
@@ -29,7 +29,7 @@ export default function HomePage() {
   }, [dispatch]);
 
   return (
-    <div className={css.page}>
+    <Layout>
       <DocumentTitle>Home Page</DocumentTitle>
       <SideBar />
       <div className={css.normalWidth}> 
@@ -39,7 +39,7 @@ export default function HomePage() {
         {isLoading && <p>Loading boads...</p>}
         {error && <p>{error}</p>} 
       </div>
-    </div>
+    </Layout>
   );
 }
 

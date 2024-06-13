@@ -35,10 +35,9 @@ const columnsSlice = createSlice({
       .addCase(fetchColumnsForBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const boardId = action.payload.boardId;
-        state.items = state.items.filter(item => item.boardId !== boardId);
-        state.items.push(action.payload.columns);
+        state.items = action.payload.columns;
       })
+
       .addCase(fetchColumnsForBoard.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
@@ -68,6 +67,7 @@ const columnsSlice = createSlice({
         const index = state.items.findIndex(
           column => column.id === action.payload.id
         );
+
         if (index !== -1) {
           state.items.splice(index, 1);
         }

@@ -37,7 +37,7 @@ const AppRouter = () => {
           }
         />
         <Route
-          path="/home/:boardId"
+          path="/home/:id"
           element={
             <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
           }

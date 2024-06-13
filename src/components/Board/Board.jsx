@@ -3,8 +3,15 @@ import css from './Board.module.css';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/auth/selectors.js';
 import clsx from 'clsx';
-import { selectActiveBoard } from '../../redux/boards/selectors';
-import Filters from '../Filters/Filters.jsx';
+import {
+  selectActiveBoard,
+  selectActiveBoardId,
+} from '../../redux/boards/selectors';
+import Filters from '../Filters/Filters.jsx';import AddColumnBtn from '../AddColumnBtn/AddColumnBtn';
+import ModalWrapper from '../ModalWrapper/ModalWrapper';
+import ColumnModal from '../ColumnModal/ColumnModal';
+import ColumnList from '../ColumnList/ColumnList';
+
 import imgsURL from '../../img/listUrls.js';
 
 function getDeviceType() {
@@ -36,9 +43,19 @@ function getBackgroundImage(theme, imgsURL) {
 export default function Board({id}) {
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
+  
   const background = activeBoard ? activeBoard.background : '';
   const [backgroundImage, setBackgroundImage] = useState(getBackgroundImage(background, imgsURL));
+  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  
   useEffect(() => {
     const handleResize = () => {
       setBackgroundImage(getBackgroundImage(background, imgsURL));
@@ -65,7 +82,19 @@ export default function Board({id}) {
         <Filters />
       </div>
       <div className={css.contents}>
-        <p>Board here</p>
+       <div className={css.columnsWrapper}>
+        <ColumnList activeBoardId={activeBoard} />
+        <AddColumnBtn openModal={openModal} />
+      </div>
+      {isModalOpen && (
+        <ModalWrapper onClose={closeModal}>
+          <ColumnModal
+            modalType={'add'}
+            activeBoardId={activeBoard._id}
+            onClose={closeModal}
+          />
+        </ModalWrapper>
+      )}
       </div>
     </div>
   );

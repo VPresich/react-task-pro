@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectItems, selectActiveBoardId } from '../../redux/boards/selectors';
@@ -6,16 +7,17 @@ import css from './BoardList.module.css';
 import BoardListItem from '../BoardListItem/BoardListItem';
 
 const BoardsList = () => {
+  const navigation = useNavigate();
   const activeBoardState = useSelector(selectActiveBoardId);
   const boards = useSelector(selectItems);
-  
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleActiveBoard = (id) => {
+  const handleActiveBoard = id => {
     dispatch(setActiveBoard(id));
-    navigate(`/home/${id}`);
-  }
+    navigation(`/home/${id}`);
+  };
 
   return (
     <ul className={css.list}>

@@ -20,12 +20,12 @@ const ModalWrapper = ({ children, onClose }) => {
       <div className={clsx(css.modal, css[theme])} ref={wrapperRef}>
         <button className={css.closeBtn} onClick={onClose}>
           <svg
-              className={clsx(css.icon, css[theme])}
-              width="18"
-              height="18"
-              aria-label="close button"
+            className={clsx(css.icon, css[theme])}
+            width="18"
+            height="18"
+            aria-label="close button"
           >
-              <use href={`${spritePath}#icon-x-close`} />
+            <use href={`${spritePath}#icon-x-close`} />
           </svg>
         </button>
         {children}
