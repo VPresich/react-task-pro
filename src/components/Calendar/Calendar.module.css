@@ -1,4 +1,4 @@
-.calendarContainer {
+/* .calendarContainer {
     display: inline-block;
     position: relative;
 }
@@ -20,4 +20,64 @@
     position: absolute;
     top: 40px;
     z-index: 1000;
+} */
+
+.calendarContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.calendarText {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #424242; /* Grey background */
+  color: #ffffff; /* White text */
+  border-radius: 4px;
+}
+
+.calendarPopup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  background-color: #424242; /* Grey background */
+  color: #ffffff; /* White text */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.react-datepicker {
+  background-color: #424242; /* Grey background */
+  color: #ffffff; /* White text */
+}
+
+.react-datepicker__header {
+  background-color: #424242; /* Grey background */
+  border-bottom: none;
+}
+
+.react-datepicker__current-month {
+  color: #ffffff; /* White text */
+}
+
+.react-datepicker__day {
+  color: #ffffff; /* White text */
+}
+
+.react-datepicker__day--selected {
+  background-color: #4caf50; /* Green background for selected date */
+  color: #ffffff; /* White text */
+}
+
+.react-datepicker__day--disabled {
+  color: rgba(255, 255, 255, 0.3); /* Light grey text for disabled dates */
+}
+
+.react-datepicker__day-names {
+  color: #ffffff; /* White text for day names */
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: #ffffff; /* White navigation arrows */
 }

@@ -9,6 +9,7 @@ import Input from '../../UI/Input/Input';
 import Calendar from '../../Calendar/Calendar';
 import TextareaForm from '../../UI/TextareaForm/TextareaForm';
 import { useState } from 'react';
+import CalendarHeaderComponent from '../../NewCalendar/NewCalendar';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string()
@@ -33,6 +34,10 @@ export default function AddEditCardForm({
 
   const handleDataChange = date => {
     setInitialDate(date);
+  };
+
+  const handleDateChange = (formattedDate) => {
+    console.log(`Selected date: ${formattedDate}`);
   };
 
   return (
@@ -94,7 +99,8 @@ export default function AddEditCardForm({
             </label>
           </div>
           <p className={clsx(css['deadline-text'], css[theme])}>Deadline</p>
-          <Calendar initialDate={initialDate} onDateChange={handleDataChange} />
+          {/* <Calendar initialDate={initialDate} onDateChange={handleDataChange} /> */}
+           <CalendarHeaderComponent onDateChange={handleDateChange} />
           <Button icon="icon-plus" text={buttonText} type="submit" />
         </Form>
       </Formik>
