@@ -2,16 +2,14 @@ import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateAvatar, updateProfile } from '../../redux/auth/operations';
 import { Formik, Form } from 'formik';
-import { selectUser } from '../../redux/auth/selectors';
+import { selectUser, selectTheme } from '../../redux/auth/selectors';
 import Button from '../UI/Button/Button';
 import { feedbackSchema } from './feedback-schema';
 import css from './UserInfoContent.module.css';
 import { useRef } from 'react';
 import { successNotify, errNotify } from '../../notification/notification';
 import Input from '../UI/Input/Input';
-import { selectTheme } from '../../redux/auth/selectors';
 import clsx from 'clsx';
-// import spritePath from '../../img/sprite.svg';
 
 export default function UserInfoContent() {
   const theme = useSelector(selectTheme);
@@ -23,7 +21,7 @@ export default function UserInfoContent() {
     fileInputRef.current.click();
   };
 
-  const handleSubmit = async values => {
+  const handleSubmit = async (values) => {
     const formData = new FormData();
     formData.append('name', values.name);
     formData.append('email', values.email);
@@ -36,12 +34,12 @@ export default function UserInfoContent() {
       .then(() => {
         successNotify();
       })
-      .catch(err => {
+      .catch((err) => {
         errNotify(err.message);
       });
   };
 
-  const handleFileChange = event => {
+  const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       dispatch(updateAvatar(file))
@@ -49,7 +47,7 @@ export default function UserInfoContent() {
         .then(() => {
           successNotify();
         })
-        .catch(err => {
+        .catch((err) => {
           errNotify(err.message);
         });
     }

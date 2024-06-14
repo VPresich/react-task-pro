@@ -82,7 +82,6 @@ export const refreshUser = createAsyncThunk(
  * PATCH @ /users/avatars
  * headers: update user avatar
  */
-
 export const updateAvatar = createAsyncThunk(
   'auth/avatars',
   async (avatarFormData, thunkAPI) => {
@@ -106,6 +105,9 @@ export const updateProfile = createAsyncThunk(
   async (formData, thunkAPI) => {
     console.log(formData);
     try {
+      const theme = thunkAPI.getState().auth.user.theme;
+      formData.append('theme', theme); 
+
       const response = await axiosInst.patch('users', formData, {
         headers: {
           'Content-Type': formData.avatar

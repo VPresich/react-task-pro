@@ -9,7 +9,12 @@ import {
 } from './operations';
 
 const initialState = {
-  user: { name: null, email: null, theme: 'light', avatarURL: '' },
+  user: {
+    name: null,
+    email: null,
+    avatarURL: '',
+    theme: 'light',
+  },
   token: null,
   isLoggedIn: false,
   isRefreshing: true,
@@ -56,7 +61,7 @@ const authSlice = createSlice({
         state.error = null;
       })
       .addCase(logOut.fulfilled, state => {
-        state.user = { name: null, email: null, theme: 'Light' };
+        state.user = { name: null, email: null, theme: 'light' }; 
         state.token = null;
         state.isLoggedIn = false;
         state.error = null;
@@ -79,8 +84,6 @@ const authSlice = createSlice({
         state.isRefreshing = false;
         state.error = action.payload;
       })
-
-      //------------------------------------------
       .addCase(updateAvatar.pending, state => {
         state.error = null;
       })
