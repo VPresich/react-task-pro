@@ -6,13 +6,11 @@
   );
   display: block;
   text-align: center;
-  /* margin: auto; */
   max-width: 100%;
   min-height: 100vh;
 }
 
 .welcomeWrapper {
-  /* width: 473px; */
   height: auto;
   display: block;
   margin: auto;
@@ -41,7 +39,7 @@
 }
 
 .text {
-  font-family: 'Poppins-Medium';
+  font-family: 'Poppins-Medium', 'sans-serif';
   font-weight: 400;
   font-size: 14px;
   line-height: 129%;
@@ -98,19 +96,22 @@
     margin: auto;
   }
   .welcomeWrapper {
-    padding-top: 294px;
+    padding-top: 293px;
   }
 }
 
 @media screen and (max-width: 375px) {
   .welcomeContainer {
     height: 812px;
+    width: 375px;
   }
 
   .welcomeWrapper {
     padding-top: 211px;
+    padding-bottom: 211px;
     width: 335px;
   }
+  
 
   .mainTitle {
     padding-top: 14px;
@@ -123,13 +124,12 @@
     line-height: normal;
     letter-spacing: -1.12px;
   }
-.btnWrapper {
-  padding-top: 48px;
-}
+  .btnWrapper {
+    padding-top: 48px;
+  }
   .btnRegister,
   .btnLogin {
     display: block;
     width: 335px;
-    
   }
 }
