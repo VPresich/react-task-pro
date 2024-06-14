@@ -9,6 +9,21 @@
   align-items: center;
   height: 100vh;
 }
+@media screen and (min-width: 768px) {
+  .welcomeContainer {    
+    width: 100%;
+      padding-left: 32px;
+      padding-right: 32px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .welcomeContainer {    
+    min-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
 
 .welcomeWrapper {
   width: 473px;
@@ -40,6 +55,13 @@
   color: #161616;
 }
 
+
+@media screen and (min-width: 375px) {
+  .mainTitle {
+    font-size: 28px;    
+  }
+}
+
 .text {
   font-weight: 400;
   font-size: 14px;
@@ -49,8 +71,13 @@
   color: #161616;
   margin-bottom: 48px;
 }
+@media screen and (min-width: 375px) {
+  .text {
+    display: block;
+  }
+}
 
-.btnsWrapper {
+.btnWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;

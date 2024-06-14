@@ -1,9 +1,10 @@
 import DocumentTitle from '../../components/DocumentTitle';
 import { useNavigate } from 'react-router-dom';
-import mainDesktop1x from '../../img/main-avatar/main_desktop@1x.jpg';
-import mainDesktop2x from '../../img/main-avatar/main_desktop@2x.jpg';
+// import mainDesktop1x from '../../img/main-avatar/main_desktop@1x.jpg';
+// import mainDesktop2x from '../../img/main-avatar/main_desktop@2x.jpg';
 import icon from '../../img/main-icon/app-icon.svg';
 import css from './WelcomePage.module.css';
+import imgPath from '../../img/png/avatar-w.png';
 
 export default function WelcomePage() {
   const navigate = useNavigate();
@@ -12,12 +13,13 @@ export default function WelcomePage() {
       <DocumentTitle>Welcome</DocumentTitle>
       <div className={css.welcomeContainer}>
         <div className={css.welcomeWrapper}>
-          <img
+          <img src={imgPath} alt="avatar-w" />
+          {/* <img
             src={mainDesktop1x}
             srcSet={`${mainDesktop1x} 1x, ${mainDesktop2x} 2x`}
             alt="Task Pro"
             className={css.mainImage}
-          />
+          /> */}
           <div className={css.welcomeContent}>
             <div className={css.logoPage}>
               <svg className="iconHome" width="48px" height="48px">
@@ -32,7 +34,7 @@ export default function WelcomePage() {
               <br /> Pro - Don &apos;t wait, start achieving your goals now!
             </p>
 
-            <div className={css.btnsWrapper}>
+            <div className={css.btnWrapper}>
               <button
                 className={css.btnRegister}
                 onClick={() => navigate('/auth/register')}
