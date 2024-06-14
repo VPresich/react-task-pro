@@ -3,12 +3,11 @@ import AddEditCardForm from '../Forms/AddEditCardForm/AddEditCardForm.jsx';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../../redux/tasks/operations.js';
 
-export default function AddCardModal({ onClose }) {
+export default function AddCardModal({ onClose, column }) {
   const dispatch = useDispatch();
 
   const onSubmitForm = values => {
-    console.log('Add card');
-    dispatch(addTask(values));
+    dispatch(addTask({ columnId: column._id, newTask: values }));
     onClose();
   };
 
@@ -21,6 +20,7 @@ export default function AddCardModal({ onClose }) {
             title: '',
             description: '',
             priority: 'Without priority',
+            deadline: new Date(),
           }}
           onSubmitForm={onSubmitForm}
           buttonText="Add"

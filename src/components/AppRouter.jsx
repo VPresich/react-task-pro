@@ -3,11 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
+// import ScreensPage from '../pages/ScreensPage/ScreensPage';
 
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
 const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
-// const ScreensPage = lazy(() => import('../pages/ScreensPage/ScreensPage'));
+const ScreensPage = lazy(() => import('../pages/ScreensPage/ScreensPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 const AppRouter = () => {
@@ -39,7 +40,7 @@ const AppRouter = () => {
         <Route
           path="/home/:id"
           element={
-            <PrivateRoute redirectTo="/welcome" component={<HomePage />} />
+            <PrivateRoute redirectTo="/welcome" component={<ScreensPage />} />
           }
         />
         <Route path="*" element={<NotFoundPage />} />

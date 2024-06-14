@@ -11,11 +11,14 @@ import Card from '../UI/Card/Card';
 import { useState } from 'react';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import ColumnModal from '../ColumnModal/ColumnModal';
+import AddCardModal from '../AddCardModal/AddCardModal';
+import { selectAllTasks } from '../../redux/tasks/selectors';
 
 const ColumnItem = ({ column, isActive, setActiveColumn }) => {
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const { _id, title } = column;
+  const tasks = useSelector(selectAllTasks);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -25,6 +28,16 @@ const ColumnItem = ({ column, isActive, setActiveColumn }) => {
 
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+
+  const [isCardModalOpen, setIsCardModalOpen] = useState(false);
+
+  const handleAddCard = () => {
+    setIsCardModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsCardModalOpen(false);
   };
 
   const handleDelete = id => {
@@ -81,55 +94,21 @@ const ColumnItem = ({ column, isActive, setActiveColumn }) => {
         </div>
       </div>
       <div className={clsx(css.listContainer, css[theme])}>
-        {/* <ul className={css.list}>
+        <ul className={css.list}>
           {tasks.map(task => (
             <li className={css.item} key={task.id}>
-              <Card key={task.id} item={task} />
+              <Card
+                key={task.id}
+                item={task}
+                title={task.title}
+                description={task.description}
+                priority={task.priority}
+                deadline={task.deadline}
+                column={column}
+                id={task._id}
+              />
             </li>
           ))}
-        </ul> */}
-
-        <ul className={css.list}>
-          <li className={css.item}>
-            <Card
-              title="test 1"
-              description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
-explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
-at reprehenderit veniam magni aliquam cumque"
-              priority="low"
-              deadline="08.06.2024"
-            />
-          </li>
-          <li className={css.item}>
-            <Card
-              title="test 1"
-              description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
-explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
-at reprehenderit veniam magni aliquam cumque"
-              priority="low"
-              deadline="08.06.2024"
-            />
-          </li>
-          <li className={css.item}>
-            <Card
-              title="test 1"
-              description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
-explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
-at reprehenderit veniam magni aliquam cumque"
-              priority="low"
-              deadline="08.06.2024"
-            />
-          </li>
-          <li className={css.item}>
-            <Card
-              title="test 1"
-              description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
-explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
-at reprehenderit veniam magni aliquam cumque"
-              priority="low"
-              deadline="08.06.2024"
-            />
-          </li>
         </ul>
       </div>
       <div className={css.btnWrap}>
@@ -138,8 +117,11 @@ at reprehenderit veniam magni aliquam cumque"
           text="Add another card"
           type="submit"
           big={true}
-          // onClick={openModal}
+          onClick={handleAddCard}
         />
+        {isCardModalOpen && (
+          <AddCardModal column={column} onClose={handleCloseModal} />
+        )}
       </div>
       {isModalOpen && (
         <ModalWrapper onClose={closeModal}>

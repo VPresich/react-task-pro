@@ -8,6 +8,7 @@ import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
 import Calendar from '../../Calendar/Calendar';
 import TextareaForm from '../../UI/TextareaForm/TextareaForm';
+import { useState } from 'react';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string()
@@ -27,14 +28,19 @@ export default function AddEditCardForm({
   onSubmitForm,
 }) {
   const theme = useSelector(selectTheme);
-  const initialDate = '2024-06-12';
+
+  const [initialDate, setInitialDate] = useState(initialValues.deadline);
+
+  const handleDataChange = date => {
+    setInitialDate(date);
+  };
 
   return (
     <div>
       <p className={clsx(css.title, css[theme])}>{title}</p>
       <Formik
         initialValues={initialValues}
-        onSubmit={onSubmitForm}
+        onSubmit={values => onSubmitForm({ ...values, deadline: initialDate })}
         validationSchema={validationSchema}
       >
         <Form className={css.form}>
@@ -88,7 +94,7 @@ export default function AddEditCardForm({
             </label>
           </div>
           <p className={clsx(css['deadline-text'], css[theme])}>Deadline</p>
-          <Calendar initialDate={initialDate} />
+          <Calendar initialDate={initialDate} onDateChange={handleDataChange} />
           <Button icon="icon-plus" text={buttonText} type="submit" />
         </Form>
       </Formik>

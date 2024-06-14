@@ -36,7 +36,9 @@ const ColumnList = ({ activeBoardId }) => {
               key={column._id}
               column={column}
               isActive={column._id === activeColumn}
-              setActiveColumn={handleActiveColumn}
+              setActiveColumn={() => {
+                handleActiveColumn(column._id);
+              }}
             />
           </li>
         ))}

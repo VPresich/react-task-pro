@@ -17,7 +17,7 @@ export const addColumnForBoard = createAsyncThunk(
   'columns/addColumnForBoard',
   async ({ id, title }, thunkAPI) => {
     try {
-      const response = await axiosInst.post(`boards/${id}/columns`, {title});
+      const response = await axiosInst.post(`boards/${id}/columns`, { title });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -39,11 +39,9 @@ export const deleteColumnById = createAsyncThunk(
 
 export const updateColumnById = createAsyncThunk(
   'columns/updateColumn',
-  async ({ id, data }, thunkAPI) => {
+  async ({ id, title }, thunkAPI) => {
     try {
-      const response = await axiosInst.patch(`columns/${id}`, {
-        title: data.title,
-      });
+      const response = await axiosInst.patch(`columns/${id}`, { title });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

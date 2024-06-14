@@ -1,7 +1,45 @@
+.text {
+  width: 486px;
+  font-weight: 400;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.text.dark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.accent.light,
+.accent.dark {
+  color: #bedbb0;
+}
+
+.accent.violet {
+  color: #5255bc;
+}
+
 .page {
+  max-width: 100vw;
+  /* height: 100vh; */
   display: flex;
+  min-height: 100vh;
+  /* overflow-x: hidden; */
+  /* flex: 1; */
 }
 
 .normalWidth {
-  width: 100%;
+  width: calc(100% - 260px);
+  display: flex;
+  flex-direction: column;
+  /* justify-content: stretch; */
+  flex: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .normalWidth {
+    width: 100%;
+  }
 }

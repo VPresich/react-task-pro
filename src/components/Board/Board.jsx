@@ -3,17 +3,14 @@ import css from './Board.module.css';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/auth/selectors.js';
 import clsx from 'clsx';
-import {
-  selectActiveBoard
-} from '../../redux/boards/selectors';
-import Filters from '../Filters/Filters.jsx';import AddColumnBtn from '../AddColumnBtn/AddColumnBtn';
+import { selectActiveBoard } from '../../redux/boards/selectors';
+import Filters from '../Filters/Filters.jsx';
+import AddColumnBtn from '../AddColumnBtn/AddColumnBtn';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import ColumnModal from '../ColumnModal/ColumnModal';
 import ColumnList from '../ColumnList/ColumnList';
-import BoardNotSelected from '../BoardNotSelected/BoardNotSelected.jsx'
+import BoardNotSelected from '../BoardNotSelected/BoardNotSelected.jsx';
 import imgsURL from '../../img/listUrls.js';
-import Button from '../UI/Button/Button.jsx';
-import AddCardModal from '../AddCardModal/AddCardModal.jsx';
 
 function getDeviceType() {
   if (window.innerWidth >= 1024) {
@@ -32,9 +29,9 @@ function getResolution() {
 function getBackgroundImage(theme, imgsURL) {
   const deviceType = getDeviceType();
   const resolution = getResolution();
- 
-  const themeData = imgsURL.find((img) => img._id === theme);
-  
+
+  const themeData = imgsURL.find(img => img._id === theme);
+
   if (!themeData) return '';
 
   const key = `imgUrl_${deviceType}_${resolution}`;
@@ -44,10 +41,12 @@ function getBackgroundImage(theme, imgsURL) {
 export default function Board() {
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
-  
+
   const background = activeBoard ? activeBoard.background : '';
-  const [backgroundImage, setBackgroundImage] = useState(getBackgroundImage(background, imgsURL));
-  
+  const [backgroundImage, setBackgroundImage] = useState(
+    getBackgroundImage(background, imgsURL)
+  );
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
     setIsModalOpen(true);
@@ -56,7 +55,7 @@ export default function Board() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  
+
   useEffect(() => {
     const handleResize = () => {
       setBackgroundImage(getBackgroundImage(background, imgsURL));
@@ -72,14 +71,13 @@ export default function Board() {
     setBackgroundImage(getBackgroundImage(background, imgsURL));
   }, [background, activeBoard]); // Include theme and activeBoard in the dependencies
 
-  return (
-  activeBoard ? (
+  return activeBoard ? (
     <div
       className={clsx(css.boardContainer, css[theme])}
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className={css.top}>
-          <p className={clsx(css.title, css[theme])}>{ activeBoard.title}</p>
+        <p className={clsx(css.title, css[theme])}>{activeBoard.title}</p>
         <Filters />
       </div>
       <div className={css.contents}>
@@ -99,27 +97,6 @@ export default function Board() {
       </div>
     </div>
   ) : (
-    <BoardNotSelected/>
-  )
-);
+    <BoardNotSelected />
+  );
 }
-
-
-
-//   const [isModalOpen, setIsModalOpen] = useState(false);
-
-//   const handleAddCard = () => {
-//     setIsModalOpen(true);
-//   };
-
-//   const handleCloseModal = () => {
-//     setIsModalOpen(false);
-// };
-  
-// <Button
-//         icon={'icon-plus'}
-//         text={'Add another card'}
-//         big={false}
-//         onClick={handleAddCard}
-//       />
-//       {isModalOpen && <AddCardModal onClose={handleCloseModal} />}
