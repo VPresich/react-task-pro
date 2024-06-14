@@ -23,7 +23,11 @@ const authSlice = createSlice({
     setTheme(state, action) {
       state.user.theme = action.payload;
     },
+    resetRefreshState(state, action) {
+      state.isRefreshing = action.payload;
+    },
   },
+
   extraReducers: builder => {
     builder
       .addCase(register.pending, state => {
@@ -105,4 +109,5 @@ const authSlice = createSlice({
 });
 
 export const { setTheme } = authSlice.actions;
+export const { resetRefreshState } = authSlice.actions;
 export default authSlice.reducer;
