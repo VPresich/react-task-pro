@@ -5,9 +5,13 @@
     #bedbb0 92.19%
   );
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  max-width: 100vw;
+
+
 }
 @media screen and (min-width: 768px) {
   .welcomeContainer {    
@@ -19,9 +23,7 @@
 
 @media screen and (min-width: 375px) {
   .welcomeContainer {    
-    min-width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+    width: 100%;    
   }
 }
 
@@ -32,12 +34,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 24px;
 }
 
 .mainImage {
   width: 162px;
-  height: 162px;
-  margin-bottom: 24px;
+  height: 162px;  
 }
 
 .logoPage {
