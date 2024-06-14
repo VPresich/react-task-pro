@@ -12,8 +12,6 @@ import ColumnModal from '../ColumnModal/ColumnModal';
 import ColumnList from '../ColumnList/ColumnList';
 import BoardNotSelected from '../BoardNotSelected/BoardNotSelected.jsx'
 import imgsURL from '../../img/listUrls.js';
-import Button from '../UI/Button/Button.jsx';
-import AddCardModal from '../AddCardModal/AddCardModal.jsx';
 
 function getDeviceType() {
   if (window.innerWidth >= 1024) {

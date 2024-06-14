@@ -1,53 +1,42 @@
 import toast from 'react-hot-toast';
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-
-import { selectIsLoading, selectError } from '../../redux/boards/selectors';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { fetchBoards } from '../../redux/boards/operations';
 import DocumentTitle from '../../components/DocumentTitle';
-// import Layout from '../../components/Layout/Layout';
-// import { selectTheme } from '../../redux/auth/selectors';
-// import clsx from 'clsx';
-import css from './HomePage.module.css';
-import SideBar from '../../components/SideBar/SideBar';
-import ScreensPage from '../ScreensPage/ScreensPage';
-import AppBar from '../../components/AppBar/AppBar';
+
+import Layout from '../../components/Layout/Layout';
+import BoardNotSelected from '../../components/BoardNotSelected/BoardNotSelected';
+import { setActiveBoard } from '../../redux/boards/slice';
+
 
 export default function HomePage() {
-  // const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+  const navigation = useNavigate();
+  const { id } = useParams();
 
-  const openSidebar = () => { setIsSidebarOpen(true); }
+  useEffect(() => {
+      dispatch(setActiveBoard(id));
+  }, [dispatch, id]);
 
   useEffect(() => {
     dispatch(fetchBoards())
       .unwrap()
-      .then(() => {
-        toast.success('fetchTasks fulfilled');
+      .then((boards) => {
+        toast.success('fetchBoards fulfilled');
+        if (boards[0]) {
+          navigation(`/home/${boards[0]._id}`);
+        }
       })
       .catch(() => {
         toast.error('fetchTasks rejected');
       });
-  }, [dispatch]);
+  }, [dispatch, navigation]);
 
   return (
-    // <Layout>
-    <div className={css.page}>
+    <Layout>
       <DocumentTitle>Home Page</DocumentTitle>
-      <SideBar isOpen={isSidebarOpen} onClose={()=>setIsSidebarOpen(false)} />
-      <div className={css.normalWidth}> 
-        <AppBar handleSidebar={() => openSidebar()} />
-        <ScreensPage />
-        {isLoading && <p>Loading boards...</p>}
-        {error && <p>{error}</p>}
-      </div>
-    </div>
+      <BoardNotSelected />
+    </Layout>
   );
 }
-
-{/* <Card title="test 1" description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime optio, 
-explicabo maiores enim odio ab cupiditate sit consequuntur, dolore quas voluptatibus sed iusto necessitatibus 
-at reprehenderit veniam magni aliquam cumque" priority="low" deadline="08.06.2024" />*/}
