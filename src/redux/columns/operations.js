@@ -17,7 +17,7 @@ export const addColumnForBoard = createAsyncThunk(
   'columns/addColumnForBoard',
   async ({ id, title }, thunkAPI) => {
     try {
-      const response = await axiosInst.post(`boards/${id}/columns`, {title});
+      const response = await axiosInst.post(`boards/${id}/columns`, { title });
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

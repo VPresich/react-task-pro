@@ -7,8 +7,7 @@ export default function EditCardModal({ onClose, card }) {
   const dispatch = useDispatch();
 
   const onSubmitForm = values => {
-    console.log('Edit card');
-    dispatch(editTask({ id: card._id, data: values }));
+    dispatch(editTask({ taskId: card.id, values }));
     onClose();
   };
 
@@ -21,6 +20,7 @@ export default function EditCardModal({ onClose, card }) {
             title: card.title,
             description: card.description,
             priority: card.priority,
+            deadline: card.deadline,
           }}
           onSubmitForm={onSubmitForm}
           buttonText="Edit"
