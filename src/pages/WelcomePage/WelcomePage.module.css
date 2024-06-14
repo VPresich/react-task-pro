@@ -1,24 +1,21 @@
 .welcomeContainer {
-  background: linear-gradient(180deg,
-      rgba(196, 196, 196, 0) 25%,
-      #bedbb0 92.19%);
+  background: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 25%,
+    #bedbb0 92.19%
+  );
   display: block;
   text-align: center;
   height: 100vh;
   width: 100vw;
-
 }
 
 .welcomeWrapper {
   width: 473px;
   height: auto;
-    /* Adapt to content height */
-    display: block;
-    margin: auto
-   
-   
+  display: block;
+  margin: auto;
 }
-
 .welcomeWrapper img {
   width: 162px;
   height: 162px;
@@ -26,8 +23,7 @@
   margin: auto;
   padding-bottom: 24px;
 }
-   
-  
+
 .logoPage {
   display: flex;
   justify-content: center;
@@ -77,11 +73,6 @@
   border-radius: 8px;
   border-color: transparent;
 }
-@media screen and (max-width: 480px) {
-  .btnRegister {
-    width: 80%;
-  }
-}
 
 .btnLogin {
   font-family: 'Poppins-Medium', sans-serif;
@@ -93,4 +84,32 @@
   letter-spacing: -0.28px;
   background-color: transparent;
   border-color: transparent;
+}
+
+@media screen and (max-width: 767px) {
+  .welcomeWrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .welcomeWrapper {
+    width: 100%;
+    height: 812px;
+  }
+
+  .mainTitle {
+    padding-top: 14px;
+    padding-bottom: 24px;
+    font-size: 28px;    
+    font-weight: 600;
+    
+  }
+
+    .btnRegister,
+    .btnLogin {
+      display: block;
+      width: 100%;
+      
+    }
 }
