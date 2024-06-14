@@ -51,7 +51,10 @@ const columnsSlice = createSlice({
       .addCase(addColumnForBoard.fulfilled, (state, action) => {
         state.isAdding = false;
         state.error = null;
-        state.items.push(action.payload);
+        state.items.push({
+          ...action.payload,
+          board: { _id: action.payload.board },
+        });
       })
       .addCase(addColumnForBoard.rejected, (state, action) => {
         state.isAdding = false;
