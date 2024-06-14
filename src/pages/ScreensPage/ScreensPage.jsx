@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import toast from 'react-hot-toast';
 import { fetchColumnsForBoard } from '../../redux/columns/operations';
@@ -7,12 +7,17 @@ import { fetchTasksForBoard } from '../../redux/tasks/operations';
 import DocumentTitle from '../../components/DocumentTitle';
 import Board from '../../components/Board/Board';
 import BoardNotSelected from '../../components/BoardNotSelected/BoardNotSelected';
-import { selectActiveBoardId } from '../../redux/boards/selectors';
+// import { setActiveBoard } from '../../redux/boards/selectors';
+import { setActiveBoard } from '../../redux/boards/slice';
 
 export default function ScreensPage() {
-  // const { id } = useParams();
-  const id = useSelector(selectActiveBoardId);
   const dispatch = useDispatch();
+  const { id } = useParams();
+  
+  useEffect(() => {
+    dispatch(setActiveBoard(id));
+  }, [dispatch, id]);
+  
   console.log(id);
   useEffect(() => {
     if (!id) return;
@@ -41,7 +46,7 @@ export default function ScreensPage() {
       <DocumentTitle>ScreensPage</DocumentTitle>
       {/* <Filters/> */}
       {id ?
-        (<Board/>)
+        (<Board />)
         :
         (<BoardNotSelected />)
       }

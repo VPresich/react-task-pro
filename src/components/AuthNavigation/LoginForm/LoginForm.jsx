@@ -34,8 +34,8 @@ export default function LoginForm() {
     >
       <Form className={css.form}>
         <div className={css.info}>
-          <Input onName={'email'} onPlaceholder={'Enter your email'}/>
-          <Input onName={'password'} onPlaceholder={'Confirm a password'} type='password'/>
+          <Input onName={'email'} onPlaceholder={'Enter your email'} color='rgba(255, 255, 255, 0.5)'/>
+          <Input onName={'password'} onPlaceholder={'Confirm a password'} type='password' color='rgba(255, 255, 255, 0.5)'/>
         </div>
         <Button text="Log In Now" type="submit" />
       </Form>
