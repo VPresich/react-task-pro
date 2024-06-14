@@ -89,12 +89,14 @@ const columnsSlice = createSlice({
       })
       .addCase(updateColumnById.fulfilled, (state, action) => {
         state.isAdding = false;
-        const updatedColumn = action.payload;
         const columnIndex = state.items.findIndex(
-          column => column.id === updatedColumn.id
+          column => column._id === action.payload._id
         );
         if (columnIndex !== -1) {
-          state.items[columnIndex] = updatedColumn;
+          state.items[columnIndex] = {
+            ...action.payload,
+            board: { _id: action.payload.board },
+          };
         }
         state.error = null;
         state.isAdding = null;

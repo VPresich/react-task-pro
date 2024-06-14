@@ -3,6 +3,7 @@ import Button from '../UI/Button/Button';
 import Input from '../UI/Input/Input';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/auth/selectors';
+import { selectActiveColumndId } from '../../redux/columns/selectors';
 import * as Yup from 'yup';
 import clsx from 'clsx';
 import css from './ColumnModal.module.css';
@@ -12,11 +13,13 @@ import { Formik, Form } from 'formik';
 import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 
-const ColumnModal = ({ modalType, /* activeBoardId,*/ columnId, onClose }) => {
+const ColumnModal = ({ modalType, onClose }) => {
   const theme = useSelector(selectTheme);
+  const columnId = useSelector(selectActiveColumndId);
   const dispatch = useDispatch();
 
   const { id } = useParams();
+  if (!id) return;
 
   const validationSchema = Yup.object().shape({
     title: Yup.string().required('Title is required'),
@@ -40,6 +43,7 @@ const ColumnModal = ({ modalType, /* activeBoardId,*/ columnId, onClose }) => {
           });
       }
     } else if (modalType === 'edit') {
+      if (!columnId) return;
       dispatch(updateColumnById({ id: columnId, title }))
         .unwrap()
         .then(() => {
