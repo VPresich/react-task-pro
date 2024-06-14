@@ -12,7 +12,7 @@ const initialState = {
   user: { name: null, email: null, theme: 'light', avatarURL: '' },
   token: null,
   isLoggedIn: false,
-  isRefreshing: true,
+  isRefreshing: false,
   error: null,
 };
 

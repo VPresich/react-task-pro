@@ -1,9 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
-// import ScreensPage from '../pages/ScreensPage/ScreensPage';
 
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
 const WelcomePage = lazy(() => import('../pages/WelcomePage/WelcomePage'));
