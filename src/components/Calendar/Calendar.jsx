@@ -1,7 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { format, differenceInCalendarDays, isPast, isYesterday, isToday } from 'date-fns';
+import {
+  format,
+  differenceInCalendarDays,
+  isPast,
+  isYesterday,
+  isToday,
+} from 'date-fns';
 import css from './Calendar.module.css';
 
 const Calendar = ({ initialDate, onDateChange }) => {
@@ -17,7 +23,7 @@ const Calendar = ({ initialDate, onDateChange }) => {
   }, [initialDate]);
 
   useEffect(() => {
-    const handleOutsideClick = (event) => {
+    const handleOutsideClick = event => {
       if (calendarRef.current && !calendarRef.current.contains(event.target)) {
         setIsOpen(false);
       }
@@ -30,7 +36,7 @@ const Calendar = ({ initialDate, onDateChange }) => {
     };
   }, []);
 
-  const handleDateChange = (date) => {
+  const handleDateChange = date => {
     setSelectedDate(date);
     setIsOpen(false);
     if (onDateChange) {
@@ -38,7 +44,7 @@ const Calendar = ({ initialDate, onDateChange }) => {
     }
   };
 
-  const formatDate = (date) => {
+  const formatDate = date => {
     return format(date, 'yyyy-MM-dd');
   };
 
@@ -96,13 +102,12 @@ const Calendar = ({ initialDate, onDateChange }) => {
 
 export default Calendar;
 
-
 // GUIDE
 // formatDate = дата форматом YYYY-MM-DD
 // const initialDate = "2024-06-12"
 // <Calendar initialDate={initialDate} onDateChange={handleDateChange} />
 
-// додайте у себе в елементi: 
+// додайте у себе в елементi:
 // const handleDateChange = (formattedDate) => {
 //   console.log(formattedDate);
 // };

@@ -15,7 +15,7 @@ const UserInfo = ({ user }) => {
       <p>{user.name}</p>
       {isModalOpen && (
         <ModalWindow onClose={() => setIsModalOpen(false)}>
-          <UserInfoContent />
+          <UserInfoContent/>
         </ModalWindow>
       )}
     </div>

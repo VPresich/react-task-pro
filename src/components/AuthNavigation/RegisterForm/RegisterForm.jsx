@@ -1,12 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { register } from '../../../redux/auth/operations';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form } from 'formik';
 import Button from '../../UI/Button/Button';
 
 import { feedbackSchema } from '../LoginForm/feedbackSchema';
 import { errNotify, successNotify } from '../../../notification/notification';
 import { ERR_REGISTRATION, SUCCESS_REGISTRATION } from '../constants';
-
+import Input from '../../UI/Input/Input';
 import css from './RegisterForm.module.css';
 
 export default function RegisterForm() {
@@ -35,41 +35,9 @@ export default function RegisterForm() {
     >
       <Form className={css.form}>
         <div className={css.info}>
-          <div>
-            <Field
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              className={css.field}
-            />
-            <ErrorMessage name="name" component="span" className={css.error} />
-          </div>
-
-          <div>
-            <Field
-              type="text"
-              name="email"
-              placeholder="Enter your email"
-              autoComplete="email"
-              className={css.field}
-            />
-            <ErrorMessage name="email" component="span" className={css.error} />
-          </div>
-
-          <div className={css.fieldContainer}>
-            <Field
-              type="password"
-              name="password"
-              placeholder="Create password"
-              autoComplete="current-password"
-              className={css.field}
-            />
-            <ErrorMessage
-              name="password"
-              component="span"
-              className={css.error}
-            />
-          </div>
+          <Input onName={'name'} onPlaceholder={'Enter your name'} color='rgba(255, 255, 255, 0.5)'/>
+          <Input onName={'email'} onPlaceholder={'Enter your email'} color='rgba(255, 255, 255, 0.5)'/>
+          <Input onName={'password'} onPlaceholder={'Confirm a password'} type='password' color='rgba(255, 255, 255, 0.5)'/>
         </div>
 
         <Button text="Register Now" type="submit" />

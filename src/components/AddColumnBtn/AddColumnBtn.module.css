@@ -1,0 +1,47 @@
+.btn {
+  padding: 14px 79px;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top:10px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.15px;
+}
+.btn.light,
+.btn.violet {
+  background-color: var(--white);
+  color: var(--secondary-color);
+}
+.btn.dark {
+  background-color: var(--black-dark);
+  color: var(--white);
+}
+
+.iconSpan {
+  border-radius: 6px;
+  padding: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconSpan.light {
+  background-color: var(--secondary-color);
+}
+.iconSpan.dark {
+  background-color: var(--white);
+}
+.iconSpan.violet {
+  background-color: var(--violet-main);
+}
+
+.icon.light,
+.icon.violet {
+  stroke: var(--white);
+}
+.icon.dark {
+  stroke: var(--black-dark);
+}

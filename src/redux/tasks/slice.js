@@ -27,8 +27,7 @@ const tasksSlice = createSlice({
           item => item._id !== action.payload.id
         );
       })
-      .addCase(deleteTask.rejected, (state, action) => {
-        console.log(action);
+      .addCase(deleteTask.rejected, state => {
         state.error = true;
         state.isLoading = false;
       })
@@ -40,8 +39,7 @@ const tasksSlice = createSlice({
         state.isLoading = false;
         state.items.push(action.payload);
       })
-      .addCase(addTask.rejected, (state, action) => {
-        console.log(action);
+      .addCase(addTask.rejected, state => {
         state.error = true;
         state.isLoading = false;
       })
@@ -59,24 +57,19 @@ const tasksSlice = createSlice({
           state.items[existingItemIndex] = action.payload;
         }
       })
-      .addCase(editTask.rejected, (state, action) => {
-        console.log(action);
+      .addCase(editTask.rejected, state => {
         state.error = true;
         state.isLoading = false;
       })
-
       .addCase(fetchTasksForBoard.pending, state => {
         state.error = false;
         state.isLoading = true;
       })
       .addCase(fetchTasksForBoard.fulfilled, (state, action) => {
         state.isLoading = false;
-        const boardId = action.payload.boardId;
-        state.items = state.items.filter(item => item._id !== boardId);
-        state.items.push(action.payload.tasks);
+        state.items = action.payload.tasks;
       })
-      .addCase(fetchTasksForBoard.rejected, (state, action) => {
-        console.log(action);
+      .addCase(fetchTasksForBoard.rejected, state => {
         state.error = true;
         state.isLoading = false;
       })
@@ -91,8 +84,7 @@ const tasksSlice = createSlice({
         state.items = state.items.filter(item => item._id !== columnId);
         state.items.push(action.payload.tasks);
       })
-      .addCase(fetchTasksForColumn.rejected, (state, action) => {
-        console.log(action);
+      .addCase(fetchTasksForColumn.rejected, state => {
         state.error = true;
         state.isLoading = false;
       });

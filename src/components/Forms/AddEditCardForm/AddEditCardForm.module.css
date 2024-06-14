@@ -1,0 +1,141 @@
+.title {
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+}
+
+.title.light,
+.title.violer {
+    color: var(--secondary-color);
+}
+
+.title.dark {
+    color: var(--primary-color);
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.radio-btn-wrappper {
+    display: flex;
+    margin-bottom: 14px;
+    gap: 8px;
+}
+
+.radio-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-btn.dark {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.radio-btn.light,
+.radio-btn.violer {
+    color: rgba(22, 22, 22, 0.5);
+}
+
+
+.gray-radio-btn input[type='radio'] {
+    background-color: #1616164d;
+    border: 1px solid #1616164d;
+}
+
+.blue-radio-btn input[type='radio'] {
+    background-color: #8fa1d0;
+    border: 1px solid #8fa1d0;
+}
+
+.red-radio-btn input[type='radio'] {
+    background-color: #e09cb5;
+    border: 1px solid #e09cb5;
+}
+
+.green-radio-btn input[type='radio'] {
+    background-color: #bedbb0;
+    border: 1px solid #bedbb0;
+}
+
+.radio-btn input[type='radio'] {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    margin-right: 8px;
+}
+
+
+.radio-btn input[type='radio']:checked {
+    background-color: white;
+}
+
+.radio-btn input[type='radio']:checked::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.gray-radio-btn input[type='radio']:checked::before {
+    background-color: #1616164d;
+}
+
+.blue-radio-btn input[type='radio']:checked::before {
+    background-color: #8fa1d0;
+}
+
+.red-radio-btn input[type='radio']:checked::before {
+    background-color: #e09cb5;
+}
+
+.green-radio-btn input[type='radio']:checked::before {
+    background-color: #bedbb0;
+}
+
+.radio-btn-title {
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    margin-top: 24px;
+    margin-bottom: 4px;
+}
+
+.radio-btn-title.light,
+.radio-btn-title.violer {
+    color: rgba(22, 22, 22, 0.5);
+}
+
+.radio-btn-title.dark {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.deadline-text {
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+}
+
+.deadline-text.light,
+.deadline-text.violer {
+    color: rgba(22, 22, 22, 0.5);
+}
+
+.deadline-text.dark {
+    color: rgba(255, 255, 255, 0.5);
+}
