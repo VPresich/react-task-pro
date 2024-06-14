@@ -13,17 +13,18 @@
 
 
 }
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 768px) {
   .welcomeContainer {    
     width: 100%;
-    
+    padding: 0 32px;
       
   }
 }
 
-@media screen and (min-width: 375px) {
+@media screen and (max-width: 375px) {
   .welcomeContainer {    
-    width: 100%;    
+    width: 100%; 
+    padding: 0 15px;   
   }
 }
 
@@ -35,22 +36,6 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
-  
-}
-@media screen and (min-width: 768px) {
-  .welcomeContainer {    
-    width: 100%;
-    padding: 0 32px;   
-      
-  }
-}
-
-@media screen and (min-width: 375px) {
-  .welcomeContainer {    
-    width: 100%;
-    padding: 20px; 
-     
-  }
 }
 
 .mainImage {
@@ -91,25 +76,7 @@
 }
 @media screen and (min-width: 375px) {
   .text {
-    
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 129%;
-        letter-spacing: -0.02em;
-        text-align: center;
-        color: #161616;
-        margin-bottom: 48px;
-        max-width: 344px;
-        /* Add this line */
-        display: flex;
-        /* Add this line */
-        justify-content: center;
-        /* Add this line */
-        flex-direction: column;
-        /* Add this line */
-        align-items: center;
-        /* Add this line */
-      
+    display: block;
   }
 }
 
