@@ -50,25 +50,31 @@ function PopUp() {
 
 export default PopUp;
 
-// import { useState } from 'react';
-// // import clsx from 'clsx';
+// import { useState, useEffect } from 'react';
+// import clsx from 'clsx';
 // import css from './PopUp.module.css';
 // import spritePath from '../../img/sprite.svg';
-// // import { useHistory } from 'react-router-dom';
+// import { useSelector } from 'react-redux';
+// import { selectTheme } from '../../redux/auth/selectors';
 
 // function PopUp() {
 //   const [activeColumn, setActiveColumn] = useState('In progress');
-//   // const history = useHistory(); // add this line
+//   const theme = useSelector(selectTheme);
 
 //   const handleClick = column => {
 //     setActiveColumn(column);
-//     // history.push(`/column/${column}`); // and use it here
 //   };
 
-//   const columns = ['In progress', 'Done']; // your column names
+//   const columns = ['In progress', 'Done'];
+
+//   // Call setActiveColumn whenever columns array changes
+//   useEffect(() => {
+//     setActiveColumn(columns[columns.length - 1]);
+//   }, [columns]);
 
 //   return (
-//     <div className={css.popupDiv}>
+//     <div className={clsx(css.popupDiv, css[theme])}>
+//       {' '}
 //       <div className={css.columnContent}>
 //         <ul className={css.columnMenu}>
 //           {columns.map(column => (
@@ -82,8 +88,7 @@ export default PopUp;
 //               >
 //                 <p className={css.titleColumn}>{column}</p>
 //                 <svg
-//                   className={css.arrow}
-//                   // className={clsx(css.color, css[theme])}
+//                   className={clsx(css.arrow, css[theme])}
 //                   width="16"
 //                   height="16"
 //                   aria-label="btn icon"
@@ -98,5 +103,4 @@ export default PopUp;
 //     </div>
 //   );
 // }
-
 // export default PopUp;
