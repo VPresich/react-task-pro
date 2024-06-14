@@ -12,6 +12,8 @@ import ColumnModal from '../ColumnModal/ColumnModal';
 import ColumnList from '../ColumnList/ColumnList';
 
 import imgsURL from '../../img/listUrls.js';
+import Button from '../UI/Button/Button.jsx';
+import AddCardModal from '../AddCardModal/AddCardModal.jsx';
 
 function getDeviceType() {
   if (window.innerWidth >= 1024) {
@@ -102,3 +104,23 @@ export default function Board() {
 );
 
 }
+
+
+
+//   const [isModalOpen, setIsModalOpen] = useState(false);
+
+//   const handleAddCard = () => {
+//     setIsModalOpen(true);
+//   };
+
+//   const handleCloseModal = () => {
+//     setIsModalOpen(false);
+// };
+  
+// <Button
+//         icon={'icon-plus'}
+//         text={'Add another card'}
+//         big={false}
+//         onClick={handleAddCard}
+//       />
+//       {isModalOpen && <AddCardModal onClose={handleCloseModal} />}
