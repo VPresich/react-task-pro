@@ -6,7 +6,7 @@ export const deleteTask = createAsyncThunk(
   async (taskId, thunkAPI) => {
     try {
       const response = await axiosInst.delete(`/tasks/${taskId}`);
-console.log(response.data);
+      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,6 +19,7 @@ export const addTask = createAsyncThunk(
 
   async ({ columnId, newTask }, thunkAPI) => {
     try {
+      console.log(columnId, newTask);
       const response = await axiosInst.post(
         `columns/${columnId}/tasks`,
         newTask
@@ -33,12 +34,9 @@ export const addTask = createAsyncThunk(
 export const editTask = createAsyncThunk(
   'tasks/editTask',
 
-  async ({ columnId, taskId, values }, thunkAPI) => {
+  async ({ taskId, values }, thunkAPI) => {
     try {
-      const response = await axiosInst.patch(
-        `columns${columnId}/tasks/${taskId}`,
-        values
-      );
+      const response = await axiosInst.patch(`tasks/${taskId}`, values);
 
       return response.data;
     } catch (error) {
@@ -46,6 +44,23 @@ export const editTask = createAsyncThunk(
     }
   }
 );
+
+// export const editTask = createAsyncThunk(
+//   'tasks/editTask',
+
+//   async ({ columnId, taskId, values }, thunkAPI) => {
+//     try {
+//       const response = await axiosInst.patch(
+//         `columns${columnId}/tasks/${taskId}`,
+//         values
+//       );
+
+//       return response.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(error.message);
+//     }
+//   }
+// );
 
 export const fetchTasksForBoard = createAsyncThunk(
   'tasks/fetchTasksForBoard',

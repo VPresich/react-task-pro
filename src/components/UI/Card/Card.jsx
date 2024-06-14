@@ -7,26 +7,37 @@ import { useDispatch } from 'react-redux';
 import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx';
 import { isDeadlineSoon, getPriorityClasses } from './utils';
+import EditCardModal from '../../EditCardModal/EditCardModal';
 
 // import ModalWindow from 'ModalWindow';
 // import ModalWindow1 from 'ModalWindow';
 
-export default function Card({ title, description, id, priority, deadline }) {
+export default function Card({
+  title,
+  description,
+  id,
+  priority,
+  deadline,
+  column,
+}) {
   // const { title, description, id, priority, deadline } = item;
   const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
   const handleCard = () => {
     dispatch(deleteTask(id));
   };
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalOpenArrow, setModalOpenArrow] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const openModal = () => {
-    console.log('create  modal');
-    setModalOpen(true);
+    setIsModalOpen(true);
   };
+
   const closeModal = () => {
-    setModalOpen(false);
+    setIsModalOpen(false);
   };
+
+  const [modalOpenArrow, setModalOpenArrow] = useState(false);
+
   const openModalArrow = () => {
     console.log('create Arrow modal');
     setModalOpenArrow(true);
@@ -120,7 +131,14 @@ export default function Card({ title, description, id, priority, deadline }) {
         </svg>
       </div>
 
-      {/* {modalOpen && <ModalWindow isOpen={modalOpen} closeModal={closeModal} />} */}
+      {isModalOpen && (
+        <EditCardModal
+          onClose={closeModal}
+          card={{ title, description, id, priority, deadline }}
+          column={column}
+        />
+      )}
+
       {/* {modalOpenArrow && ( */}
       {/* // <ModalWindow2 isOpen={modalOpenArrow} closeModal={closeModalArrow} /> */}
       {/* )} */}
