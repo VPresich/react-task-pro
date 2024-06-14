@@ -22,6 +22,7 @@
   border: 2px rgba(190, 219, 176, 0.4) solid;
 }
 
+.fieldTextarea.dark,
 .fieldTextarea.dark::placeholder {
   color: rgba(255, 255, 255, 0.5);
 }

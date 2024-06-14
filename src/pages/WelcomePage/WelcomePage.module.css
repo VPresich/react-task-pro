@@ -4,10 +4,16 @@
     rgba(196, 196, 196, 0) 25%,
     #bedbb0 92.19%
   );
-  display: block;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   max-width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+}
+
+.iconHome {
+  width: 48px;
+  height: 48px;
 }
 
 .welcomeWrapper {
@@ -15,7 +21,7 @@
   display: block;
   margin: auto;
 }
-.welcomeWrapper img {
+.avatar {
   width: 162px;
   height: 162px;
   display: block;
@@ -32,15 +38,15 @@
 }
 
 .mainTitle {
-  font-weight: 600;
+  font-family: 'Poppins-Semibold';
   font-size: 40px;
   letter-spacing: -0.04em;
   color: #161616;
+  padding: 0;
 }
 
 .text {
-  font-family: 'Poppins-Medium', 'sans-serif';
-  font-weight: 400;
+  font-family: 'Poppins-Regular';
   font-size: 14px;
   line-height: 129%;
   letter-spacing: -0.02em;
@@ -50,6 +56,7 @@
   font-style: normal;
   line-height: 18px;
   letter-spacing: -0.28px;
+  max-width: 473px;
 }
 
 .btnWrapper {
@@ -78,7 +85,7 @@
 }
 
 .btnLogin {
-  font-family: 'Poppins-Medium', sans-serif;
+  font-family: 'Poppins-Medium';
   color: #161616;
   font-size: 14px;
   font-style: normal;
@@ -90,45 +97,43 @@
 }
 
 @media screen and (max-width: 767px) {
-  .welcomeContainer {
-    width: 100%;
-    height: 1024px;
-    margin: auto;
-  }
-  .welcomeWrapper {
-    padding-top: 293px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-  .welcomeContainer {
-    height: 812px;
-    width: 375px;
+  .avatar {
+    width: 124px;
+    height: 124px;
   }
 
-  .welcomeWrapper {
-    padding-top: 211px;
-    padding-bottom: 211px;
-    width: 335px;
-  }  
+  .iconHome {
+    width: 40px;
+    height: 40px;
+  }
 
   .mainTitle {
-    padding-top: 14px;
-    padding-bottom: 24px;
     font-size: 28px;
-    font-weight: 600;
-    font-size: 28px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    letter-spacing: -1.12px;
   }
+
+  .text {
+    max-width: 335px;
+  }
+
   .btnWrapper {
     padding-top: 48px;
   }
+
   .btnRegister,
   .btnLogin {
     display: block;
     width: 335px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .welcomeContainer {
+    padding: 20px;
+  }
+
+  .btnRegister,
+  .btnLogin {
+    /* display: block; */
+    width: 100%;
   }
 }

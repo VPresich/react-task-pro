@@ -12,20 +12,20 @@ export default function WelcomePage() {
       <DocumentTitle>Welcome</DocumentTitle>
       <div className={css.welcomeContainer}>
         <div className={css.welcomeWrapper}>
-          <img src={imgPath} alt="avatar-w" />
+          <img src={imgPath} alt="avatar-w" className={ css.avatar} />
 
           <div className={css.welcomeContent}>
             <div className={css.logoPage}>
-              <svg className="iconHome" width="48px" height="48px">
-                <image href={icon} width="48px" height="48px" />
-              </svg>
-              <h1 className={css.mainTitle}>Task Pro</h1>
+              <img src={icon} alt="logo" className={ css.iconHome} />
+              {/* <svg className={css.iconHome} >
+                <image href={icon} />
+              </svg> */}
+              <p className={css.mainTitle}>Task Pro</p>
             </div>
 
             <p className={css.text}>
               Supercharge your productivity and take control of your tasks with
-              Task
-              <br /> Pro - Don &apos;t wait, start achieving your goals now!
+              Task Pro - Don &apos;t wait, start achieving your goals now!
             </p>
 
             <div className={css.btnWrapper}>
