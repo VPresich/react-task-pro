@@ -60,15 +60,3 @@ export const getBoardById = createAsyncThunk(
     }
   }
 );
-
-export const getColumnsAndTasks = createAsyncThunk(
-  'boards/getColumnsAndTasks',
-  async (id, thunkAPI) => {
-    try {
-      const response = await axiosInst.get(`boards/${id}/columsAndtasks`);
-      return response.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);

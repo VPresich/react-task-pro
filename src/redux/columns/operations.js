@@ -30,7 +30,7 @@ export const deleteColumnById = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const response = await axiosInst.delete(`columns/${id}`);
-      return { boardId: id, columns: response.data };
+      return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -6,7 +6,6 @@ export const deleteTask = createAsyncThunk(
   async (taskId, thunkAPI) => {
     try {
       const response = await axiosInst.delete(`/tasks/${taskId}`);
-      console.log(response.data);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -19,7 +18,6 @@ export const addTask = createAsyncThunk(
 
   async ({ columnId, newTask }, thunkAPI) => {
     try {
-      console.log(columnId, newTask);
       const response = await axiosInst.post(
         `columns/${columnId}/tasks`,
         newTask
@@ -36,9 +34,7 @@ export const editTask = createAsyncThunk(
 
   async ({ taskId, values }, thunkAPI) => {
     try {
-      console.log('Edit', taskId, values);
       const response = await axiosInst.patch(`tasks/${taskId}`, values);
-
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -74,7 +70,6 @@ export const updateTaskColumn = createAsyncThunk(
   'tasks/updateTaskColumn',
   async ({ id, column }, thunkAPI) => {
     try {
-      console.log('patch', id, 'column', column);
       const response = await axiosInst.patch(`tasks/${id}`, { column });
       return response.data;
     } catch (error) {

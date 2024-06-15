@@ -69,7 +69,7 @@ const columnsSlice = createSlice({
       })
       .addCase(deleteColumnById.fulfilled, (state, action) => {
         const index = state.items.findIndex(
-          column => column.id === action.payload.id
+          column => column._id === action.payload._id
         );
 
         if (index !== -1) {

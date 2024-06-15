@@ -114,7 +114,7 @@ const tasksSlice = createSlice({
       })
       //-----------------------------------
       .addCase(deleteColumnById.fulfilled, (state, action) => {
-        const columnId = action.payload.columns._id;
+        const columnId = action.payload._id;
         state.items = state.items.filter(task => task.column !== columnId);
       })
       //-----------------------------------
