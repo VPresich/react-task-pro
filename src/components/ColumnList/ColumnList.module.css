@@ -1,4 +1,9 @@
 .list {
   display: flex;
-  gap: 34px;
+  gap: 18px;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }

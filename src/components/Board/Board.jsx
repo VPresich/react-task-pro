@@ -80,7 +80,7 @@ export default function Board() {
         <p className={clsx(css.title, css[theme])}>{activeBoard.title}</p>
         <Filters />
       </div>
-      <div className={css.contents}>
+      <div className={clsx(css.contents, css[theme])}>
         <div className={css.columnsWrapper}>
           <ColumnList activeBoardId={activeBoard._id} />
           <AddColumnBtn openModal={openModal} />
