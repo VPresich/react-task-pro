@@ -10,6 +10,7 @@ import BoardNotSelected from '../../components/BoardNotSelected/BoardNotSelected
 import { setActiveBoard } from '../../redux/boards/slice';
 
 
+
 export default function HomePage() {
   const dispatch = useDispatch();
   const navigation = useNavigate();

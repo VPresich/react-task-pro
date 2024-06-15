@@ -36,6 +36,7 @@ export const editTask = createAsyncThunk(
 
   async ({ taskId, values }, thunkAPI) => {
     try {
+      console.log('Edit', taskId, values);
       const response = await axiosInst.patch(`tasks/${taskId}`, values);
 
       return response.data;
@@ -44,23 +45,6 @@ export const editTask = createAsyncThunk(
     }
   }
 );
-
-// export const editTask = createAsyncThunk(
-//   'tasks/editTask',
-
-//   async ({ columnId, taskId, values }, thunkAPI) => {
-//     try {
-//       const response = await axiosInst.patch(
-//         `columns${columnId}/tasks/${taskId}`,
-//         values
-//       );
-
-//       return response.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );
 
 export const fetchTasksForBoard = createAsyncThunk(
   'tasks/fetchTasksForBoard',

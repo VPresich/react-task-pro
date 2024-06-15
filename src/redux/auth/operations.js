@@ -119,3 +119,15 @@ export const updateProfile = createAsyncThunk(
     }
   }
 );
+
+export const updateTheme = createAsyncThunk(
+  'users/themes',
+  async (data, thunkAPI) => {
+    try {
+      const response = await axiosInst.patch(`users/themes`, data);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

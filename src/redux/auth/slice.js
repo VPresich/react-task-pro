@@ -6,6 +6,7 @@ import {
   refreshUser,
   updateAvatar,
   updateProfile,
+  updateTheme,
 } from './operations';
 
 const initialState = {
@@ -23,7 +24,11 @@ const authSlice = createSlice({
     setTheme(state, action) {
       state.user.theme = action.payload;
     },
+    resetRefreshState(state, action) {
+      state.isRefreshing = action.payload;
+    },
   },
+
   extraReducers: builder => {
     builder
       .addCase(register.pending, state => {
@@ -91,6 +96,7 @@ const authSlice = createSlice({
       .addCase(updateAvatar.rejected, (state, action) => {
         state.error = action.payload;
       })
+      //------------------------------------------
       .addCase(updateProfile.pending, state => {
         state.error = null;
       })
@@ -100,9 +106,22 @@ const authSlice = createSlice({
       })
       .addCase(updateProfile.rejected, (state, action) => {
         state.error = action.payload;
+      })
+      //------------------------------------------
+
+      .addCase(updateTheme.pending, state => {
+        state.error = null;
+      })
+      .addCase(updateTheme.fulfilled, (state, action) => {
+        state.user.theme = action.payload.theme;
+        state.error = null;
+      })
+      .addCase(updateTheme.rejected, (state, action) => {
+        state.error = action.payload;
       });
   },
 });
 
 export const { setTheme } = authSlice.actions;
+export const { resetRefreshState } = authSlice.actions;
 export default authSlice.reducer;

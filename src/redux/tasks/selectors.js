@@ -1,28 +1,34 @@
 import { createSelector } from 'reselect';
+import { selectFilterPriority } from '../filter/selectors';
 
 // Basic selectors
-const selectTasksState = (state) => state.tasks;
-const selectTasksItems = createSelector(selectTasksState, (tasks) => tasks.items);
+const selectTasksState = state => state.tasks;
+const selectTasksItems = createSelector(selectTasksState, tasks => tasks.items);
 
 // Memoized selectors
 export const selectAllTasks = selectTasksItems;
-export const selectLoading = createSelector(selectTasksState, (tasks) => tasks.loading);
-export const selectError = createSelector(selectTasksState, (tasks) => tasks.error);
+export const selectLoading = createSelector(
+  selectTasksState,
+  tasks => tasks.loading
+);
 
+export const selectError = createSelector(
+  selectTasksState,
+  tasks => tasks.error
+);
 
-// export const selectAllTasks = state => state.tasks.items;
-// export const selectLoading = state => state.tasks.loading;
-// export const selectError = state => state.tasks.error;
+export const selectTasksByPriority = createSelector(
+  [selectTasksItems, selectFilterPriority],
+  (items, filterPriority) => {
+    if (!items || items.length === 0) return [];
+    if (filterPriority === 'all') return items;
+    return items.filter(
+      item => item.priority.toLowerCase() === filterPriority.toLowerCase()
+    );
+  }
+);
 
-// export const selectTasksForColumn = (state, columnId) => {
-//   const { items } = state.tasks;
-//   console.log(items);
-//   const filteredItems = [];
-
-//   items.forEach(item => {
-//     const filteredTasks = item.filter(task => task.column._id === columnId);
-//     filteredItems.push(...filteredTasks);
-//   });
-
-//   return filteredItems;
-// };
+export const selectTasksForColumn = createSelector(
+  [selectTasksByPriority, (_, columnId) => columnId],
+  (items, columnId) => items.filter(item => item.column === columnId) || []
+);
