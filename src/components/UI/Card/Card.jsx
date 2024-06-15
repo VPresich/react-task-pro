@@ -27,6 +27,7 @@ export default function Card({
   const handleCard = () => {
     dispatch(deleteTask(id));
   };
+  const priorityClass = getPriorityClasses(priority);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -49,7 +50,7 @@ export default function Card({
   };
   return (
     <div
-      className={clsx(styles.card, styles[theme], getPriorityClasses())}
+      className={clsx(styles.card, styles[theme], styles[priorityClass])}
       id={`card-${id}`}
     >
       <h2 className={clsx(styles.cardTitle, styles[theme])}>{title}</h2>
@@ -73,11 +74,11 @@ export default function Card({
               className={clsx(
                 styles.circle,
                 styles[theme],
-                getPriorityClasses()
+                styles[priorityClass]
               )}
             ></div>
             <span className={clsx(styles.strongPriority, styles[theme])}>
-              {priority}
+              {}
             </span>
           </div>
         </div>
