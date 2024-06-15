@@ -1,5 +1,10 @@
+function transformDate(dateString) {
+  const [day, month, year] = dateString.split('/');
+  return `${year}-${month}-${day}`;
+}
+
 export const isDeadlineSoon = deadline => {
-    const deadlineDate = new Date(deadline);
+  const deadlineDate = new Date(transformDate(deadline));
     const now = new Date();
     const timeDifference = deadlineDate - now;
     const hoursDifference = timeDifference / (1000 * 60 * 60);
