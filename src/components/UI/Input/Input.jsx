@@ -52,10 +52,10 @@ export default function Input({ onName, onPlaceholder, type, color }) {
       />
       {type === 'password' && (
         <span onClick={handleTogglePasswordVisibility} className={css.eyeIcon}>
-          {showPassword ? <FaEye className={clsx(css.icon, css[theme])} /> : <FaEyeSlash className={ clsx(css.icon, css[theme])}/>}
+          {showPassword ? <FaEye className={clsx(css.icon, css[theme])} style={color && { fill: color }} /> : <FaEyeSlash className={clsx(css.icon, css[theme])} style={color && { fill: color }} />}
         </span>
       )}
-      <ErrorMessage name={onName} component="span" className={clsx(css.error, css[theme])} />
+      <ErrorMessage name={onName} component="span" className={clsx(css.error, css[theme])} style={color && { color } }/>
     </div>
   );
 }

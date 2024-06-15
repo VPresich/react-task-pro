@@ -28,3 +28,18 @@
   gap: 14px;
   margin-bottom: 40px;
 }
+
+@media screen and (max-width: 767px) {
+  .container {
+    width: 335px;
+    /* min-height: 363px; */
+    padding: 24px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .container {
+    margin: 0 20px;
+    width: 100%;
+  }
+}
