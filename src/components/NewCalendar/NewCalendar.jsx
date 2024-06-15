@@ -197,7 +197,7 @@ const CalendarHeaderComponent = ({onDateChange}) => {
   };
 
   const formatDate = (date) => {
-    return format(date.toDate(), 'yyyy-MM-dd');
+    return format(date.toDate(), 'dd/MM/yyyy');
   };
 
   const toggleCalendar = () => {
