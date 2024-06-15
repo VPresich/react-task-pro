@@ -24,7 +24,7 @@ const tasksSlice = createSlice({
       .addCase(deleteTask.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = state.items.filter(
-          item => item._id !== action.payload.id
+          item => item._id !== action.payload._id
         );
       })
       .addCase(deleteTask.rejected, state => {
@@ -49,9 +49,8 @@ const tasksSlice = createSlice({
       })
       .addCase(editTask.fulfilled, (state, action) => {
         state.isLoading = false;
-        const { id } = action.payload;
         const existingItemIndex = state.items.findIndex(
-          item => item._id === id
+          item => item._id === action.payload._id
         );
         if (existingItemIndex !== -1) {
           state.items[existingItemIndex] = action.payload;

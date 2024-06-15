@@ -12,13 +12,14 @@ import { useState } from 'react';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import ColumnModal from '../ColumnModal/ColumnModal';
 import AddCardModal from '../AddCardModal/AddCardModal';
-import { selectAllTasks } from '../../redux/tasks/selectors';
+import { selectTasksForColumn } from '../../redux/tasks/selectors';
 
 const ColumnItem = ({ column, isActive, setActiveColumn }) => {
   const theme = useSelector(selectTheme);
+
   const dispatch = useDispatch();
   const { _id, title } = column;
-  const tasks = useSelector(selectAllTasks);
+  const tasks = useSelector(state => selectTasksForColumn(state, _id));
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -96,7 +97,7 @@ const ColumnItem = ({ column, isActive, setActiveColumn }) => {
       <div className={clsx(css.listContainer, css[theme])}>
         <ul className={css.list}>
           {tasks.map(task => (
-            <li className={css.item} key={task.id}>
+            <li className={css.item} key={task._id}>
               <Card
                 key={task.id}
                 item={task}
