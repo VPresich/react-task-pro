@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
@@ -10,6 +9,8 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from 'dayjs';
+
+
 import {
   format,
   differenceInCalendarDays,
@@ -17,12 +18,15 @@ import {
   isYesterday,
   isToday,
 } from 'date-fns';
+import { useSelector } from 'react-redux';
+import { selectTheme } from '../../redux/auth/selectors';
 
-const CustomCalendarHeaderRoot = styled('div')({
+const CustomCalendarHeaderRoot = styled('div')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  color: '#ffffff', // White text color
-});
+  color: theme === 'dark' ? '#ffffff' : '#161616', // White text color
+  width: '100%'
+}));
 
 const HeaderContainer = styled('div')({
   display: 'flex',
@@ -31,48 +35,111 @@ const HeaderContainer = styled('div')({
   padding: '8px 16px',
 });
 
-const Divider = styled('hr')({
+const Divider = styled('hr')(({ theme }) => ({
   width: '100%',
   border: 'none',
-  borderTop: '1px solid #e0e0e0',
+  borderTop: theme === 'dark' ? '2px solid rgba(255, 255, 255, 0.2)' : '2px solid rgba(22, 22, 22, 0.2)',
   margin: '0',
-});
+}));
 
 const CalendarContainer = styled('div')({
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  justifyContent: 'left',
+  alignItems: 'left',
   flexDirection: 'column',
-  padding: '16px',
-  border: '1px solid #e0e0e0',
-  borderRadius: '8px',
-  backgroundColor: '#424242', // Grey background color
-  maxWidth: '400px',  // Adjust width as needed
-  margin: '0 auto',   // Center the container horizontally
-  color: '#ffffff', // White text color
+  padding: '0px',
+  fontSize: '14px',
+  letterSpacing: '-0.02em',
+  maxWidth: '300px',
+  margin: '0 auto',
+  color: '#bedbb0',
+  position: 'relative',
 });
 
+const CustomDateCalendar = styled(DateCalendar)(({ theme }) => ({
+  position: 'absolute',
+  bottom: 'calc(100% + 8px)', // Position below the triggering element with some spacing
+  left: 0,
+  zIndex: 1,
+  fontFamily: 'Poppins-Medium',
+  backgroundColor: theme==='dark' ? '#1f1f1f': '#ffffff', // Grey background for the calendar
+  border: theme ==='violet' ? '1px solid #5255BC' : '1px solid #9dc888',
+  borderRadius: '8px',
+  padding: '8px',
+  fontSize: '16px',
 
-const CustomDateCalendar = styled(DateCalendar)({
-    position: 'absolute',
-  top: 0,
-  left: '100%', // Position the calendar to the right of the pick button
-  zIndex: 1, 
+  '&.MuiDateCalendar-root': {
+    width: '275px',
+    height: '300px',
+    overflow:'auto'
+  },
+  '& .css-1t0788u-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition': {
+    minHeight: '200px'
+  },
+  '& .css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root.Mui-disabled:not(.Mui-selected)': {
+     width: '30px',
+    height: '30px',
+    color: theme==='dark' ? 'rgba(255, 255, 255, 0.2)' : 'rgba(22, 22, 22, 0.2)'
+  },
+  '& .css-hljmer': {
+    padding: '8px 4px'
+  },
+  '& .css-23p0if-MuiButtonBase-root-MuiPickersDay-root': {
+    width: '30px',
+    height: '30px',
+    fontSize: '16px',
+    margin: '0'
+  },
+  '& .css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root': {
+    width: '30px',
+    height: '30px',
+    fontSize: '14px'
+  },
   '& .MuiPickersCalendarHeader-root': {
-    backgroundColor: '#424242', // Grey background for the header
-    color: '#ffffff', // White text color
-  },
-  '& .MuiPickersDay-root': {
-    color: '#ffffff', // White text color for days
-  },
-  '& .MuiPickersDay-root.Mui-selected': {
-    backgroundColor: '#4caf50', // Green background for selected date
-    color: '#ffffff', // White text color for selected date
+    // backgroundColor: '', // Grey background for the header
+    color: theme==='dark' ? '#ffffff' : '#161616', // White text color
   },
   '& .MuiTypography-root': {
-    color: '#ffffff', // White text color for all typography
+    color: theme==='dark' ? '#ffffff' : '#161616',
+    fontFamily: 'Poppins-Medium'
   },
-});
+  '& .MuiPickersDay-root': {
+    color: theme==='dark' ? '#ffffff' : '#161616',
+    fontFamily: 'Poppins-Medium'
+  },
+  '& .MuiDateCalendar-root': {
+    fontFamily: 'Poppins-Medium',
+    padding: '8px',
+
+  },
+  '& .css-23p0if-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected)': {
+    border: 'none'
+  },
+  '& .MuiPickersDay-root:hover': {
+    backgroundColor: theme==='violet' ? '#7b7ede' : '#bedbb0', // Green background for selected date
+    color: theme==='violet' ? '#ffffff' :'#161616', 
+  },
+  '& .MuiPickersDay-root.Mui-selected': {
+    width: '32px',
+    height:'30px',
+    backgroundColor: theme==='violet' ? '#5255bc' : '#9dc888',  // Green background for selected date
+    color: theme==='violet' ? '#ffffff' :'#161616', // White text color for selected date
+  },
+
+  '& .MuiDateCalendar-root .MuiButtonBase-root-MuiPickersDay-root:hover': {
+     backgroundColor: theme==='violet' ? '#9dc888' : '#bedbb0'
+  },
+
+  '& .css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel': {
+    margin: '0 2px',
+    width: '30px',
+    height: '30px',
+    fontSize: '14px',
+    color: theme==='dark' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(22, 22, 22, 0.5)'
+
+  },
+
+}));
 
 function CustomCalendarHeader(props) {
   const { currentMonth, onMonthChange } = props;
@@ -80,30 +147,30 @@ function CustomCalendarHeader(props) {
   const selectNextMonth = () => onMonthChange(currentMonth.add(1, 'month'), 'left');
   const selectPreviousMonth = () =>
     onMonthChange(currentMonth.subtract(1, 'month'), 'right');
-
+  const theme = useSelector(selectTheme);
   return (
-    <CustomCalendarHeaderRoot>
+    <CustomCalendarHeaderRoot theme = {theme}>
       <HeaderContainer>
         <Stack spacing={1} direction="row">
-          <IconButton onClick={selectPreviousMonth} title="Previous month" sx={{ color: '#ffffff' }}>
+          <IconButton onClick={selectPreviousMonth} title="Previous month" sx={{ color: theme ==='dark'? '#ffffff' : '#161616'}}>
             <ChevronLeft />
           </IconButton>
         </Stack>
-        <Typography variant="h6" style={{ fontFamily: 'Arial, sans-serif' }}>
+        <Typography variant="h6" style={{ fontFamily: 'Poppins-Medium' }}>
           {currentMonth.format('MMMM YYYY')}
         </Typography>
         <Stack spacing={1} direction="row">
-          <IconButton onClick={selectNextMonth} title="Next month" sx={{ color: '#ffffff' }}>
+          <IconButton onClick={selectNextMonth} title="Next month" sx={{ color: theme ==='dark'? '#ffffff' : '#161616'}}>
             <ChevronRight />
           </IconButton>
         </Stack>
       </HeaderContainer>
-      <Divider />
+      <Divider theme = {theme}/>
     </CustomCalendarHeaderRoot>
   );
 }
 
-const CalendarHeaderComponent = () => {
+const CalendarHeaderComponent = ({onDateChange}) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const calendarRef = useRef(null);
@@ -125,7 +192,7 @@ const CalendarHeaderComponent = () => {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    setIsOpen(false);
+    onDateChange(formatDate(date));
     console.log(formatDate(date));
   };
 
@@ -172,16 +239,29 @@ const CalendarHeaderComponent = () => {
     return date.isBefore(dayjs(), 'day');
   };
 
+  const theme = useSelector(selectTheme);
+  
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <CalendarContainer ref={calendarRef}>
         <div onClick={toggleCalendar} style={{ cursor: 'pointer' }}>
-          <Typography variant="body1" style={{ fontFamily: 'Arial, sans-serif', marginBottom: '8px' }}>
+           <Typography
+            variant="p"
+            sx={{
+              fontFamily: 'Poppins-Medium, sans-serif',
+              marginBottom: '8px',
+              display: 'flex',
+              justifyContent: 'left',
+              backgroundColor: 'none',
+              border: 'none'
+            }}
+          >
             {renderDateText()}
           </Typography>
         </div>
         {isOpen && (
           <CustomDateCalendar
+            theme={theme}
             slots={{ calendarHeader: CustomCalendarHeader }}
             onChange={handleDateChange}
             shouldDisableDate={shouldDisableDate}
@@ -193,3 +273,4 @@ const CalendarHeaderComponent = () => {
 };
 
 export default CalendarHeaderComponent;
+
