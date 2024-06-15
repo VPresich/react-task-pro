@@ -12,7 +12,7 @@
 }
 
 .modal {
-  background: white;
+  background: #ffffff;
   padding: 40px;
   border-radius: 8px;
   position: relative;
@@ -41,4 +41,11 @@
 .icon.light,
 .icon.violet {
   stroke: var(--secondary-color);
+}
+
+@media screen and (max-width: 767px) {
+  .modal {
+    padding: 24px;
+    margin: 0 8px;
+  }
 }

@@ -126,3 +126,15 @@
   fill: transparent;
   stroke: rgba(22, 22, 22, 0.1);
 }
+
+@media screen and (max-width: 767px) {
+  .form {
+    width: 287px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .form {
+    width: 100%;
+  }
+}
