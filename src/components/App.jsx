@@ -15,10 +15,8 @@ export default function App() {
     dispatch(refreshUser())
       .unwrap()
       .then(() => {
-        toast.success('Refresh successful');
       })
       .catch(() => {
-        // toast.error('Please log in');
       })
       .finally(() => {
         dispatch(resetRefreshState());

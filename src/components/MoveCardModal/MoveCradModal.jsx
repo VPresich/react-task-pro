@@ -12,11 +12,8 @@ export default function MoveCardModal({ onClose, cardId }) {
     dispatch(updateTaskColumn({ id: cardId, column: newColumnId }))
       .unwrap()
       .then(() => {
-        toast.success('Move successful');
       })
-      .catch(() => {
-        toast.error('Error in move');
-      });
+      .catch(() => {});
 
     onClose();
   };

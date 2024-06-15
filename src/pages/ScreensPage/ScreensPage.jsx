@@ -24,25 +24,25 @@ export default function ScreensPage() {
     dispatch(fetchBoards())
       .unwrap()
       .then(() => {
-        toast.success('fetchTasks fulfilled');
+        
       })
       .catch(() => {
-        toast.error('fetchTasks rejected');
+        toast.error('Error fetching tasks');
       });
     
     dispatch(fetchColumnsForBoard(id))
       .unwrap()
       .then(() => {
-        toast.success('fetchColumnsForBoard fulfilled');
+        
       })
       .catch(() => {
-        toast.error('fetchColumnsForBoard rejected');
+        toast.error('Error fetching columns');
       });
 
     dispatch(fetchTasksForBoard(id))
       .unwrap()
       .then(() => {
-        toast.success('fetchTasksForBoard fulfilled');
+        
       })
       .catch(() => {
         toast.error('fetchTasksForBoard rejected');

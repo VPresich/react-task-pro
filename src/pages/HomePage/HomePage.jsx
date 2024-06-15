@@ -24,13 +24,12 @@ export default function HomePage() {
     dispatch(fetchBoards())
       .unwrap()
       .then((boards) => {
-        toast.success('fetchBoards fulfilled');
         if (boards[0]) {
           navigation(`/home/${boards[0]._id}`);
         }
       })
       .catch(() => {
-        toast.error('fetchTasks rejected');
+        toast.error('Error fetching boards');
       });
   }, [dispatch, navigation]);
 
