@@ -8,7 +8,7 @@ import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx';
 import { isDeadlineSoon, getPriorityClasses } from './utils';
 import EditCardModal from '../../EditCardModal/EditCardModal';
-import PopUp from '../../PopUp/PopUp';
+import MoveCardModal from '../../MoveCardModal/MoveCradModal';
 import LinesEllipsis from 'react-lines-ellipsis';
 import EllipsisText from "react-ellipsis-text";
 
@@ -20,14 +20,12 @@ export default function Card({
   deadline,
   column,
 }) {
-  // const { title, description, id, priority, deadline } = item;
-  const theme = useSelector(selectTheme);
   const dispatch = useDispatch();
-  const handleCard = () => {
-    dispatch(deleteTask(id));
-  };
   const priorityClass = getPriorityClasses(priority);
+  const theme = useSelector(selectTheme);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalForMove, setModalForMove] = useState(false);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -37,16 +35,20 @@ export default function Card({
     setIsModalOpen(false);
   };
 
-  const [modalOpenArrow, setModalOpenArrow] = useState(false);
-
-  const openModalArrow = () => {
-    console.log('create Arrow modal');
-    setModalOpenArrow(true);
+  const handleMove = () => {
+    setModalForMove(true);
+    openModal();
   };
 
-  const closeModalArrow = () => {
-    setModalOpenArrow(false);
+  const handleEdit = () => {
+    setModalForMove(false);
+    openModal();
   };
+
+  const handleDelete = () => {
+    dispatch(deleteTask(id));
+  };
+
   return (
     <div
       className={clsx(styles.card, styles[theme], styles[priorityClass])}
@@ -115,7 +117,7 @@ export default function Card({
               width="16"
               height="16"
               aria-label="btn icon"
-              onClick={openModalArrow}
+              onClick={handleMove}
             >
               <use href={`${spritePath}#icon-arrow`} />
             </svg>
@@ -125,7 +127,7 @@ export default function Card({
               width="16"
               height="16"
               aria-label="btn icon"
-              onClick={openModal}
+              onClick={handleEdit}
             >
               <use href={`${spritePath}#icon-pencil`} />
             </svg>
@@ -135,23 +137,23 @@ export default function Card({
               width="16"
               height="16"
               aria-label="btn icon"
-              onClick={handleCard}
+              onClick={handleDelete}
             >
               <use href={`${spritePath}#icon-trash`}  />
             </svg>
           </div>
         </div>
 
-      {isModalOpen && (
+      {isModalOpen && !modalForMove && (
         <EditCardModal
           onClose={closeModal}
           card={{ title, description, id, priority, deadline }}
           column={column}
         />
       )}
-
-      {modalOpenArrow && ( 
-          <PopUp/>
+      
+      {isModalOpen && modalForMove && (
+        <MoveCardModal onClose={closeModal} cardId={id} />
       )}
     </div>
   );

@@ -69,3 +69,16 @@ export const fetchTasksForColumn = createAsyncThunk(
     }
   }
 );
+
+export const updateTaskColumn = createAsyncThunk(
+  'tasks/updateTaskColumn',
+  async ({ id, column }, thunkAPI) => {
+    try {
+      console.log('patch', id, 'column', column);
+      const response = await axiosInst.patch(`tasks/${id}`, { column });
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
