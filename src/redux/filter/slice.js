@@ -10,7 +10,7 @@ const filterSlice = createSlice({
   reducers: {
     filterByPriority: {
       reducer: (state, action) => {
-        return { ...state, filterPriority: action.payload };
+        state.filterPriority = action.payload;
       },
     },
   },
