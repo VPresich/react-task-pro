@@ -1,4 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { logOut } from '../auth/operations';
+import { deleteBoard } from '../boards/operations';
+import { deleteColumnById } from '../columns/operations';
 import {
   deleteTask,
   editTask,
@@ -103,6 +106,21 @@ const tasksSlice = createSlice({
       })
       .addCase(updateTaskColumn.rejected, state => {
         state.error = true;
+        state.isLoading = false;
+      })
+      //-----------------------------------
+      .addCase(deleteBoard.fulfilled, state => {
+        state.items = [];
+      })
+      //-----------------------------------
+      .addCase(deleteColumnById.fulfilled, (state, action) => {
+        const columnId = action.payload.columns._id;
+        state.items = state.items.filter(task => task.column !== columnId);
+      })
+      //-----------------------------------
+      .addCase(logOut.fulfilled, state => {
+        state.items = [];
+        state.error = null;
         state.isLoading = false;
       });
   },

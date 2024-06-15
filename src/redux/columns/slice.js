@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { logOut } from '../auth/operations';
+import { deleteBoard } from '../boards/operations';
 
 import {
   fetchColumnsForBoard,
@@ -104,6 +105,10 @@ const columnsSlice = createSlice({
       .addCase(updateColumnById.rejected, (state, action) => {
         state.isAdding = false;
         state.error = action.payload;
+      })
+      //-----------------------------------
+      .addCase(deleteBoard.fulfilled, state => {
+        state.items = [];
       })
       //-----------------------------------
       .addCase(logOut.fulfilled, state => {
