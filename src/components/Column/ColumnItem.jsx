@@ -57,7 +57,7 @@ const ColumnItem = ({ column, setActiveColumn }) => {
   };
 
   return (
-    <>
+    <div className={css.column}>
       <div
         className={clsx(css.colTitle, css[theme])}
         onClick={() => setActiveColumn(_id)}
@@ -125,7 +125,7 @@ const ColumnItem = ({ column, setActiveColumn }) => {
           />
         </ModalWrapper>
       )}
-    </>
+    </div>
   );
 };
 export default ColumnItem;
