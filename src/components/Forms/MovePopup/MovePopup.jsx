@@ -30,21 +30,23 @@ function PopUp({ onClick }) {
           {columns.map(column => (
             <li
               key={column._id}
-              className={clsx({ [css.active]: activeColumn === column.title })}
+             // className={clsx({ [css.active]: activeColumn === column.title })}
             >
               <button
                 className={css.columnBtn}
                 onClick={() => handleClick(column)}
               >
-                <p className={css.titleColumn}>{column.title}</p>{' '}
-                <svg
-                  className={clsx(css.arrow, css[theme])}
-                  width="16"
-                  height="16"
-                  aria-label="btn icon"
-                >
-                  <use href={`${spritePath}#icon-arrow`} />
-                </svg>
+                <p className={activeColumn === column.title ? clsx(css.titleColumn, css[theme], css.active) : clsx(css.titleColumn, css[theme])}>{column.title}</p>{' '}
+      
+                  <svg
+                    className={activeColumn === column.title ? clsx(css.arrow, css[theme], css.active) : clsx(css.arrow, css[theme])}
+                    width="16"
+                    height="16"
+                    aria-label="btn icon"
+                  >
+                    <use href={`${spritePath}#icon-arrow`} />
+                  </svg>
+                
               </button>
             </li>
           ))}
