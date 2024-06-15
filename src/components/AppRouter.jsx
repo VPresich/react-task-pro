@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
+import Loader from './UI/Loader/Loader';
 // import ScreensPage from '../pages/ScreensPage/ScreensPage';
 
 const AuthPage = lazy(() => import('../pages/AuthPage/AuthPage'));
@@ -13,7 +14,7 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage/NotFoundPage'));
 
 const AppRouter = () => {
   return (
-    <Suspense fallback={<div>Loading page...</div>}>
+    <Suspense fallback={<Loader/>}>
       <Routes>
         <Route
           path="/welcome"
