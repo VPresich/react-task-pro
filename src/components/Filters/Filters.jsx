@@ -8,6 +8,7 @@ import ModalWindow from '../UI/ModalWindow/ModalWindow';
 import { useDispatch } from 'react-redux';
 import { filterByPriority } from '../../redux/filter/slice';
 import { Formik, Field, Form } from 'formik';
+import ModalWrapper from '../ModalWrapper/ModalWrapper';
 
 const Filters = () => {
   const theme = useSelector(selectTheme);
@@ -52,102 +53,105 @@ const Filters = () => {
         </svg>
         Filters
       </button>
-      <ModalWindow visible={isModalOpen} setVisible={setIsModalOpen}>
-        <div className={css.modal}>
-          <button
-            className={clsx(css['close-btn'], css[theme])}
-            onClick={handleCloseModal}
-          >
-            &times;
-          </button>
-          <h3 className={clsx(css.title, css[theme])}>Filters</h3>
-          <div className={css.wrapper}>
-            <p className={clsx(css['choosing-text'], css[theme])}>
-              Label color
-            </p>
+
+      {isModalOpen &&
+        // <div className={css.modalWrapper}>
+          <div className={css.modal}>
             <button
-              className={clsx(css['show-all-btn'], css[theme])}
-              onClick={() => {
-                dispatch(filterByPriority('all'));
-                setPriority(null);
-              }}
+              className={clsx(css['close-btn'], css[theme])}
+              onClick={handleCloseModal}
             >
-              Show all
+              &times;
             </button>
-          </div>
-          <Formik initialValues={{ priority: 'all' }}>
-            <Form className={css.form}>
-              <div className={css['radio-btn-wrappper']}>
-                <label
-                  className={clsx(
-                    css['radio-btn'],
-                    css[theme],
-                    css['gray-radio-btn']
-                  )}
-                >
-                  <Field
-                    type="radio"
-                    name="priority"
-                    value="Without priority"
-                    onClick={handlePriorityChange}
-                    checked={priority === 'Without priority'}
-                  />
-                  <span>Without priority</span>
-                </label>
-                <label
-                  className={clsx(
-                    css['radio-btn'],
-                    css[theme],
-                    css['blue-radio-btn']
-                  )}
-                >
-                  <Field
-                    type="radio"
-                    name="priority"
-                    value="Low"
-                    onClick={handlePriorityChange}
-                    checked={priority === 'Low'}
-                  />
-                  <span>Low</span>
-                </label>
-                <label
-                  className={clsx(
-                    css['radio-btn'],
-                    css[theme],
-                    css['red-radio-btn']
-                  )}
-                >
-                  <Field
-                    type="radio"
-                    name="priority"
-                    value="Medium"
-                    onClick={handlePriorityChange}
-                    checked={priority === 'Medium'}
-                  />
-                  <span>Medium</span>
-                </label>
-                <label
-                  className={clsx(
-                    css['radio-btn'],
-                    css[theme],
-                    css['green-radio-btn']
-                  )}
-                >
-                  <Field
-                    type="radio"
-                    name="priority"
-                    value="High"
-                    onClick={handlePriorityChange}
-                    checked={priority === 'High'}
-                  />
-                  <span>High</span>
-                </label>
-              </div>
-            </Form>
-          </Formik>
+            <h3 className={clsx(css.title, css[theme])}>Filters</h3>
+            <div className={css.wrapper}>
+              <p className={clsx(css['choosing-text'], css[theme])}>
+                Label color
+              </p>
+              <button
+                className={clsx(css['show-all-btn'], css[theme])}
+                onClick={() => {
+                  dispatch(filterByPriority('all'));
+                  setPriority(null);
+                }}
+              >
+                Show all
+              </button>
+            </div>
+            <Formik initialValues={{ priority: 'all' }}>
+              <Form className={css.form}>
+                <div className={css['radio-btn-wrappper']}>
+                  <label
+                    className={clsx(
+                      css['radio-btn'],
+                      css[theme],
+                      css['gray-radio-btn']
+                    )}
+                  >
+                    <Field
+                      type="radio"
+                      name="priority"
+                      value="Without priority"
+                      onClick={handlePriorityChange}
+                      checked={priority === 'Without priority'}
+                    />
+                    <span>Without priority</span>
+                  </label>
+                  <label
+                    className={clsx(
+                      css['radio-btn'],
+                      css[theme],
+                      css['blue-radio-btn']
+                    )}
+                  >
+                    <Field
+                      type="radio"
+                      name="priority"
+                      value="Low"
+                      onClick={handlePriorityChange}
+                      checked={priority === 'Low'}
+                    />
+                    <span>Low</span>
+                  </label>
+                  <label
+                    className={clsx(
+                      css['radio-btn'],
+                      css[theme],
+                      css['red-radio-btn']
+                    )}
+                  >
+                    <Field
+                      type="radio"
+                      name="priority"
+                      value="Medium"
+                      onClick={handlePriorityChange}
+                      checked={priority === 'Medium'}
+                    />
+                    <span>Medium</span>
+                  </label>
+                  <label
+                    className={clsx(
+                      css['radio-btn'],
+                      css[theme],
+                      css['green-radio-btn']
+                    )}
+                  >
+                    <Field
+                      type="radio"
+                      name="priority"
+                      value="High"
+                      onClick={handlePriorityChange}
+                      checked={priority === 'High'}
+                    />
+                    <span>High</span>
+                  </label>
+                </div>
+              </Form>
+            </Formik>
         </div>
-      </ModalWindow>
+      }
     </>
+    
   );
 };
 
