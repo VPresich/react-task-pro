@@ -5,6 +5,7 @@ import {
   addTask,
   fetchTasksForBoard,
   fetchTasksForColumn,
+  updateTaskColumn,
 } from './operations';
 
 const tasksSlice = createSlice({
@@ -84,6 +85,23 @@ const tasksSlice = createSlice({
         state.items.push(action.payload.tasks);
       })
       .addCase(fetchTasksForColumn.rejected, state => {
+        state.error = true;
+        state.isLoading = false;
+      })
+      .addCase(updateTaskColumn.pending, state => {
+        state.error = false;
+        state.isLoading = true;
+      })
+      .addCase(updateTaskColumn.fulfilled, (state, action) => {
+        state.isLoading = false;
+        const existingItemIndex = state.items.findIndex(
+          item => item._id === action.payload._id
+        );
+        if (existingItemIndex !== -1) {
+          state.items[existingItemIndex].column = action.payload.column;
+        }
+      })
+      .addCase(updateTaskColumn.rejected, state => {
         state.error = true;
         state.isLoading = false;
       });
