@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import spritePath from '../../../img/sprite.svg';
 import styles from './Card.module.css';
@@ -11,9 +11,6 @@ import EditCardModal from '../../EditCardModal/EditCardModal';
 import PopUp from '../../PopUp/PopUp';
 import LinesEllipsis from 'react-lines-ellipsis';
 import EllipsisText from "react-ellipsis-text";
-import { css } from '@emotion/react';
-// import ModalWindow from 'ModalWindow';
-// import ModalWindow1 from 'ModalWindow';
 
 export default function Card({
   title,
@@ -56,7 +53,7 @@ export default function Card({
       id={`card-${id}`}
     >
       <EllipsisText text={title} length={50}  className={clsx(styles.cardTitle, styles[theme])}/>
-
+  
       <LinesEllipsis
         text={description}
         maxLine='2'

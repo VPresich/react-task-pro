@@ -60,7 +60,7 @@
   font-size: 12px;
   letter-spacing: -0.02em;
   line-height: 1rem;
-  min-height: 38px;
+  height: 38px;
   width: 100%;
 }
 .cardDescription.dark {
@@ -105,7 +105,6 @@
   justify-content: flex-end;
 }
 .cardPriority {
-  /* width: 35px; */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -144,10 +143,6 @@
   color: var(--secondary-color);
 }
 .circle {
-  /* position: absolute;
-  left: 3px;
-  top: 20px;
-  transform: translateY(-50%); */
   width: 12px;
   height: 12px;
   border-radius: 50%;
