@@ -5,7 +5,7 @@
   padding: 14px 24px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
-  border-left: 4px solid #8fa1d0;
+ 
 }
 .card.dark {
   background-color: var(--black-dark);
@@ -31,9 +31,16 @@
   border-left: 4px solid #bedbb0;
 }
 
-.card.withoutPriority {
-  border-left: 4px solid rgba(255, 255, 255, 0.3);
+.card.withoutPriority{
+  border-left: 4px solid rgba(22, 22, 22, 0.3);
+
 }
+.card.withoutPriority.dark {
+  border-left: 4px solid  rgba(255, 255, 255, 0.3);
+  ;
+
+}
+
 .cardTitle {
   font-family: 'Poppins-Semibold', sans-serif;
   font-weight: 600;
@@ -135,27 +142,28 @@
   position: absolute;
   left: 3px;
   top: 20px;
-
   transform: translateY(-50%);
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #8fa1d0;
+  
 }
 .circle.low {
-  border-left: 4px solid #8fa1d0;
+  background-color:  #8fa1d0;
 }
 
 .circle.medium {
-  border-left: 4px solid #e09cb5;
+  background-color:  #e09cb5;
 }
 
 .circle.high {
-  border-left: 4px solid #bedbb0;
+  background-color:  #bedbb0;
 }
-
 .circle.withoutPriority {
-  border-left: 4px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(22, 22, 22, 0.3);
+}
+.circle.withoutPriority.dark {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 .strongDeadline {
   font-family: 'Poppins-Regular', sans-serif;
