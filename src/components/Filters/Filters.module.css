@@ -27,6 +27,7 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
+  position: relative;
 }
 
 .filters-btn.dark {
@@ -39,7 +40,18 @@
 }
 
 .modal {
-  position: relative;
+  background: #ffffff;
+  padding: 24px;
+  width: 300px;
+  border-radius: 8px;
+  position: absolute;
+  top: 40px;
+  right: 20px;
+  z-index: 1000000;
+}
+
+.modal.dark {
+  background: var(--secondary-color);
 }
 
 .close-btn {
@@ -53,8 +65,9 @@
   padding: 0;
   border: none;
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
 }
 
 .close-btn.dark {
@@ -230,4 +243,10 @@
 .radio-btn.light input[type='radio']:checked + span,
 .radio-btn.violer input[type='radio']:checked + span {
   color: var(--secondary-color);
+}
+
+@media screen and (max-width: 374px) {
+  .modal {
+    width: calc(100% - 40px);
+  }
 }
