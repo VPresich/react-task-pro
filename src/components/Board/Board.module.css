@@ -49,3 +49,18 @@
 .contents {
   overflow-x: auto;
 }
+
+@media screen and (max-width: 767px) {
+  .top {
+    padding: 14px 20px;
+  }
+  .title {
+    font-size: 14px;
+  }
+  .columnsWrapper {
+    padding: 25px 20px 50px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+}

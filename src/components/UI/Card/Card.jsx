@@ -8,6 +8,7 @@ import { selectTheme } from '../../../redux/auth/selectors';
 import clsx from 'clsx';
 import { isDeadlineSoon, getPriorityClasses } from './utils';
 import EditCardModal from '../../EditCardModal/EditCardModal';
+import PopUp from '../../PopUp/PopUp';
 
 // import ModalWindow from 'ModalWindow';
 // import ModalWindow1 from 'ModalWindow';
@@ -139,9 +140,9 @@ export default function Card({
         />
       )}
 
-      {/* {modalOpenArrow && ( */}
-      {/* // <ModalWindow2 isOpen={modalOpenArrow} closeModal={closeModalArrow} /> */}
-      {/* )} */}
+      {modalOpenArrow && ( 
+          <PopUp/>
+      )}
     </div>
   );
 }

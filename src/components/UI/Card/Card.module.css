@@ -200,6 +200,7 @@
   display: flex;
   justify-content: flex-end;
   gap: 8px;
+  cursor: pointer;
 }
 
 .cardSvg {
@@ -219,4 +220,10 @@
 .color.violet {
   stroke: rgba(22, 22, 22, 0.5);
   fill: none;
+}
+
+@media screen and (max-width: 374px) {
+  .card {
+    width: 100%;
+  }
 }
