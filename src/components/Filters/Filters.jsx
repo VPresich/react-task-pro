@@ -4,11 +4,9 @@ import clsx from 'clsx';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/auth/selectors';
 import { useState } from 'react';
-import ModalWindow from '../UI/ModalWindow/ModalWindow';
 import { useDispatch } from 'react-redux';
 import { filterByPriority } from '../../redux/filter/slice';
 import { Formik, Field, Form } from 'formik';
-import ModalWrapper from '../ModalWrapper/ModalWrapper';
 
 const Filters = () => {
   const theme = useSelector(selectTheme);
