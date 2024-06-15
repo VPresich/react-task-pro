@@ -9,7 +9,9 @@ import clsx from 'clsx';
 import { isDeadlineSoon, getPriorityClasses } from './utils';
 import EditCardModal from '../../EditCardModal/EditCardModal';
 import PopUp from '../../PopUp/PopUp';
-
+import LinesEllipsis from 'react-lines-ellipsis';
+import EllipsisText from "react-ellipsis-text";
+import { css } from '@emotion/react';
 // import ModalWindow from 'ModalWindow';
 // import ModalWindow1 from 'ModalWindow';
 
@@ -53,85 +55,95 @@ export default function Card({
       className={clsx(styles.card, styles[theme], styles[priorityClass])}
       id={`card-${id}`}
     >
-      <h2 className={clsx(styles.cardTitle, styles[theme])}>{title}</h2>
+      <EllipsisText text={title} length={50}  className={clsx(styles.cardTitle, styles[theme])}/>
 
-      <p
-        className={clsx(
+      <LinesEllipsis
+        text={description}
+        maxLine='2'
+        ellipsis='...'
+        trimRight
+        basedOn='letters'
+        component='p'
+         className={clsx(
           styles.containerCard,
           styles.cardDescription,
           styles[theme]
         )}
-      >
-        {description}
-      </p>
+      />
 
       <div className={clsx(styles.cardLine, styles[theme])}></div>
-      <div className={styles.cardInfo}>
-        <div className={styles.priorityContainer}>
-          <div className={clsx(styles.cardPriority, styles[theme])}>
-            <strong>Priority:</strong>{' '}
-            <div
-              className={clsx(
-                styles.circle,
-                styles[theme],
-                styles[priorityClass]
-              )}
-            ></div>
-            <span className={clsx(styles.strongPriority, styles[theme])}>
-              {}
-            </span>
+      <div className={styles.cardBottom}>
+        
+        <div className={styles.cardInfo}>
+          <div className={styles.priorityContainer}>
+            <div className={clsx(styles.cardPriority, styles[theme])}>
+              <strong>Priority:</strong>{' '}
+              <div className={styles.priority}>
+              <div
+                className={clsx(
+                  styles.circle,
+                  styles[theme],
+                  styles[priorityClass]
+                )}
+              ></div>
+              <p className={clsx(styles.strongPriority, styles[theme])}>
+                {priority}
+                </p>
+                </div>
+            </div>
           </div>
+
+          <p className={clsx(styles.cardDeadline, styles[theme])}>
+            <strong>Deadline:</strong>{' '}
+            <span className={clsx(styles.strongDeadline, styles[theme])}>
+              {deadline}
+            </span>
+          </p>
         </div>
 
-        <p className={clsx(styles.cardDeadline, styles[theme])}>
-          <strong>Deadline:</strong>{' '}
-          <span className={clsx(styles.strongDeadline, styles[theme])}>
-            {deadline}
-          </span>
-        </p>
-      </div>
+          <div className={styles.icon}>
+            {isDeadlineSoon(deadline) && (
+              <svg
+                className={styles.bell}
+                width="16"
+                height="16"
+                aria-label="btn icon"
+              >
+                <use href={`${spritePath}#icon-bell-01`} />
+              </svg>
+            )}
 
-      <div className={styles.icon}>
-        {isDeadlineSoon(deadline) && (
-          <svg
-            className={styles.bell}
-            width="16"
-            height="16"
-            aria-label="btn icon"
-          >
-            <use href={`${spritePath}#icon-bell-01`} />
-          </svg>
-        )}
+            <svg
+              className={clsx(styles.color, styles[theme])}
+              width="16"
+              height="16"
+              aria-label="btn icon"
+              onClick={openModalArrow}
+            >
+              <use href={`${spritePath}#icon-arrow`} />
+            </svg>
 
-        <svg
-          className={clsx(styles.color, styles[theme])}
-          width="16"
-          height="16"
-          aria-label="btn icon"
-          onClick={openModalArrow}
-        >
-          <use href={`${spritePath}#icon-arrow`} />
-        </svg>
+            <svg
+              className={clsx(styles.color, styles[theme])}
+              width="16"
+              height="16"
+              aria-label="btn icon"
+              onClick={openModal}
+            >
+              <use href={`${spritePath}#icon-pencil`} />
+            </svg>
 
-        <svg
-          className={clsx(styles.color, styles[theme])}
-          width="16"
-          height="16"
-          aria-label="btn icon"
-          onClick={openModal}
-        >
-          <use href={`${spritePath}#icon-pencil`} />
-        </svg>
-
-        <svg
-          className={clsx(styles.color, styles[theme])}
-          width="16"
-          height="16"
-          aria-label="btn icon"
-        >
-          <use href={`${spritePath}#icon-trash`} onClick={handleCard} />
-        </svg>
-      </div>
+            <svg
+              className={clsx(styles.color, styles[theme])}
+              width="16"
+              height="16"
+              aria-label="btn icon"
+              onClick={handleCard}
+            >
+              <use href={`${spritePath}#icon-trash`}  />
+            </svg>
+          </div>
+        </div>
 
       {isModalOpen && (
         <EditCardModal
