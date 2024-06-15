@@ -10,17 +10,17 @@
   }
 }
 
-.popupDiv { 
-  background: #1f1f1f;
+.popupDiv {
+  /* background: #1f1f1f; */
   color: rgba(255, 255, 255, 0.5);
-  width: 165px;
-  height: 86px;
+  min-width: 135px;
+  /* height: 86px; */
   border-radius: 8px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15); */
   opacity: 0;
   animation: appear 1s 1;
   animation-fill-mode: forwards;
@@ -30,32 +30,30 @@
   align-items: center;
 }
 
-.popupDiv.active.dark {
+.popupDiv.dark {
   background-color: var(--dark-grey);
 }
 
-.popupDiv.active.light {
-  background-color: rgba(255, 255, 255, 0.5);
+.popupDiv.light {
+  background-color: rgba(255, 255, 255, 1);
 }
 
-.popupDiv.active.violet {
-  background-color: rgba(255, 255, 255, 0.2);
+.popupDiv.violet {
+  background-color: rgba(255, 255, 255, 1);
 }
 
-
-.columnBtn {  
+.columnBtn {
   display: flex;
-  background: #1f1f1f;
+  /* background: #1f1f1f; */
   border-color: transparent;
-  /* width: 75px;
-  height: 21px; */
+  background-color: transparent;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   gap: 8px;
   color: rgba(255, 255, 255, 0.5);
   transition: color 0.2s;
 }
-
 
 .columnMenu li {
   display: flex;
@@ -65,49 +63,75 @@
   stroke: rgb(190, 219, 176);
 }
 
-
 .arrow {
   stroke: rgba(255, 255, 255, 0.5);
+  width: 16px;
+  height: 16px;
 }
 
-
 .titleColumn {
-  color: rgba(255, 255, 255, 0.5);
-  font-family: Poppins;
-   font-size: 14px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 200;
   line-height: normal;
   letter-spacing: -0.28px;
   font-family: 'Poppins-Regular';
-  
 }
 
-.columnBtn .titleColumn,
-.columnBtn .arrow {
-  color: inherit;
-  
+.titleColumn.dark {
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.active .columnBtn  {
-  color: rgb(190, 219, 176); 
-  stroke: rgb(190, 219, 176);
-  
+.titleColumn.light,
+.titleColumn.violet {
+  color: var(--secondary-color);
 }
 
-.columnBtn:hover {
-  stroke: rgb(190, 219, 176);
-  color: rgb(190, 219, 176);
-   
-  
+.titleColumn.light.active,
+.titleColumn.dark.active {
+  color: var(--green-light);
 }
 
-.active .arrow {
-  stroke: rgb(190, 219, 176);
-  
+.titleColumn.violet.active {
+  color: var(--violet-main);
 }
 
-.arrow:hover {
-  stroke: rgb(190, 219, 176);  
-  
+.columnBtn:hover .titleColumn.dark,
+.columnBtn:hover .titleColumn.light {
+  color: var(--green-light);
+}
+
+.columnBtn:hover .titleColumn.violet {
+  color: var(--violet-main);
+}
+
+.columnBtn:hover .arrow.dark,
+.columnBtn:hover .arrow.light {
+  stroke: var(--green-light);
+}
+
+.columnBtn:hover .arrow.violet {
+  stroke: var(--violet-main);
+}
+
+.arrow {
+  fill: transparent;
+}
+
+.arrow.dark {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+
+.arrow.light,
+.arrow.violet {
+  stroke: var(--secondary-color);
+}
+
+.arrow.dark.active,
+.arrow.light.active {
+  stroke: var(--green-light);
+}
+
+.arrow.violet.active {
+  stroke: var(--violet-main);
 }
