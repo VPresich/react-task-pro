@@ -6,6 +6,7 @@ import { useAuth } from '../hooks';
 import { refreshUser } from '../redux/auth/operations';
 import AppRouter from './AppRouter';
 import AppContainer from './AppContainer/AppContainer';
+import Loader from './UI/Loader/Loader';
 
 export default function App() {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export default function App() {
   return (
     <>
       {isRefreshing ? (
-        <b>Refreshing user... </b>
+        <Loader/>
       ) : (
         <AppContainer>
           <AppRouter />
