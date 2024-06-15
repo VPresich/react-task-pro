@@ -14,7 +14,7 @@ import ColumnModal from '../ColumnModal/ColumnModal';
 import AddCardModal from '../AddCardModal/AddCardModal';
 import { selectTasksForColumn } from '../../redux/tasks/selectors';
 
-const ColumnItem = ({ column, isActive, setActiveColumn }) => {
+const ColumnItem = ({ column, setActiveColumn }) => {
   const theme = useSelector(selectTheme);
 
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const ColumnItem = ({ column, isActive, setActiveColumn }) => {
   };
 
   return (
-    <div className={css.container}>
+    <>
       <div
         className={clsx(css.colTitle, css[theme])}
         onClick={() => setActiveColumn(_id)}
@@ -66,11 +66,7 @@ const ColumnItem = ({ column, isActive, setActiveColumn }) => {
         <div className={css.iconsWrap}>
           <button className={css.btn} onClick={() => handleUpdate()}>
             <svg
-              className={
-                isActive
-                  ? clsx(css.icon, css[theme], css.active)
-                  : clsx(css.icon, css[theme])
-              }
+              className={clsx(css.icon, css[theme])}
               width="16"
               height="16"
               aria-label="btn icon"
@@ -80,11 +76,7 @@ const ColumnItem = ({ column, isActive, setActiveColumn }) => {
           </button>
           <button className={css.btn} onClick={() => handleDelete(_id)}>
             <svg
-              className={
-                isActive
-                  ? clsx(css.icon, css[theme], css.active)
-                  : clsx(css.icon, css[theme])
-              }
+              className={clsx(css.icon, css[theme])}
               width="16"
               height="16"
               aria-label="btn icon"
@@ -126,10 +118,14 @@ const ColumnItem = ({ column, isActive, setActiveColumn }) => {
       </div>
       {isModalOpen && (
         <ModalWrapper onClose={closeModal}>
-          <ColumnModal modalType={'edit'} onClose={closeModal} />
+          <ColumnModal
+            column={column}
+            modalType={'edit'}
+            onClose={closeModal}
+          />
         </ModalWrapper>
       )}
-    </div>
+    </>
   );
 };
 export default ColumnItem;
