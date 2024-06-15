@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import {
-  selectActiveColumndId,
-  selectColumnsForBoard,
-} from '../../redux/columns/selectors';
+import { selectColumnsForBoard } from '../../redux/columns/selectors';
 import { setActiveColumn } from '../../redux/columns/slice';
 import ColumnItem from '../Column/ColumnItem';
 import { fetchColumnsForBoard } from '../../redux/columns/operations';
@@ -14,7 +11,6 @@ const ColumnList = ({ activeBoardId }) => {
   const columns = useSelector(state =>
     selectColumnsForBoard(state, activeBoardId)
   );
-  const activeColumn = useSelector(selectActiveColumndId);
 
   useEffect(() => {
     if (activeBoardId) {
@@ -35,7 +31,6 @@ const ColumnList = ({ activeBoardId }) => {
             <ColumnItem
               key={column._id}
               column={column}
-              isActive={column._id === activeColumn}
               setActiveColumn={() => {
                 handleActiveColumn(column._id);
               }}

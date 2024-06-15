@@ -6,11 +6,13 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin-top:10px;
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.15px;
+  text-wrap: nowrap;
+  width: 334px;
 }
+
 .btn.light,
 .btn.violet {
   background-color: var(--white);

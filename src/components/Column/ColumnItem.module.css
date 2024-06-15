@@ -1,21 +1,14 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 14px;
-  margin-top: 10px;
-}
 .icon {
   fill: transparent;
   display: none;
 }
 
-.icon.active.dark {
+.icon.dark {
   stroke: rgba(255, 255, 255, 0.5);
   display: block;
 }
-.icon.active.light,
-.icon.active.violet {
+.icon.light,
+.icon.violet {
   stroke: rgba(22, 22, 22, 0.5);
   display: block;
 }
@@ -32,6 +25,7 @@
   font-weight: 500;
   color: var(--secondary-color);
 }
+
 .colTitle.dark {
   color: var(--white);
   background-color: var(--secondary-color);
@@ -47,9 +41,10 @@
   height: 16px;
 }
 .listContainer {
-  overflow-y: scroll;
+  overflow-y: auto;
   width: 350px;
 }
+
 .list {
   display: flex;
   flex-direction: column;
