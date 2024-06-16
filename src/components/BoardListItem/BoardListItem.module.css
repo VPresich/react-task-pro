@@ -34,7 +34,7 @@
 }
 
 .controls.active {
-  display: block;
+  display: flex;
 }
 
 .icon {
