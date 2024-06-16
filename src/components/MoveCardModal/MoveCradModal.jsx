@@ -1,5 +1,4 @@
 import { useDispatch } from 'react-redux';
-import toast from 'react-hot-toast';
 import MovePopUp from '../../components/Forms/MovePopup/MovePopup';
 import { updateTaskColumn } from '../../redux/tasks/operations';
 
