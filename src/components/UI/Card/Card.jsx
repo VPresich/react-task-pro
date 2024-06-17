@@ -11,6 +11,7 @@ import EditCardModal from '../../EditCardModal/EditCardModal';
 import MoveCardModal from '../../MoveCardModal/MoveCradModal';
 import LinesEllipsis from 'react-lines-ellipsis';
 import EllipsisText from "react-ellipsis-text";
+import { selectItems } from '../../../redux/columns/selectors';
 
 export default function Card({
   title,
@@ -23,7 +24,7 @@ export default function Card({
   const dispatch = useDispatch();
   const priorityClass = getPriorityClasses(priority);
   const theme = useSelector(selectTheme);
-
+  const columns = useSelector(selectItems);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalForMove, setModalForMove] = useState(false);
 
@@ -111,7 +112,7 @@ export default function Card({
                 <use href={`${spritePath}#icon-bell-01`} />
               </svg>
             )}
-
+          {columns.length > 1 && (
             <svg
               className={clsx(styles.color, styles[theme])}
               width="16"
@@ -121,7 +122,8 @@ export default function Card({
             >
               <use href={`${spritePath}#icon-arrow`} />
             </svg>
-
+          )}
+            
             <svg
               className={clsx(styles.color, styles[theme])}
               width="16"
