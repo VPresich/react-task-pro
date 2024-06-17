@@ -26,7 +26,7 @@ export default function CreateBoardModal({ onClose }) {
           initialValues={{
             title: '',
             icon: 'icon-circles',
-            background: 'theme00',
+            background: 'no-img',
           }}
           onSubmitForm={onSubmitForm}
           buttonText="Create"
