@@ -9,11 +9,20 @@ import DocumentTitle from '../../components/DocumentTitle';
 import Board from '../../components/Board/Board';
 import { setActiveBoard } from '../../redux/boards/slice';
 import Layout from '../../components/Layout/Layout';
+import { fetchBackGrounds } from '../../redux/backgrounds/operations';
 
 export default function ScreensPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
 
+   useEffect(() => {
+    dispatch(fetchBackGrounds())
+      .unwrap()
+      .catch(() => {
+        toast.error('Error fetching backgrounds');
+      });
+   }, [dispatch]);
+  
   useEffect(() => {
     dispatch(setActiveBoard(id));
   }, [dispatch, id]);

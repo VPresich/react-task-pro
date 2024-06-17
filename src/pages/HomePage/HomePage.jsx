@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchBoards } from '../../redux/boards/operations';
-import { fetchBackGrounds } from '../../redux/backgrounds/operations';
+// import { fetchBackGrounds } from '../../redux/backgrounds/operations';
 import DocumentTitle from '../../components/DocumentTitle';
 
 import Layout from '../../components/Layout/Layout';
@@ -15,13 +15,13 @@ export default function HomePage() {
   const navigation = useNavigate();
   const { id } = useParams();
 
-  useEffect(() => {
-    dispatch(fetchBackGrounds())
-      .unwrap()
-      .catch(() => {
-        toast.error('Error fetching backgrounds');
-      });
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchBackGrounds())
+  //     .unwrap()
+  //     .catch(() => {
+  //       toast.error('Error fetching backgrounds');
+  //     });
+  // }, [dispatch]);
 
   useEffect(() => {
     dispatch(setActiveBoard(id));
@@ -38,6 +38,7 @@ export default function HomePage() {
       .catch(() => {
         toast.error('Error fetching boards');
       });
+      
   }, [dispatch, navigation]);
 
   return (

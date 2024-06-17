@@ -3,7 +3,7 @@ import { logOut } from '../auth/operations';
 import { fetchBackGrounds } from './operations';
 
 const backGroundsSlice = createSlice({
-  name: 'baclgrounds',
+  name: 'backgrounds',
   initialState: {
     items: [],
     isLoading: false,

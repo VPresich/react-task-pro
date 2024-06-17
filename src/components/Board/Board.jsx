@@ -10,7 +10,8 @@ import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import ColumnModal from '../ColumnModal/ColumnModal';
 import ColumnList from '../ColumnList/ColumnList';
 import BoardNotSelected from '../BoardNotSelected/BoardNotSelected.jsx';
-import imgsURL from '../../img/listUrls.js';
+// import imgsURL from '../../img/listUrls.js';
+import { selectBackGrounds } from '../../redux/backgrounds/selectors.js';
 
 function getDeviceType() {
   if (window.innerWidth >= 1024) {
@@ -39,9 +40,10 @@ function getBackgroundImage(theme, imgsURL) {
 }
 
 export default function Board() {
+  const imgsURL = useSelector(selectBackGrounds);
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
-
+  
   const background = activeBoard ? activeBoard.background : '';
   const [backgroundImage, setBackgroundImage] = useState(
     getBackgroundImage(background, imgsURL)

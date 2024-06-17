@@ -1,4 +1,4 @@
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import { resetRefreshState } from '../redux/auth/slice';
 import { useEffect } from 'react';

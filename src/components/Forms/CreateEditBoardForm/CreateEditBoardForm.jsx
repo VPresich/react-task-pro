@@ -38,7 +38,7 @@ export default function CreateEditBoardForm({
 }) {
   const theme = useSelector(selectTheme);
   const imgsURL = useSelector(selectBackGrounds);
-
+  
   return (
     <div>
       <p className={clsx(css.title, css[theme])}>{title}</p>
