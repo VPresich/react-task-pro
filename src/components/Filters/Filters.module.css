@@ -47,11 +47,16 @@
   position: absolute;
   top: 40px;
   right: 20px;
-  z-index: 1000000;
+  z-index: 10000;
+  border: 1px solid rgba(190, 219, 176, 0.5);
 }
 
 .modal.dark {
   background: var(--secondary-color);
+}
+
+.modal.violet {
+  border: 1px solid rgba(82, 85, 188, 0.3);
 }
 
 .close-btn {
@@ -90,6 +95,7 @@
 
 .title.dark {
   color: var(--table-header-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .title.light,

@@ -54,7 +54,7 @@ const Filters = () => {
 
       {isModalOpen &&
         // <div className={css.modalWrapper}>
-          <div className={css.modal}>
+          <div className={clsx(css.modal, css[theme])}>
             <button
               className={clsx(css['close-btn'], css[theme])}
               onClick={handleCloseModal}
