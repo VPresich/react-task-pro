@@ -17,6 +17,7 @@ import supportReducer from '../redux/support/slice';
 import tasksReducer from '../redux/tasks/slice';
 import columnsReducer from '../redux/columns/slice';
 import filterReducer from '../redux/filter/slice';
+import backgroundsReducer from '../redux/backgrounds/slice';
 
 const authPersistConfig = {
   key: 'auth',
@@ -32,6 +33,7 @@ export const store = configureStore({
     tasks: tasksReducer,
     columns: columnsReducer,
     filter: filterReducer,
+    backgrounds: backgroundsReducer,
   },
 
   middleware: getDefaultMiddleware =>
