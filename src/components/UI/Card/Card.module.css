@@ -214,9 +214,6 @@
   display: flex;
 }
 
-.priorityContainer {
-  position: relative;
-}
 .color.dark {
   stroke: rgba(255, 255, 255, 0.5);
 }
