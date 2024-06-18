@@ -4,18 +4,26 @@ import { updateBoard } from '../../redux/boards/operations';
 import { useDispatch } from 'react-redux';
 
 export default function EditBoardModal({ board, onClose }) {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const onSubmitForm = (values) => {
-        console.log('Edit board', values, board._id);
-        dispatch(updateBoard({ id: board._id, data: values }));
-        onClose();
-    }
+  const onSubmitForm = values => {
+    dispatch(updateBoard({ id: board._id, data: values }));
+    onClose();
+  };
   return (
     <div>
-        <ModalWrapper onClose={onClose}>
-            <CreateEditBoardForm title="Edit board" initialValues={{ title: board.title, icon: board.icon, background: board.background}} onSubmitForm={onSubmitForm} buttonText="Edit" />
-        </ModalWrapper>
+      <ModalWrapper onClose={onClose}>
+        <CreateEditBoardForm
+          title="Edit board"
+          initialValues={{
+            title: board.title,
+            icon: board.icon,
+            background: board.background,
+          }}
+          onSubmitForm={onSubmitForm}
+          buttonText="Edit"
+        />
+      </ModalWrapper>
     </div>
   );
 }

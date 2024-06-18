@@ -1,26 +1,3 @@
-// import { Field, ErrorMessage } from 'formik';
-// import { useId } from 'react';
-// import css from './Input.module.css';
-// import { useSelector } from 'react-redux';
-// import { selectTheme } from '../../../redux/auth/selectors';
-// import clsx from 'clsx';
-
-// export default function Input({ onName, onPlaceholder }) {
-//   const theme = useSelector(selectTheme);
-//   const userNameId = useId();
-//   return (
-//     <div>
-//       <Field
-//         name={onName}
-//         id={userNameId}
-//         className={clsx(css.fieldInput, css[theme])}
-//         placeholder={onPlaceholder}
-//       />
-//       <ErrorMessage name={onName} component="span" className={clsx(css.error, css[theme])} />
-//     </div>
-//   );
-// }
-
 import { Field, ErrorMessage } from 'formik';
 import { useId, useState } from 'react';
 import css from './Input.module.css';
@@ -48,14 +25,29 @@ export default function Input({ onName, onPlaceholder, type, color }) {
         className={clsx(css.fieldInput, css[theme])}
         placeholder={onPlaceholder}
         type={inputType}
-        style={color && { color } }
+        style={color && { color }}
       />
       {type === 'password' && (
         <span onClick={handleTogglePasswordVisibility} className={css.eyeIcon}>
-          {showPassword ? <FaEye className={clsx(css.icon, css[theme])} style={color && { fill: color }} /> : <FaEyeSlash className={clsx(css.icon, css[theme])} style={color && { fill: color }} />}
+          {showPassword ? (
+            <FaEye
+              className={clsx(css.icon, css[theme])}
+              style={color && { fill: color }}
+            />
+          ) : (
+            <FaEyeSlash
+              className={clsx(css.icon, css[theme])}
+              style={color && { fill: color }}
+            />
+          )}
         </span>
       )}
-      <ErrorMessage name={onName} component="span" className={clsx(css.error, css[theme])} style={color && { color } }/>
+      <ErrorMessage
+        name={onName}
+        component="span"
+        className={clsx(css.error, css[theme])}
+        style={color && { color }}
+      />
     </div>
   );
 }

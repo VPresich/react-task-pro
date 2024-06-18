@@ -6,7 +6,6 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import Button from '../../UI/Button/Button';
 import Input from '../../UI/Input/Input';
-// import Calendar from '../../Calendar/Calendar';
 import TextareaForm from '../../UI/TextareaForm/TextareaForm';
 import { useState } from 'react';
 import CalendarHeaderComponent from '../../NewCalendar/NewCalendar';
@@ -33,13 +32,8 @@ export default function AddEditCardForm({
   const [initialDate, setInitialDate] = useState(initialValues.deadline);
 
   const handleDataChange = date => {
-    console.log(date)
     setInitialDate(date);
   };
-
-  // const handleDateChange = (formattedDate) => {
-  //   console.log(`Selected date: ${formattedDate}`);
-  // };
 
   return (
     <div>
@@ -101,7 +95,7 @@ export default function AddEditCardForm({
           </div>
           <p className={clsx(css['deadline-text'], css[theme])}>Deadline</p>
           {/* <Calendar initialDate={initialDate} onDateChange={handleDataChange} /> */}
-           <CalendarHeaderComponent onDateChange={handleDataChange} />
+          <CalendarHeaderComponent onDateChange={handleDataChange} />
           <Button icon="icon-plus" text={buttonText} type="submit" />
         </Form>
       </Formik>
