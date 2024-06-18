@@ -12,18 +12,10 @@ const ThemeSelector = () => {
   const theme = useSelector(selectTheme);
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      dispatch(setTheme(savedTheme));
-    }
-  }, [dispatch]);
-
   const handleThemeChange = event => {
     const selectedTheme = event.target.value.toLowerCase();
     dispatch(setTheme(selectedTheme));
     dispatch(updateTheme({ theme: selectedTheme }));
-    localStorage.setItem('theme', selectedTheme);
     setIsOpen(false);
   };
 
