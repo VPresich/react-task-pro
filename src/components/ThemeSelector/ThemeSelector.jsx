@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateTheme } from '../../redux/auth/operations';
 import { selectTheme } from '../../redux/auth/selectors';

@@ -9,7 +9,6 @@ export default function CreateBoardModal({ onClose }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const onSubmitForm = values => {
-    console.log('Create board', values);
     dispatch(addBoard(values))
       .unwrap()
       .then(result => {
