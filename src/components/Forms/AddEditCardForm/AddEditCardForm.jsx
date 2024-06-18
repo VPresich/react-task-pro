@@ -94,7 +94,6 @@ export default function AddEditCardForm({
             </label>
           </div>
           <p className={clsx(css['deadline-text'], css[theme])}>Deadline</p>
-          {/* <Calendar initialDate={initialDate} onDateChange={handleDataChange} /> */}
           <CalendarHeaderComponent onDateChange={handleDataChange} />
           <Button icon="icon-plus" text={buttonText} type="submit" />
         </Form>
