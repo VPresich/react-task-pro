@@ -1,0 +1,35 @@
+.icon {
+  width: 28px;
+  height: 28px;
+}
+
+.text {
+  font-family: 'Poppins-Medium';
+  color: #161616;
+  font-size: 14px;
+  letter-spacing: -0.28px;
+}
+
+.btn {
+  display: flex;
+  width: 344px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  border: 1px solid rgba(22, 22, 22, 0.5);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+@media screen and (max-width: 767px) {
+  .btn {
+    width: 335px;
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .btn {
+    width: 100%;
+  }
+}
