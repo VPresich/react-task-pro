@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import icon from '../../img/main-icon/app-icon.svg';
 import css from './WelcomePage.module.css';
 import imgPath from '../../img/png/avatar-w.png';
+import GoogleBtn from '../../components/UI/GoogleBtn/GoogleBtn';
 
 export default function WelcomePage() {
   const navigate = useNavigate();
@@ -42,6 +43,7 @@ export default function WelcomePage() {
               >
                 Log In
               </button>
+              <GoogleBtn />
             </div>
           </div>
         </div>
