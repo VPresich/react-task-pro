@@ -9,6 +9,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from 'dayjs';
+import { formatDate } from './utils';
 
 import {
   format,
@@ -211,12 +212,10 @@ const CalendarHeaderComponent = ({ onDateChange }) => {
 
   const handleDateChange = date => {
     setSelectedDate(date);
-    onDateChange(formatDate(date));
+    onDateChange(formatDate(dayjs(date).toDate()));
   };
 
-  const formatDate = date => {
-    return format(date.toDate(), 'dd/MM/yyyy');
-  };
+
 
   const toggleCalendar = () => {
     setIsOpen(!isOpen);
