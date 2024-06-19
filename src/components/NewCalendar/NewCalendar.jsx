@@ -9,6 +9,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from 'dayjs';
+import { formatDate } from './utils';
 
 import {
   format,
@@ -75,11 +76,11 @@ const CustomDateCalendar = styled(DateCalendar)(({ theme }) => ({
     height: '300px',
     overflow: 'auto',
   },
-  '& .css-1t0788u-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition':
+  '& .MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition':
     {
       minHeight: '200px',
     },
-  '& .css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root.Mui-disabled:not(.Mui-selected)':
+  '& .MuiButtonBase-root-MuiPickersDay-root.Mui-disabled:not(.Mui-selected)':
     {
       width: '30px',
       height: '30px',
@@ -89,19 +90,13 @@ const CustomDateCalendar = styled(DateCalendar)(({ theme }) => ({
   '& .css-hljmer': {
     padding: '8px 4px',
   },
-  '& .css-23p0if-MuiButtonBase-root-MuiPickersDay-root': {
+  '& .MuiButtonBase-root-MuiPickersDay-root': {
     width: '30px',
     height: '30px',
     fontSize: '16px',
     margin: '0',
   },
-  '& .css-1wy8uaa-MuiButtonBase-root-MuiPickersDay-root': {
-    width: '30px',
-    height: '30px',
-    fontSize: '14px',
-  },
   '& .MuiPickersCalendarHeader-root': {
-    // backgroundColor: '', // Grey background for the header
     color: theme === 'dark' ? '#ffffff' : '#161616', // White text color
   },
   '& .MuiTypography-root': {
@@ -116,16 +111,25 @@ const CustomDateCalendar = styled(DateCalendar)(({ theme }) => ({
     fontFamily: 'Poppins-Medium',
     padding: '8px',
   },
-  '& .css-23p0if-MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected)': {
-    border: 'none',
+  '& .MuiButtonBase-root-MuiPickersDay-root:not(.Mui-selected)': {
+    border: '0px solid transparent',
   },
   '& .MuiPickersDay-root:hover': {
     backgroundColor: theme === 'violet' ? '#7b7ede' : '#bedbb0', // Green background for selected date
     color: theme === 'violet' ? '#ffffff' : '#161616',
   },
-  '& .MuiPickersDay-root.Mui-selected': {
-    width: '32px',
-    height: '30px',
+    '& .MuiPickersDay-root.Mui-selected': {
+      width: '35px',
+      height: '35px',
+      display: 'flex',
+      justifyContent: 'center', 
+      alignItems: 'center',
+      backgroundColor: theme === 'violet' ? '#5255bc' : '#9dc888', // Green background for selected date
+      color: theme === 'violet' ? '#ffffff' : '#161616', // White text color for selected date
+  },
+  '& .MuiPickersDay-root.Mui-selected:focus': {
+    width: '35px',
+    height: '35px',
     backgroundColor: theme === 'violet' ? '#5255bc' : '#9dc888', // Green background for selected date
     color: theme === 'violet' ? '#ffffff' : '#161616', // White text color for selected date
   },
@@ -133,11 +137,15 @@ const CustomDateCalendar = styled(DateCalendar)(({ theme }) => ({
   '& .MuiDateCalendar-root .MuiButtonBase-root-MuiPickersDay-root:hover': {
     backgroundColor: theme === 'violet' ? '#9dc888' : '#bedbb0',
   },
-
-  '& .css-rhmlg1-MuiTypography-root-MuiDayCalendar-weekDayLabel': {
+  
+   '& .MuiDayCalendar- weekContainer': {
+  margin: '0',
+  height: '32px',
+},
+  '& .MuiTypography-caption.MuiDayCalendar-weekDayLabel': {
     margin: '0 2px',
-    width: '30px',
-    height: '30px',
+    width: '32px',
+    height: '32px',
     fontSize: '14px',
     color:
       theme === 'dark' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(22, 22, 22, 0.5)',
@@ -204,12 +212,10 @@ const CalendarHeaderComponent = ({ onDateChange }) => {
 
   const handleDateChange = date => {
     setSelectedDate(date);
-    onDateChange(formatDate(date));
+    onDateChange(formatDate(dayjs(date).toDate()));
   };
 
-  const formatDate = date => {
-    return format(date.toDate(), 'dd/MM/yyyy');
-  };
+
 
   const toggleCalendar = () => {
     setIsOpen(!isOpen);

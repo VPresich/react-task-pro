@@ -2,6 +2,7 @@ import ModalWrapper from '../ModalWrapper/ModalWrapper.jsx';
 import AddEditCardForm from '../Forms/AddEditCardForm/AddEditCardForm.jsx';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../../redux/tasks/operations.js';
+import { formatDate } from '../NewCalendar/utils';  // Ensure this path is correct
 
 export default function AddCardModal({ onClose, column }) {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export default function AddCardModal({ onClose, column }) {
             title: '',
             description: '',
             priority: 'Without priority',
-            deadline: new Date(),
+            deadline: formatDate(new Date()),  // Formatting the initial deadline if required
           }}
           onSubmitForm={onSubmitForm}
           buttonText="Add"
