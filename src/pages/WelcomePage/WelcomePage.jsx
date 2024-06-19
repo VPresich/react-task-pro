@@ -1,5 +1,9 @@
 import DocumentTitle from '../../components/DocumentTitle';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { refreshUser } from '../../redux/auth/operations';
+import { saveToken } from '../../redux/auth/slice';
 
 import icon from '../../img/main-icon/app-icon.svg';
 import css from './WelcomePage.module.css';
@@ -7,16 +11,28 @@ import imgPath from '../../img/png/avatar-w.png';
 
 export default function WelcomePage() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation();
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const token = queryParams.get('token');
+    if (token) {
+      dispatch(saveToken(token));
+      dispatch(refreshUser());
+    }
+  }, [dispatch, location.search]);
+
   return (
     <>
       <DocumentTitle>Welcome</DocumentTitle>
       <div className={css.welcomeContainer}>
         <div className={css.welcomeWrapper}>
-          <img src={imgPath} alt="avatar-w" className={ css.avatar} />
+          <img src={imgPath} alt="avatar-w" className={css.avatar} />
 
           <div className={css.welcomeContent}>
             <div className={css.logoPage}>
-              <img src={icon} alt="logo" className={ css.iconHome} />
+              <img src={icon} alt="logo" className={css.iconHome} />
               {/* <svg className={css.iconHome} >
                 <image href={icon} />
               </svg> */}
@@ -42,6 +58,12 @@ export default function WelcomePage() {
               >
                 Log In
               </button>
+              <a
+                href="http://localhost:8080/api/users/google"
+                className={`${css.buttonAuth} ${css.google_btn}`}
+              >
+                Input with google
+              </a>
             </div>
           </div>
         </div>

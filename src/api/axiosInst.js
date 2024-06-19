@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 export const axiosInst = axios.create({
-  // baseURL: 'http://localhost:8080/api/',
-  baseURL: 'https://tasks-rest-api-8u4m.onrender.com/api/',
+  baseURL: 'http://localhost:8080/api/',
+  //baseURL: 'https://tasks-rest-api-8u4m.onrender.com/api/',
 });
 
 export const setAuthHeader = token => {

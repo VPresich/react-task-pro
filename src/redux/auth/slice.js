@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { setAuthHeader } from '../../api/axiosInst';
 import {
   register,
   logIn,
@@ -26,6 +27,10 @@ const authSlice = createSlice({
     },
     resetRefreshState(state, action) {
       state.isRefreshing = action.payload;
+    },
+    saveToken(state, action) {
+      state.token = action.payload;
+      setAuthHeader(state.token);
     },
   },
 
@@ -119,9 +124,12 @@ const authSlice = createSlice({
       .addCase(updateTheme.rejected, (state, action) => {
         state.error = action.payload;
       });
+
+    //------------------------------------------
   },
 });
 
 export const { setTheme } = authSlice.actions;
 export const { resetRefreshState } = authSlice.actions;
+export const { saveToken } = authSlice.actions;
 export default authSlice.reducer;
