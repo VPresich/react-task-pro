@@ -53,3 +53,15 @@
   margin-right: 24px;
   margin-top: 14px;
 }
+
+@media screen and (max-width: 768px) {
+  .text {
+    width: 335px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .text {
+    width: 100%;
+  }
+}
