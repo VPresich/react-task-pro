@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import css from './ModalWrapper.module.css';
 import { useSelector } from 'react-redux';
 import { selectTheme } from '../../redux/auth/selectors';
@@ -9,11 +9,24 @@ const ModalWrapper = ({ children, onClose }) => {
   const theme = useSelector(selectTheme);
   const wrapperRef = useRef(null);
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = event => {
     if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
       onClose();
     }
   };
+
+  const handleDocumentKeyDown = event => {
+    if (event.key === 'Escape') {
+      onClose();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleDocumentKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleDocumentKeyDown);
+    };
+  }, [onClose]);
 
   return (
     <div className={css.modalWrapper} onClick={handleClickOutside}>
@@ -38,17 +51,17 @@ export default ModalWrapper;
 
 // GUIDE
 // const [isModalOpen, setIsModalOpen] = useState(false);
-// 
+//
 // const openModal = () => {
 //   setIsModalOpen(true);
 // };
-// 
+//
 // const closeModal = () => {
 //   setIsModalOpen(false);
 // };
-// 
+//
 // <button onClick={openModal}>Open Modal</button>
-// 
+//
 // {isModalOpen && (
 //   <ModalWrapper onClose={closeModal}>
 //     <шосьшосьшось>

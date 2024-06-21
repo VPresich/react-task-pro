@@ -43,8 +43,6 @@
 .btn {
   background-color: transparent;
   border: none;
-  width: 16px;
-  height: 16px;
 }
 .listContainer {
   overflow-y: auto;
