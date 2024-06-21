@@ -43,7 +43,7 @@ export default function Board() {
   const imgsURL = useSelector(selectBackGrounds);
   const theme = useSelector(selectTheme);
   const activeBoard = useSelector(selectActiveBoard);
-  
+
   const background = activeBoard ? activeBoard.background : '';
   const [backgroundImage, setBackgroundImage] = useState(
     getBackgroundImage(background, imgsURL)
@@ -67,11 +67,11 @@ export default function Board() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [background]); // Include theme in the dependencies
+  }, [background, imgsURL]);
 
   useEffect(() => {
     setBackgroundImage(getBackgroundImage(background, imgsURL));
-  }, [background, activeBoard]); // Include theme and activeBoard in the dependencies
+  }, [background, imgsURL]);
 
   return activeBoard ? (
     <div
