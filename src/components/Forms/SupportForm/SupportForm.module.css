@@ -26,3 +26,15 @@
   gap: 24px;
   padding: 24px 0 40px;
 }
+
+@media screen and (max-width: 767px) {
+  .form {
+    width: 287px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .form {
+    width: 100%;
+  }
+}
